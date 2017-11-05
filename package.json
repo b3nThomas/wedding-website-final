@@ -1,0 +1,29 @@
+{
+  "name": "wedding-website-final",
+  "version": "1.0.0",
+  "description": "The wedding of Ben Thomas & Clare Sealey - 30/03/18",
+  "main": "main.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/b3nThomas/wedding-website-final.git"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "sns",
+    "lambda",
+    "handlebars",
+    "typescript",
+    "s3",
+    "ec2"
+  ],
+  "author": "b3nThomas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/b3nThomas/wedding-website-final/issues"
+  },
+  "homepage": "https://github.com/b3nThomas/wedding-website-final#readme"
+}
