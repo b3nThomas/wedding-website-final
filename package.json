@@ -4,7 +4,8 @@
   "description": "The wedding of Ben & Clare - 30/03/18",
   "main": "main.js",
   "scripts": {
-    "test": "npm run test"
+    "test": "npm run test",
+    "build": ""
   },
   "repository": {
     "type": "git",
@@ -25,5 +26,16 @@
   "bugs": {
     "url": "https://github.com/b3nThomas/wedding-website-final/issues"
   },
-  "homepage": "https://github.com/b3nThomas/wedding-website-final#readme"
+  "homepage": "https://github.com/b3nThomas/wedding-website-final#readme",
+  "dependencies": {
+    "bunyan": "^1.8.12",
+    "express-handlebars": "^3.0.0",
+    "handlebars": "^4.0.11"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "moch": "0.0.1",
+    "tslint": "^5.8.0",
+    "typescript": "^2.6.1"
+  }
 }
