@@ -4,8 +4,11 @@
   "description": "The wedding of Ben & Clare - 30/03/18",
   "main": "main.js",
   "scripts": {
+    "build": "npm install && npm run -s lint && npm run -s transpile",
+    "lint": "./node_modules/.bin/tslint '**/*.ts' --exclude 'node_modules/**/*.ts' --exclude '**/*.d.ts'",
+    "start": "npm run build && node ./main.js | bunyan -o short",
     "test": "npm run test",
-    "build": ""
+    "transpile": "./node_modules/.bin/tsc -p ."
   },
   "repository": {
     "type": "git",
@@ -28,14 +31,19 @@
   },
   "homepage": "https://github.com/b3nThomas/wedding-website-final#readme",
   "dependencies": {
+    "aws-sdk": "^2.145.0",
     "bunyan": "^1.8.12",
+    "config": "^1.27.0",
     "express-handlebars": "^3.0.0",
     "handlebars": "^4.0.11"
   },
   "devDependencies": {
+    "@types/chai": "^4.0.4",
+    "@types/mocha": "^2.2.44",
     "chai": "^4.1.2",
-    "moch": "0.0.1",
+    "mocha": "0.0.1",
     "tslint": "^5.8.0",
+    "tslint-eslint-rules": "^4.1.1",
     "typescript": "^2.6.1"
   }
 }
