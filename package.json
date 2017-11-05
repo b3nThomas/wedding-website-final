@@ -6,7 +6,8 @@
   "scripts": {
     "build": "npm run -s lint && npm run -s transpile",
     "lint": "./node_modules/.bin/tslint '**/*.ts' --exclude 'node_modules/**/*.ts' --exclude '**/*.d.ts'",
-    "start": "npm run -s build && node ./main.js | bunyan -o short",
+    "start": "npm install && node ./main.js",
+    "start:local": "npm run -s build && node ./main.js | bunyan -o short",
     "test": "npm run -s build && ./node_modules/mocha/bin/mocha test/unit/*.js",
     "transpile": "./node_modules/.bin/tsc -p ."
   },
