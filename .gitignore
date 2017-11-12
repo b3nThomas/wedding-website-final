@@ -66,6 +66,7 @@ typings/
 build
 deploy
 !scripts/*.js
-scripts/awsCreds.json
+scripts/local-creds.json
 .DS_Store
+package-lock.json
 

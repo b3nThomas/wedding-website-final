@@ -35,13 +35,9 @@
   "devDependencies": {
     "@types/chai": "^4.0.4",
     "@types/mocha": "^2.2.44",
-    "aws-sdk": "^2.145.0",
     "chai": "^4.1.2",
-    "fs": "0.0.1-security",
-    "glob": "^7.1.2",
     "mocha": "^3.2.0",
     "must": "^0.13.4",
-    "path": "^0.12.7",
     "tslint": "^5.8.0",
     "tslint-eslint-rules": "^4.1.1",
     "typescript": "^2.6.1"
