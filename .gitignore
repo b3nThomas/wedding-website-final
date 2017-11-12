@@ -62,9 +62,10 @@ typings/
 **/*.js
 **/*.js.map
 
-# Build/deploy tools and directories
+# Build/deployment tools and directories
 build
 deploy
 !scripts/*.js
-!public/**/*.js
+scripts/awsCreds.json
+.DS_Store
 

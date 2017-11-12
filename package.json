@@ -16,9 +16,6 @@
     "url": "git+https://github.com/b3nThomas/wedding-website-final.git"
   },
   "keywords": [
-    "ec2",
-    "express",
-    "handlebars",
     "lambda",
     "node",
     "s3",
@@ -32,18 +29,19 @@
   },
   "homepage": "https://github.com/b3nThomas/wedding-website-final#readme",
   "dependencies": {
-    "aws-sdk": "^2.145.0",
     "bunyan": "^1.8.12",
-    "config": "^1.27.0",
-    "express-handlebars": "^3.0.0",
-    "handlebars": "^4.0.11"
+    "config": "^1.27.0"
   },
   "devDependencies": {
     "@types/chai": "^4.0.4",
     "@types/mocha": "^2.2.44",
+    "aws-sdk": "^2.145.0",
     "chai": "^4.1.2",
+    "fs": "0.0.1-security",
+    "glob": "^7.1.2",
     "mocha": "^3.2.0",
     "must": "^0.13.4",
+    "path": "^0.12.7",
     "tslint": "^5.8.0",
     "tslint-eslint-rules": "^4.1.1",
     "typescript": "^2.6.1"
