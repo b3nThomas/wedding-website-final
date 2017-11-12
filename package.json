@@ -1,29 +1,45 @@
 {
   "name": "wedding-website-final",
   "version": "1.0.0",
-  "description": "The wedding of Ben Thomas & Clare Sealey - 30/03/18",
+  "description": "The wedding of Ben & Clare - 30/03/18",
   "main": "main.js",
   "scripts": {
-    "test": "npm run test"
+    "build": "npm run -s lint && npm run -s transpile",
+    "lint": "./node_modules/.bin/tslint '**/*.ts' --exclude 'node_modules/**/*.ts' --exclude '**/*.d.ts'",
+    "start": "npm install && node ./main.js",
+    "start:local": "npm run -s build && node ./main.js | bunyan -o short",
+    "test": "npm run -s build && ./node_modules/mocha/bin/mocha test/unit/*.js",
+    "transpile": "./node_modules/.bin/tsc -p ."
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/b3nThomas/wedding-website-final.git"
   },
   "keywords": [
-    "node",
-    "express",
-    "sns",
     "lambda",
-    "handlebars",
-    "typescript",
+    "node",
     "s3",
-    "ec2"
+    "sns",
+    "typescript"
   ],
   "author": "b3nThomas",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/b3nThomas/wedding-website-final/issues"
   },
-  "homepage": "https://github.com/b3nThomas/wedding-website-final#readme"
+  "homepage": "https://github.com/b3nThomas/wedding-website-final#readme",
+  "dependencies": {
+    "bunyan": "^1.8.12",
+    "config": "^1.27.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.0.4",
+    "@types/mocha": "^2.2.44",
+    "chai": "^4.1.2",
+    "mocha": "^3.2.0",
+    "must": "^0.13.4",
+    "tslint": "^5.8.0",
+    "tslint-eslint-rules": "^4.1.1",
+    "typescript": "^2.6.1"
+  }
 }
