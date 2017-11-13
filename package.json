@@ -2,7 +2,7 @@
   "name": "wedding-website-final",
   "version": "1.0.0",
   "description": "The wedding of Ben & Clare - 30/03/18",
-  "main": "main.js",
+  "main": "./src/index.html",
   "scripts": {
     "build": "npm run -s lint && npm run -s transpile",
     "lint": "./node_modules/.bin/tslint '**/*.ts' --exclude 'node_modules/**/*.ts' --exclude '**/*.d.ts'",
@@ -29,8 +29,6 @@
   },
   "homepage": "https://github.com/b3nThomas/wedding-website-final#readme",
   "dependencies": {
-    "bunyan": "^1.8.12",
-    "config": "^1.27.0"
   },
   "devDependencies": {
     "@types/chai": "^4.0.4",
