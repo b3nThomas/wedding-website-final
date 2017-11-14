@@ -28,8 +28,7 @@
     "url": "https://github.com/b3nThomas/wedding-website-final/issues"
   },
   "homepage": "https://github.com/b3nThomas/wedding-website-final#readme",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/chai": "^4.0.4",
     "@types/mocha": "^2.2.44",

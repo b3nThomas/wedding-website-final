@@ -1,21 +1,21 @@
 /*...Fonts...*/
 @font-face {
     font-family: moon-bold;
-    src: url(public/fonts/moon-bold.otf);
+    src: url(../fonts/moon-bold.otf);
 }
 .font-moon-bold {
 	font-family: moon-bold;
 }
 @font-face {
     font-family: moon-light;
-    src: url(public/fonts/moon-light.otf);
+    src: url(../fonts/moon-light.otf);
 }
 .font-moon-light {
 	font-family: moon-light;
 }
 @font-face {
     font-family: melika-script;
-    src: url(public/fonts/melika-script.ttf);
+    src: url(fonts/melika-script.ttf);
 }
 .font-melika-script {
 	font-family: melika-script;
