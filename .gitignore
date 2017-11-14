@@ -59,7 +59,7 @@ typings/
 .env
 
 # Transpiled JS
-**/*.js
+#**/*.js
 **/*.js.map
 
 # Build/deployment tools and directories

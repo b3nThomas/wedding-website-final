@@ -8,7 +8,6 @@ set -e
 
 # Prepare folders
 echo Preparing...
-rm -rf node_modules
 rm -rf build
 rm -rf deploy
 mkdir -p build
@@ -19,6 +18,7 @@ echo
 
 # Prepare app for build
 echo Testing...
+rm -rf node_modules
 npm i
 npm run test
 echo
@@ -40,29 +40,37 @@ echo
 echo -e "\xE2\x9C\x94"
 echo
 
-# Create date stamped tar file for archive
-echo Creating archive file...
-TIMESTAMP=$(date +%Y%m%d-%H%M%S)
-tar -czf ./deploy/wedding-website-b3nThomas-build-${TIMESTAMP}.tar.gz .
-echo
-echo -e "\xE2\x9C\x94"
-echo
 
-# Save tar to archive bucket
-echo Sending copy to archives...
-aws s3 sync ./deploy s3://btcs-wedding-archive-b3nthomas/
+# Deploy app to Dev or Prod
+if [ "${1}" = "prod" ] ;
+then
+    # Create date stamped tar file for archive
+    echo Creating archive file...
+    TIMESTAMP=$(date +%Y%m%d-%H%M%S)
+    tar -czf ./deploy/wedding-website-b3nThomas-build-${TIMESTAMP}.tar.gz .
+    echo
+    echo -e "\xE2\x9C\x94"
+    echo
 
-echo
-echo -e "\xE2\x9C\x94"
-echo
+    # Archive this version
+    echo Sending copy to archives...
+    aws s3 sync ./deploy s3://btcs-wedding-archive-b3nthomas/ && echo
+    echo -e "\xE2\x9C\x94"
+    echo
 
-# Make app Live!
-echo Deploying latest version...
-aws s3 sync ./build s3://btcs-wedding-latest-b3nthomas/ && echo "continue..."
+    echo Deploying latest version to Production...
+    aws s3 sync ./build s3://btcs-wedding-latest-b3nthomas/ --delete && echo
+    echo -e "\xE2\x9C\x94"
+    echo
+fi
 
-echo
-echo -e "\xE2\x9C\x94"
-echo
+if [ "${1}" = "dev" ] ;
+then
+    echo Deploying latest version to Dev...
+    aws s3 sync ./build s3://btcs-wedding-dev-b3nthomas/ --delete && echo
+    echo -e "\xE2\x9C\x94"
+    echo
+fi
 
 # Clean up
 echo Cleaning up...

@@ -1,0 +1,230 @@
+/*...Fonts...*/
+@font-face {
+    font-family: moon-bold;
+    src: url(../fonts/moon-bold.otf);
+}
+.font-moon-bold {
+	font-family: moon-bold;
+}
+@font-face {
+    font-family: moon-light;
+    src: url(../fonts/moon-light.otf);
+}
+.font-moon-light {
+	font-family: moon-light;
+}
+@font-face {
+    font-family: melika-script;
+    src: url(fonts/melika-script.ttf);
+}
+.font-melika-script {
+	font-family: melika-script;
+}
+/*...Font Sizes...*/
+.fs-s {
+	font-size: 28px;
+}
+.fs-m {
+	font-size: 32px;
+}
+.fs-l {
+	font-size: 36px;
+}
+.fs-xl {
+	font-size: 42px;
+}
+.fs-xxl {
+	font-size: 45px;
+}
+
+/*...Generic...*/
+.shadow {
+	text-shadow: 0 0 4px #777;
+}
+.box-shadow {
+	box-shadow: 0 0 13px #e6e6e6;
+}
+.small-glow {
+	box-shadow: 0 0 10px 4px #ff6d6d;
+}
+.big-glow {
+	box-shadow: 0 0 10px 7px #ff6d6d;
+}
+.center {
+	text-align: center;
+}
+
+/*...Colors...*/
+.theme-text-color {
+	color: rgb(52, 207, 181);
+}
+.theme-background-color {
+	background: rgb(52, 207, 181);
+}
+.rose {
+	color: #EF597B;
+}
+.grey777 {
+	color: #777;
+}
+
+/*...Elements...*/
+html {
+	overflow-y: scroll;
+}
+body {
+	background-color: transparent;
+}
+
+/*...Nav Bar...*/
+.topnav {
+	overflow: hidden;
+	position: fixed;
+	width: 100%;
+}
+.topnav ul {
+	border-radius: 0px 0px 15px 15px;
+	display: table;
+	list-style: none;
+	margin: -15px auto 0 auto;
+	padding: 15px 0 0 0;
+	position: relative;
+	text-align: center;
+	width: auto;
+}
+.topnav ul li {
+	float: left;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+.topnav ul li a {
+	color: #fff;
+	float: left;
+	font-family: moon-bold;
+	font-size: 14px;
+    padding: 10px 12px;
+    text-align: center;
+	text-decoration: none;
+	-webkit-transition: all .25s;
+    -moz-transition: all .25s;
+    transition: all .25s;
+}
+.topnav ul li a:hover {
+	background-color: rgb(42, 177, 152);
+	-webkit-transition: all .25s;
+    -moz-transition: all .25s;
+    transition: all .25s;
+}
+#nav-home {
+	border-radius: 0 0 0 15px;
+}
+#nav-venue {
+
+}
+#nav-rsvp {
+	border-radius: 0 0 15px 0;
+}
+
+/*...Global...*/
+.page-wrapper {
+	margin-top: 50px;
+}
+
+/*...Home...*/
+
+#img-love-birds {
+	margin: auto;
+	max-width: 250px;
+	min-width: 150px;
+	width: 40vw;
+}
+
+/*...Us...*/
+
+#page-us img {
+	border-radius: 5px;
+	padding: 4px;
+}
+#page-us p {
+	padding-top: 5px;
+}
+
+/*...Venue...*/
+#page-ve div div img{
+	border-radius: 5px;
+	padding: 3px;
+}
+#ve-pics {
+	width: 90%;
+	margin-left: 5%;
+}
+#map-container {
+	width: 80%;
+	margin: 0 0 80px 10%;
+}
+#accom-container {
+	margin: 20px 0 80px 0;
+}
+
+.accom-default {
+	border-radius: 5px;
+	color: #ffffff;
+	font-size: 18px;
+	padding: 10px;
+	text-decoration: none;
+	transition: 0.2s;
+}
+.accom-active {
+	font-size: 20px;
+}
+
+/*...RSVP...*/
+
+
+/*...@Media...*/
+
+@media screen and (max-width: 768px) {
+	#my-navbar {
+		margin: 0 auto;
+	}
+	#my-navbar ul{
+	  list-style-type: none;
+	  padding: 0;
+	}
+
+}
+
+@media screen and (max-width: 545px) {
+	/*FONTS*/
+	.fs-s {
+		font-size: 24px;
+	}
+	.fs-m {
+		font-size: 28px;
+	}
+	.fs-l {
+		font-size: 30px;
+	}
+	.fs-xl {
+		font-size: 35px;
+	}
+	.fs-xxl {
+		font-size: 38px;
+	}
+	/*NAV*/
+    #nav-links li {
+    	font-size: 25px; 
+    }
+
+	 /*VENUE*/
+	#page-ve div div .thumbnail {
+		margin-left: 5%;
+		width: 90%;
+	}
+	#map-container {
+		width: 92%;
+		margin: 0 0 80px 4%;
+	}
+}
