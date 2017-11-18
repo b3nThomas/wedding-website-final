@@ -61,10 +61,10 @@ p {
 
 /*...Colors...*/
 .theme-text-color {
-	color: rgb(207, 52, 52);
+	color: rgb(27, 216, 169);
 }
 .theme-background-color {
-	background: rgb(207, 52, 52);
+	background: rgb(27, 216, 169);
 }
 .rose {
 	color: #EF597B;
@@ -137,7 +137,7 @@ footer {
     transition: all .25s;
 }
 #nav-container ul li a:hover {
-	background-color: rgb(42, 177, 152);
+	background-color: rgb(34, 145, 122);
 	-webkit-transition: all .25s;
     -moz-transition: all .25s;
     transition: all .25s;
