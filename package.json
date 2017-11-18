@@ -2,7 +2,7 @@
   "name": "wedding-website-final",
   "version": "1.0.0",
   "description": "The wedding of Ben & Clare - 30/03/18",
-  "main": "./src/index.html",
+  "main": "./public/views/pages/home.html",
   "scripts": {
     "build": "npm run -s lint && npm run -s transpile",
     "lint": "./node_modules/.bin/tslint '**/*.ts' --exclude 'node_modules/**/*.ts' --exclude '**/*.d.ts'",
