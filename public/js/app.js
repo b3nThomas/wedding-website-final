@@ -131,7 +131,7 @@ module.exports.template = `
 
 
 module.exports.template = `
-    <p>  &copy; b3nThomas</p>
+    <p>&copy; b3nThomas</p>
 `;
 
 
@@ -147,10 +147,10 @@ module.exports.template = `
         <div class='row'>
             <div class='center col-12 font-moon-light text-shadow'>
                 <p class='fs-s theme-text-color'>The Epic Wedding of</p>
-                <p class='fs-xl'>Ben Thomas
+                <p class='fs-xl'>Clare Sealey
                     <span class='rose'>&</span>
                 </p>
-                <p class='fs-xl' style='margin-top:-18px'>Clare Sealey</p>
+                <p class='fs-xl' style='margin-top:-18px'>Ben Thomas</p>
                 <br>
                 <br>
                 <p class='fs-m theme-text-color'>March 30th - 2018</p>
