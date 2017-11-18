@@ -70,15 +70,15 @@
 "use strict";
 
 
-console.log('You having a nosey at my code are you? ;) ~ b3nThomas');
-
 const Templates = __webpack_require__(1);
 const navBar = __webpack_require__(2);
-const homePage = __webpack_require__(3);
+const footer = __webpack_require__(3);
+const home = __webpack_require__(4);
 
 $(document).ready(() => {
-    Templates.prependTemplate(navBar.template, 'body');
-    Templates.prependTemplate(homePage.template, '#template-canvas');
+    Templates.prependTemplate(navBar.template, '#nav-container');
+    Templates.prependTemplate(footer.template, '#footer-container');
+    Templates.prependTemplate(home.template, '#template-container');
 });
 
 
@@ -106,7 +106,6 @@ module.exports.appendTemplate = (templateString, target) => {
 
 
 module.exports.template = `
-<div class="topnav theme-text-color">
     <ul class="theme-background-color box-shadow">
         <li>
             <a id=nav-home href="#">Home</a>
@@ -121,11 +120,23 @@ module.exports.template = `
             <a id=nav-rsvp href="#">RSVP</a>
         </li>
     </ul>
-</div>`
+`;
 
 
 /***/ }),
 /* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports.template = `
+    <p>  &copy; b3nThomas</p>
+`;
+
+
+/***/ }),
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -171,8 +182,6 @@ module.exports.template = `
 
                 <div class='col-lg-2'></div>
             </div>
-
-            <p class='theme-text-color'>♥</p>
         </div>
     </div>
  `;

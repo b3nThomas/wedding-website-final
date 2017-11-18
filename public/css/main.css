@@ -1,3 +1,8 @@
+/*...Bootstrap Overrides...*/
+p {
+	margin: 0 0 0 0;
+}
+
 /*...Fonts...*/
 @font-face {
     font-family: moon-bold;
@@ -22,7 +27,7 @@
 }
 /*...Font Sizes...*/
 .fs-s {
-	font-size: 28px;
+	font-size: 14px;
 }
 .fs-m {
 	font-size: 32px;
@@ -70,19 +75,39 @@
 
 /*...Elements...*/
 html {
+	min-height: 100%;
 	overflow-y: scroll;
+	position: relative;
 }
 body {
 	background-color: transparent;
+	margin: 0 0 25px 0;
+}
+footer {
+	color: rgb(179, 176, 176);
+	font-size: 12px;
+	height: 35px;
+    width: 100%;
+	left: 0;
+    bottom: 0;
+	overflow:hidden;
+	position: absolute;
+	font-family: Georgia, Times, "Times New Roman", serif;
+	text-align: center;
+}
+
+/*...TemplateCanvas...*/
+#template-container {
+	padding: 60px 20px 60px 20px;
 }
 
 /*...Nav Bar...*/
-.topnav {
+#nav-container {
 	overflow: hidden;
 	position: fixed;
 	width: 100%;
 }
-.topnav ul {
+#nav-container ul {
 	border-radius: 0px 0px 15px 15px;
 	display: table;
 	list-style: none;
@@ -92,14 +117,14 @@ body {
 	text-align: center;
 	width: auto;
 }
-.topnav ul li {
+#nav-container ul li {
 	float: left;
 	list-style: none;
 	margin: 0;
 	padding: 0;
 	position: relative;
 }
-.topnav ul li a {
+#nav-container ul li a {
 	color: #fff;
 	float: left;
 	font-family: moon-light;
@@ -111,7 +136,7 @@ body {
     -moz-transition: all .25s;
     transition: all .25s;
 }
-.topnav ul li a:hover {
+#nav-container ul li a:hover {
 	background-color: rgb(42, 177, 152);
 	-webkit-transition: all .25s;
     -moz-transition: all .25s;
@@ -120,25 +145,8 @@ body {
 #nav-home {
 	border-radius: 0 0 0 15px;
 }
-#nav-venue {
-
-}
 #nav-rsvp {
 	border-radius: 0 0 15px 0;
-}
-
-/*...TemplateCanvas...*/
-#template-canvas {
-	padding-top: 60px;
-}
-
-/*...Home...*/
-
-#img-love-birds {
-	margin: auto;
-	max-width: 250px;
-	min-width: 150px;
-	width: 40vw;
 }
 
 /*...Us...*/

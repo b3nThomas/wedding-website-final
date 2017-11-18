@@ -1,12 +1,12 @@
 'use strict';
 
-console.log('You having a nosey at my code are you? ;) ~ b3nThomas');
-
 const Templates = require('./controllers/Templates');
-const navBar = require('./templates/NavBar');
-const homePage = require('./templates/HomePage');
+const navBar = require('./templates/partials/navBar');
+const footer = require('./templates/partials/footer');
+const home = require('./templates/pages/home');
 
 $(document).ready(() => {
-    Templates.prependTemplate(navBar.template, 'body');
-    Templates.prependTemplate(homePage.template, '#template-canvas');
+    Templates.prependTemplate(navBar.template, '#nav-container');
+    Templates.prependTemplate(footer.template, '#footer-container');
+    Templates.prependTemplate(home.template, '#template-container');
 });

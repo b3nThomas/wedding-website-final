@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const demand = require("must");
-describe('Initial test', function () {
-    it('must pass', function () {
+describe(`Ben's website`, function () {
+    it('must be awesome', function () {
         const message = 'Congratulations!';
         demand(message).eql('Congratulations!');
     });

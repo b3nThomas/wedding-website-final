@@ -40,8 +40,6 @@ module.exports.template = `
 
                 <div class='col-lg-2'></div>
             </div>
-
-            <p class='theme-text-color'>♥</p>
         </div>
     </div>
  `;
