@@ -6,15 +6,17 @@
 .git*
 .vscode
 
-*.ts
-build*
-deploy*
-test*
-/scripts*
-
 bin
 local-creds.json
 package-lock.json
 tsconfig.json
 tslint.json
 README.md
+
+*.ts
+
+build*
+deploy*
+test*
+src*
+scripts*

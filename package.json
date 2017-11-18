@@ -2,25 +2,26 @@
   "name": "wedding-website-final",
   "version": "1.0.0",
   "description": "The wedding of Ben & Clare - 30/03/18",
-  "main": "./public/views/pages/home.html",
+  "main": "./public/index.html",
   "scripts": {
-    "build": "npm run -s lint && npm run -s transpile",
+    "build": "npm run -s lint && npm run -s transpile && npm run -s webpack",
     "lint": "./node_modules/.bin/tslint '**/*.ts' --exclude 'node_modules/**/*.ts' --exclude '**/*.d.ts'",
-    "start": "npm install && node ./main.js",
-    "start:local": "npm run -s build && node ./main.js | bunyan -o short",
     "test": "npm run -s build && ./node_modules/mocha/bin/mocha test/unit/*.js",
-    "transpile": "./node_modules/.bin/tsc -p ."
+    "transpile": "./node_modules/.bin/tsc -p .",
+    "webpack": "./node_modules/.bin/webpack src/app.js public/js/app.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/b3nThomas/wedding-website-final.git"
   },
   "keywords": [
+    "jquery",
     "lambda",
     "node",
     "s3",
     "sns",
-    "typescript"
+    "typescript",
+    "webpack"
   ],
   "author": "b3nThomas",
   "license": "ISC",
@@ -31,12 +32,15 @@
   "dependencies": {},
   "devDependencies": {
     "@types/chai": "^4.0.4",
+    "@types/jquery": "^3.2.16",
     "@types/mocha": "^2.2.44",
     "chai": "^4.1.2",
+    "jquery": "^3.2.1",
     "mocha": "^3.2.0",
     "must": "^0.13.4",
     "tslint": "^5.8.0",
     "tslint-eslint-rules": "^4.1.1",
-    "typescript": "^2.6.1"
+    "typescript": "^2.6.1",
+    "webpack": "^3.8.1"
   }
 }

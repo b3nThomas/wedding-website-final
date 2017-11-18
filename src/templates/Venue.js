@@ -1,37 +1,8 @@
-<!DOCTYPE>
-<html>
+'use strict';
 
-<head>
-    <title>BTCS Wedding</title>
-    <link rel="icon" href="../images/heart-icon.png">
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE = edge'>
-    <meta name='viewport' content='width=device-width, initial-scale=1 maximum-scale=1.0, user-scalable=no'>
-    <link rel='stylesheet' type='text/css' href='../css/main.css'>
-    <link rel='stylesheet' href='../css/bootstrap.min.css'>
-    <script type='text/javascript' src='../scripts/jquery-3.1.1.min.js'></script>
-    <script type='text/javascript' src='../scripts/bootstrap.min.js'></script>
-    <script type='text/javascript' src='../scripts/originalCode.js' async='false'></script>
-</head>
-
-<body>
-    <div class="topnav theme-text-color">
-        <ul class="theme-background-color box-shadow">
-            <li>
-                <a id=nav-home href="home.html">Home</a>
-            </li>
-            <li>
-                <a id=nav-venue href="venue.html">Venue</a>
-            </li>
-            <li>
-                <a id=nav-rsvp href="rsvp.html">RSVP</a>
-            </li>
-        </ul>
-    </div>
-
+module.exports.template = `
     <div class='container-fluid'>
-
-        <div class='row page-wrapper'>
+        <div class='row'>
             <div class='col-xs-1'></div>
             <div class='col-xs-10 center'>
                 <p class='fs-xxl theme-text-color font-moon-light text-shadow'>Cripps Barn</p>
@@ -40,31 +11,23 @@
             </div>
             <div class='col-xs-1'></div>
         </div>
-
         <br>
-
         <div id='ve-pics' class='row'>
             <div class='col-sm-3 col-xs-12 thumbnail'>
                 <img src='../images/gallery-cripps/cripps-sign.jpg' class='img-responsive'>
             </div>
-
             <div class='col-sm-3 col-xs-12 thumbnail'>
                 <img src='../images/gallery-cripps/cripps-ceremony.jpg' class='img-responsive'>
             </div>
-
             <div class='col-sm-3 col-xs-12 thumbnail'>
                 <img src='../images/gallery-cripps/cripps-outdoors.jpg' class='img-responsive'>
             </div>
-
             <div class='col-sm-3 col-xs-12 thumbnail'>
                 <img src='../images/gallery-cripps/cripps-night.jpg' class='img-responsive'>
             </div>
         </div>
-
         <br>
         <br>
-
-
         <div class='row'>
             <div id='accom-container' class='col-12 center'>
                 <a id='accom-link' class='accom-default theme-background-color font-moon-light box-shadow' title='Click here to view the local accomodation'
@@ -82,6 +45,4 @@
         </div>
 
     </div>
-</body>
-
-</html>
+`;
