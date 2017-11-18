@@ -56,10 +56,10 @@
 
 /*...Colors...*/
 .theme-text-color {
-	color: rgb(52, 207, 181);
+	color: rgb(207, 52, 52);
 }
 .theme-background-color {
-	background: rgb(52, 207, 181);
+	background: rgb(207, 52, 52);
 }
 .rose {
 	color: #EF597B;
@@ -102,9 +102,9 @@ body {
 .topnav ul li a {
 	color: #fff;
 	float: left;
-	font-family: moon-bold;
+	font-family: moon-light;
 	font-size: 14px;
-    padding: 10px 12px;
+    padding: 10px 10px;
     text-align: center;
 	text-decoration: none;
 	-webkit-transition: all .25s;
@@ -127,9 +127,9 @@ body {
 	border-radius: 0 0 15px 0;
 }
 
-/*...Global...*/
-.page-wrapper {
-	margin-top: 50px;
+/*...TemplateCanvas...*/
+#template-canvas {
+	padding-top: 60px;
 }
 
 /*...Home...*/
