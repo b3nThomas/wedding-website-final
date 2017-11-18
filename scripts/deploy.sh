@@ -9,9 +9,9 @@ set -e
 # Prepare folders
 echo Preparing...
 rm -rf build
-rm -rf deploy
+rm -rf archive
 mkdir -p build
-mkdir -p deploy
+mkdir -p archive
 echo
 echo -e "\xE2\x9C\x94"
 echo
@@ -47,14 +47,14 @@ then
     # Create date stamped tar file for archive
     echo Creating archive file...
     TIMESTAMP=$(date +%Y%m%d-%H%M%S)
-    tar -czf ./deploy/wedding-website-b3nThomas-build-${TIMESTAMP}.tar.gz .
+    tar -czf ./archive/wedding-website-b3nThomas-build-${TIMESTAMP}.tar.gz ./build/public
     echo
     echo -e "\xE2\x9C\x94"
     echo
 
     # Archive this version
     echo Sending copy to archives...
-    aws s3 sync ./deploy s3://btcs-wedding-archive-b3nthomas/ && echo
+    aws s3 sync ./archive s3://btcs-wedding-archive-b3nthomas/ && echo
     echo -e "\xE2\x9C\x94"
     echo
 
@@ -75,7 +75,7 @@ fi
 # Clean up
 echo Cleaning up...
 rm -rf build
-rm -rf deploy
+rm -rf archive
 echo
 echo -e "\xE2\x9C\x94"
 echo
