@@ -61,10 +61,10 @@ p {
 
 /*...Colors...*/
 .theme-text-color {
-	color: rgb(27, 216, 169);
+	color: rgb(22, 194, 179);
 }
 .theme-background-color {
-	background: rgb(27, 216, 169);
+	background: rgb(22, 194, 179);
 }
 .rose {
 	color: #EF597B;
@@ -148,7 +148,7 @@ footer {
 	float: left;
 	font-family: moon-light;
 	font-size: 14px;
-	padding: 10px 10px;
+	padding: 12px 12px;
 	text-align: center;
 	text-decoration: none;
 }

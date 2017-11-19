@@ -14,6 +14,7 @@ export class NavBar {
     private showNavBar = () => {
         $(this.$navId).css('margin-top', '0');
     }
+
     public activateHiding = (scrollWindow: number) => {
         let lastScroll: number = $(window).scrollTop();
         let lastHidden: number = 0;
