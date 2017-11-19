@@ -9,11 +9,11 @@ const $footerId = '#footer-container';
 const $templateId = '#template-container';
 
 const navigator = new Navigator($navId);
-const templates = new CMS();
+const cms = new CMS();
 
 $(document).ready(() => {
-    templates.prependTemplate(NavBar, $navId);
-    templates.prependTemplate(Footer, $footerId);
-    templates.prependTemplate(Home, $templateId);
+    cms.prependTemplate(NavBar, $navId);
+    cms.prependTemplate(Footer, $footerId);
+    cms.prependTemplate(Home, $templateId);
     navigator.activateHiding($navId);
 });

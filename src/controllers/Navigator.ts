@@ -9,9 +9,14 @@ export class Navigator {
     public activateHiding = (navigatorId) => {
         let lastScroll = $(window).scrollTop();
         $(window).on('scroll', () => {
-            const currentScroll = $(window).scrollTop();
+            const currentScroll: number = $(window).scrollTop();
+            const maxScroll: number = -($(window).height() - $(document).height());
             const direction = lastScroll < currentScroll ? 'down' : 'up';
-            direction === 'down' && currentScroll > 25 ? this.hideNavigator(navigatorId) : this.showNavigator(navigatorId);
+            if (direction === 'down' && (currentScroll > 25 || currentScroll === maxScroll)) {
+                this.hideNavigator(navigatorId);
+            } else {
+                this.showNavigator(navigatorId);
+            }
             lastScroll = currentScroll;
         });
     }
