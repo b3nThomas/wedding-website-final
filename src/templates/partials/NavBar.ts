@@ -1,6 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.NavBar = `
+export const NavBar = `
     <ul class="theme-background-color box-shadow">
         <li>
             <a id=nav-home href="#">Home</a>
@@ -16,4 +14,3 @@ exports.NavBar = `
         </li>
     </ul>
 `;
-//# sourceMappingURL=NavBar.js.map

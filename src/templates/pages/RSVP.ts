@@ -1,6 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.RSVP = `
+export const RSVP = `
     <div class='container-fluid'>
         <div class='row'>
             <div class='col-xs-1'></div>
@@ -11,4 +9,3 @@ exports.RSVP = `
         </div>
     </div>
 `;
-//# sourceMappingURL=RSVP.js.map

@@ -106,6 +106,10 @@ footer {
 	overflow: hidden;
 	position: fixed;
 	width: 100%;
+	z-index: 10;
+	-webkit-transition: all .25s;
+    -moz-transition: all .25s;
+    transition: all .25s;
 }
 #nav-container ul {
 	border-radius: 0px 0px 15px 15px;
@@ -116,6 +120,7 @@ footer {
 	position: relative;
 	text-align: center;
 	width: auto;
+	text-decoration: none;
 }
 #nav-container ul li {
 	float: left;

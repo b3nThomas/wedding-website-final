@@ -1,6 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Venue = `
+export const Venue = `
     <div class='container-fluid'>
         <div class='row'>
             <div class='col-xs-1'></div>
@@ -46,4 +44,3 @@ exports.Venue = `
 
     </div>
 `;
-//# sourceMappingURL=Venue.js.map

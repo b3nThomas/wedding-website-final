@@ -1,12 +1,19 @@
-'use strict';
-
-const Templates = require('./controllers/Templates');
-const navBar = require('./templates/partials/navBar');
-const footer = require('./templates/partials/footer');
-const home = require('./templates/pages/home');
-
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const Navigator_1 = require("./controllers/Navigator");
+const Templates_1 = require("./controllers/Templates");
+const NavBar_1 = require("./templates/partials/NavBar");
+const Footer_1 = require("./templates/partials/Footer");
+const Home_1 = require("./templates/pages/Home");
+const $navId = '#nav-container';
+const $footerId = '#footer-container';
+const $templateId = '#template-container';
+const navigator = new Navigator_1.Navigator($navId);
+const templates = new Templates_1.Templates();
 $(document).ready(() => {
-    Templates.prependTemplate(navBar.template, '#nav-container');
-    Templates.prependTemplate(footer.template, '#footer-container');
-    Templates.prependTemplate(home.template, '#template-container');
+    templates.prependTemplate(NavBar_1.NavBar, $navId);
+    templates.prependTemplate(Footer_1.Footer, $footerId);
+    templates.prependTemplate(Home_1.Home, $templateId);
+    navigator.activateHiding($navId);
 });
+//# sourceMappingURL=app.js.map

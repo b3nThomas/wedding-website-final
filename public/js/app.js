@@ -69,18 +69,24 @@
 
 "use strict";
 
-
-const Templates = __webpack_require__(1);
-const navBar = __webpack_require__(2);
-const footer = __webpack_require__(3);
-const home = __webpack_require__(4);
-
+Object.defineProperty(exports, "__esModule", { value: true });
+const Navigator_1 = __webpack_require__(1);
+const Templates_1 = __webpack_require__(2);
+const NavBar_1 = __webpack_require__(3);
+const Footer_1 = __webpack_require__(4);
+const Home_1 = __webpack_require__(5);
+const $navId = '#nav-container';
+const $footerId = '#footer-container';
+const $templateId = '#template-container';
+const navigator = new Navigator_1.Navigator($navId);
+const templates = new Templates_1.Templates();
 $(document).ready(() => {
-    Templates.prependTemplate(navBar.template, '#nav-container');
-    Templates.prependTemplate(footer.template, '#footer-container');
-    Templates.prependTemplate(home.template, '#template-container');
+    templates.prependTemplate(NavBar_1.NavBar, $navId);
+    templates.prependTemplate(Footer_1.Footer, $footerId);
+    templates.prependTemplate(Home_1.Home, $templateId);
+    navigator.activateHiding($navId);
 });
-
+//# sourceMappingURL=app.js.map
 
 /***/ }),
 /* 1 */
@@ -88,15 +94,29 @@ $(document).ready(() => {
 
 "use strict";
 
-
-module.exports.prependTemplate = (templateString, target) => {
-    $(target).prepend(templateString);
-};
-
-module.exports.appendTemplate = (templateString, target) => {
-    $(target).append(templateString);
-};
-
+Object.defineProperty(exports, "__esModule", { value: true });
+class Navigator {
+    constructor(navigatorId) {
+        this.activateHiding = (navigatorId) => {
+            let lastScroll = $(window).scrollTop();
+            $(window).on('scroll', () => {
+                const currentScroll = $(window).scrollTop();
+                const direction = lastScroll < currentScroll ? 'down' : 'up';
+                direction === 'down' && currentScroll > 50 ? this.hideNavigator(navigatorId) : this.showNavigator(navigatorId);
+                lastScroll = currentScroll;
+            });
+        };
+        this.hideNavigator = (navigatorId) => {
+            $(navigatorId).css('margin-top', '-50px');
+        };
+        this.showNavigator = (navigatorId) => {
+            $(navigatorId).css('margin-top', '0');
+        };
+        this.$navId = navigatorId;
+    }
+}
+exports.Navigator = Navigator;
+//# sourceMappingURL=Navigator.js.map
 
 /***/ }),
 /* 2 */
@@ -104,8 +124,28 @@ module.exports.appendTemplate = (templateString, target) => {
 
 "use strict";
 
+Object.defineProperty(exports, "__esModule", { value: true });
+class Templates {
+    constructor() {
+        this.prependTemplate = (templateString, targetElement) => {
+            $(targetElement).prepend(templateString);
+        };
+        this.appendTemplate = (templateString, targetElement) => {
+            $(targetElement).append(templateString);
+        };
+    }
+}
+exports.Templates = Templates;
+//# sourceMappingURL=Templates.js.map
 
-module.exports.template = `
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.NavBar = `
     <ul class="theme-background-color box-shadow">
         <li>
             <a id=nav-home href="#">Home</a>
@@ -121,19 +161,7 @@ module.exports.template = `
         </li>
     </ul>
 `;
-
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports.template = `
-    <p>&copy; b3nThomas</p>
-`;
-
+//# sourceMappingURL=NavBar.js.map
 
 /***/ }),
 /* 4 */
@@ -141,12 +169,24 @@ module.exports.template = `
 
 "use strict";
 
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Footer = `
+    <p>&copy; b3nThomas</p>
+`;
+//# sourceMappingURL=Footer.js.map
 
-module.exports.template = `
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Home = `
     <div class='container-fluid'>
         <div class='row'>
             <div class='center col-12 font-moon-light text-shadow'>
-                <p class='fs-s theme-text-color'>The Epic Wedding of</p>
+                <p class='fs-s theme-text-color'>The Wedding of</p>
                 <p class='fs-xl'>Clare Sealey
                     <span class='rose'>&</span>
                 </p>
@@ -185,7 +225,7 @@ module.exports.template = `
         </div>
     </div>
  `;
-
+//# sourceMappingURL=Home.js.map
 
 /***/ })
 /******/ ]);
