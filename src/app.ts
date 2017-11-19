@@ -1,5 +1,5 @@
+import { CMS } from './controllers/CMS';
 import { Navigator } from './controllers/Navigator';
-import { Templates } from './controllers/Templates';
 import { NavBar } from './templates/partials/NavBar';
 import { Footer } from './templates/partials/Footer';
 import { Home } from './templates/pages/Home';
@@ -9,7 +9,7 @@ const $footerId = '#footer-container';
 const $templateId = '#template-container';
 
 const navigator = new Navigator($navId);
-const templates = new Templates();
+const templates = new CMS();
 
 $(document).ready(() => {
     templates.prependTemplate(NavBar, $navId);

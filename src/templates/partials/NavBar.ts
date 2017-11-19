@@ -1,16 +1,16 @@
 export const NavBar = `
-    <ul class="theme-background-color box-shadow">
-        <li>
-            <a id=nav-home href="#">Home</a>
-        </li>
-        <li>
-            <a id=nav-venue href="#">Venue</a>
-        </li>
-        <li>
-            <a id=nav-registry href="#">Registry</a>
-        </li>
-        <li>
-            <a id=nav-rsvp href="#">RSVP</a>
-        </li>
-    </ul>
+<ul class='box-shadow'>
+    <li>
+        <a id=nav-home class='nav-button theme-background-color' href='#'>Home</a>
+    </li>
+    <li>
+        <a id=nav-venue class='nav-button theme-background-color' href='#'>Venue</a>
+    </li>
+    <li>
+        <a id=nav-registry class='nav-button theme-background-color' href='#'>Registry</a>
+    </li>
+    <li>
+        <a id=nav-rsvp class='nav-button theme-background-color' href='#'>RSVP</a>
+    </li>
+</ul>
 `;

@@ -11,7 +11,7 @@ export class Navigator {
         $(window).on('scroll', () => {
             const currentScroll = $(window).scrollTop();
             const direction = lastScroll < currentScroll ? 'down' : 'up';
-            direction === 'down' && currentScroll > 50 ? this.hideNavigator(navigatorId) : this.showNavigator(navigatorId);
+            direction === 'down' && currentScroll > 25 ? this.hideNavigator(navigatorId) : this.showNavigator(navigatorId);
             lastScroll = currentScroll;
         });
     }
