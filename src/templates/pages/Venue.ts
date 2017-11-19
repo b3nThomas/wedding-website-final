@@ -12,16 +12,16 @@ export const Venue = `
         <br>
         <div id='ve-pics' class='row'>
             <div class='col-sm-3 col-xs-12 thumbnail'>
-                <img src='../images/gallery-cripps/cripps-sign.jpg' class='img-responsive'>
+                <img src='./images/gallery-cripps/cripps-sign.jpg' class='img-responsive'>
             </div>
             <div class='col-sm-3 col-xs-12 thumbnail'>
-                <img src='../images/gallery-cripps/cripps-ceremony.jpg' class='img-responsive'>
+                <img src='./images/gallery-cripps/cripps-ceremony.jpg' class='img-responsive'>
             </div>
             <div class='col-sm-3 col-xs-12 thumbnail'>
-                <img src='../images/gallery-cripps/cripps-outdoors.jpg' class='img-responsive'>
+                <img src='./images/gallery-cripps/cripps-outdoors.jpg' class='img-responsive'>
             </div>
             <div class='col-sm-3 col-xs-12 thumbnail'>
-                <img src='../images/gallery-cripps/cripps-night.jpg' class='img-responsive'>
+                <img src='./images/gallery-cripps/cripps-night.jpg' class='img-responsive'>
             </div>
         </div>
         <br>
@@ -37,7 +37,6 @@ export const Venue = `
             <div class='col-xs-1'></div>
             <div class='col-xs-10 center'>
                 <p class='courier'>Cripps Barn, Fosscross Lane, Cirencester, GL7 5BA</p>
-                <p class='theme-text-color'>♥</p>
             </div>
             <div class='col-xs-1'></div>
         </div>

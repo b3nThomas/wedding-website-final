@@ -82,9 +82,15 @@ const navBar = new NavBar_1.NavBar($navId);
 const cms = new CMS_1.CMS();
 $(document).ready(() => {
     cms.prependTemplate(Nav_1.Nav, $navId);
-    navBar.activateHiding(100);
+    navBar.activateHiding(60);
     cms.prependTemplate(Footer_1.Footer, $footerId);
-    cms.prependTemplate(Pages.Home, $templateId);
+    cms.switchTemplates(Pages.Home, $templateId);
+    $('#nav-home').click(() => {
+        cms.switchTemplates(Pages.Home, $templateId);
+    });
+    $('#nav-venue').click(() => {
+        cms.switchTemplates(Pages.Venue, $templateId);
+    });
 });
 //# sourceMappingURL=app.js.map
 
@@ -97,11 +103,21 @@ $(document).ready(() => {
 Object.defineProperty(exports, "__esModule", { value: true });
 class CMS {
     constructor() {
+        this.appendTemplate = (templateString, targetElement) => {
+            $(targetElement).append(templateString);
+        };
         this.prependTemplate = (templateString, targetElement) => {
             $(targetElement).prepend(templateString);
         };
-        this.appendTemplate = (templateString, targetElement) => {
-            $(targetElement).append(templateString);
+        this.removeTemplate = (targetElement) => {
+            $(targetElement).empty();
+        };
+        this.switchTemplates = (templateString, targetElement) => {
+            $(targetElement).fadeOut(() => {
+                this.removeTemplate(targetElement);
+                this.prependTemplate(templateString, targetElement);
+                $(targetElement).fadeIn();
+            });
         };
     }
 }
@@ -293,16 +309,16 @@ exports.Venue = `
         <br>
         <div id='ve-pics' class='row'>
             <div class='col-sm-3 col-xs-12 thumbnail'>
-                <img src='../images/gallery-cripps/cripps-sign.jpg' class='img-responsive'>
+                <img src='./images/gallery-cripps/cripps-sign.jpg' class='img-responsive'>
             </div>
             <div class='col-sm-3 col-xs-12 thumbnail'>
-                <img src='../images/gallery-cripps/cripps-ceremony.jpg' class='img-responsive'>
+                <img src='./images/gallery-cripps/cripps-ceremony.jpg' class='img-responsive'>
             </div>
             <div class='col-sm-3 col-xs-12 thumbnail'>
-                <img src='../images/gallery-cripps/cripps-outdoors.jpg' class='img-responsive'>
+                <img src='./images/gallery-cripps/cripps-outdoors.jpg' class='img-responsive'>
             </div>
             <div class='col-sm-3 col-xs-12 thumbnail'>
-                <img src='../images/gallery-cripps/cripps-night.jpg' class='img-responsive'>
+                <img src='./images/gallery-cripps/cripps-night.jpg' class='img-responsive'>
             </div>
         </div>
         <br>
@@ -318,7 +334,6 @@ exports.Venue = `
             <div class='col-xs-1'></div>
             <div class='col-xs-10 center'>
                 <p class='courier'>Cripps Barn, Fosscross Lane, Cirencester, GL7 5BA</p>
-                <p class='theme-text-color'>♥</p>
             </div>
             <div class='col-xs-1'></div>
         </div>

@@ -14,8 +14,15 @@ const cms = new CMS();
 $(document).ready(() => {
 
     cms.prependTemplate(Nav, $navId);
-    navBar.activateHiding(100);
+    navBar.activateHiding(60);
 
     cms.prependTemplate(Footer, $footerId);
-    cms.prependTemplate(Pages.Home, $templateId);
+    cms.switchTemplates(Pages.Home, $templateId);
+
+    $('#nav-home').click(() => {
+        cms.switchTemplates(Pages.Home, $templateId);
+    });
+    $('#nav-venue').click(() => {
+        cms.switchTemplates(Pages.Venue, $templateId);
+    });
 });
