@@ -71,20 +71,20 @@
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const CMS_1 = __webpack_require__(1);
-const Navigator_1 = __webpack_require__(2);
-const NavBar_1 = __webpack_require__(3);
+const NavBar_1 = __webpack_require__(2);
+const Nav_1 = __webpack_require__(3);
 const Footer_1 = __webpack_require__(4);
 const Home_1 = __webpack_require__(5);
 const $navId = '#nav-container';
 const $footerId = '#footer-container';
 const $templateId = '#template-container';
-const navigator = new Navigator_1.Navigator($navId);
-const cms = new CMS_1.CMS();
+const navBar = new NavBar_1.NavBar($navId);
+const cms = new CMS_1.CMS(Home_1.Home);
 $(document).ready(() => {
-    cms.prependTemplate(NavBar_1.NavBar, $navId);
+    cms.prependTemplate(Nav_1.Nav, $navId);
+    navBar.activateHiding(100);
     cms.prependTemplate(Footer_1.Footer, $footerId);
     cms.prependTemplate(Home_1.Home, $templateId);
-    navigator.activateHiding($navId);
 });
 //# sourceMappingURL=app.js.map
 
@@ -96,13 +96,14 @@ $(document).ready(() => {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 class CMS {
-    constructor() {
+    constructor(landingPage) {
         this.prependTemplate = (templateString, targetElement) => {
             $(targetElement).prepend(templateString);
         };
         this.appendTemplate = (templateString, targetElement) => {
             $(targetElement).append(templateString);
         };
+        this.currentPage = landingPage;
     }
 }
 exports.CMS = CMS;
@@ -115,35 +116,38 @@ exports.CMS = CMS;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-class Navigator {
-    constructor(navigatorId) {
-        this.activateHiding = (navigatorId) => {
+class NavBar {
+    constructor(navBarId) {
+        this.hideNavBar = () => {
+            const hideDistance = '-50px';
+            $(this.$navId).css('margin-top', hideDistance);
+        };
+        this.showNavBar = () => {
+            $(this.$navId).css('margin-top', '0');
+        };
+        this.activateHiding = (scrollWindow) => {
             let lastScroll = $(window).scrollTop();
+            let lastHidden = 0;
+            let lastShown = 0;
             $(window).on('scroll', () => {
                 const currentScroll = $(window).scrollTop();
-                const maxScroll = -($(window).height() - $(document).height());
-                console.log(currentScroll === maxScroll);
                 const direction = lastScroll < currentScroll ? 'down' : 'up';
-                if (direction === 'down' && (currentScroll > 25 || currentScroll === maxScroll)) {
-                    this.hideNavigator(navigatorId);
+                if (direction === 'down' && (currentScroll - lastShown) > scrollWindow) {
+                    this.hideNavBar();
+                    lastHidden = currentScroll;
                 }
-                else {
-                    this.showNavigator(navigatorId);
+                if (direction === 'up' && (lastHidden - currentScroll) > scrollWindow) {
+                    this.showNavBar();
+                    lastShown = currentScroll;
                 }
                 lastScroll = currentScroll;
             });
         };
-        this.hideNavigator = (navigatorId) => {
-            $(navigatorId).css('margin-top', '-50px');
-        };
-        this.showNavigator = (navigatorId) => {
-            $(navigatorId).css('margin-top', '0');
-        };
-        this.$navId = navigatorId;
+        this.$navId = navBarId;
     }
 }
-exports.Navigator = Navigator;
-//# sourceMappingURL=Navigator.js.map
+exports.NavBar = NavBar;
+//# sourceMappingURL=NavBar.js.map
 
 /***/ }),
 /* 3 */
@@ -152,7 +156,7 @@ exports.Navigator = Navigator;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.NavBar = `
+exports.Nav = `
 <ul class='box-shadow'>
     <li>
         <a id=nav-home class='nav-button theme-background-color' href='#'>Home</a>
@@ -168,7 +172,7 @@ exports.NavBar = `
     </li>
 </ul>
 `;
-//# sourceMappingURL=NavBar.js.map
+//# sourceMappingURL=Nav.js.map
 
 /***/ }),
 /* 4 */

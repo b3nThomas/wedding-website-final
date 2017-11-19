@@ -1,4 +1,4 @@
-export const NavBar = `
+export const Nav = `
 <ul class='box-shadow'>
     <li>
         <a id=nav-home class='nav-button theme-background-color' href='#'>Home</a>
