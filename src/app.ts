@@ -1,28 +1,26 @@
-import { CMS } from './controllers/CMS';
-import { NavBar } from './controllers/NavBar';
-import { Nav } from './templates/partials/Nav';
-import { Footer } from './templates/partials/Footer';
-import * as Pages from './templates/pages';
+import * as Fixtures from './fixtures/index';
+import { CMS } from './CMS';
+import { NavBar } from './NavBar';
 
-const $navId = '#nav-container';
-const $templateId = '#template-container';
-const $footerId = '#footer-container';
+const $navId: string = '#nav-container';
+const $templateId: string = '#template-container';
+const $footerId: string = '#footer-container';
 
-const navBar = new NavBar($navId);
-const cms = new CMS();
 
 $(document).ready(() => {
+    const cms = new CMS();
+    cms.prependTemplate(Fixtures.Nav, $navId);
 
-    cms.prependTemplate(Nav, $navId);
+    const navBar = new NavBar($navId);
     navBar.activateHiding(60);
 
-    cms.prependTemplate(Footer, $footerId);
-    cms.switchTemplates(Pages.Home, $templateId);
+    cms.prependTemplate(Fixtures.Footer, $footerId);
+    cms.switchTemplates(Fixtures.Home, $templateId);
 
     $('#nav-home').click(() => {
-        cms.switchTemplates(Pages.Home, $templateId);
+        cms.switchTemplates(Fixtures.Home, $templateId);
     });
     $('#nav-venue').click(() => {
-        cms.switchTemplates(Pages.Venue, $templateId);
+        cms.switchTemplates(Fixtures.Venue, $templateId);
     });
 });

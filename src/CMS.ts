@@ -13,10 +13,10 @@ export class CMS {
     }
 
     public switchTemplates = (templateString: string, targetElement: string) => {
-        $(targetElement).fadeOut(() => {
+        $(targetElement).fadeOut(240, () => {
             this.removeTemplate(targetElement);
             this.prependTemplate(templateString, targetElement);
-            $(targetElement).fadeIn();
+            $(targetElement).fadeIn(300);
         });
     }
 }

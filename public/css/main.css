@@ -43,6 +43,9 @@ p {
 }
 
 /*...Generic...*/
+.hidden {
+	display: none;
+}
 .shadow {
 	text-shadow: 0 0 4px rgb(97, 97, 97);
 }
@@ -142,6 +145,9 @@ footer {
 	-webkit-transition: all .3s;
 	-moz-transition: all .3s;
 	transition: all .3s;
+}
+.nav-hidden {
+	margin-top: -50px;
 }
 #nav-container ul li a {
 	color: #fff;

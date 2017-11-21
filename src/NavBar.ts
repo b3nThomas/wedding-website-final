@@ -7,12 +7,11 @@ export class NavBar {
     }
 
     private hideNavBar = () => {
-        const hideDistance: string = '-50px';
-        $(this.$navId).css('margin-top', hideDistance);
+        $(this.$navId).addClass('nav-hidden');
     }
 
     private showNavBar = () => {
-        $(this.$navId).css('margin-top', '0');
+        $(this.$navId).removeClass('nav-hidden');
     }
 
     public activateHiding = (scrollWindow: number) => {

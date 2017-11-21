@@ -70,26 +70,24 @@
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const CMS_1 = __webpack_require__(1);
-const NavBar_1 = __webpack_require__(2);
-const Nav_1 = __webpack_require__(3);
-const Footer_1 = __webpack_require__(4);
-const Pages = __webpack_require__(5);
+const Fixtures = __webpack_require__(1);
+const CMS_1 = __webpack_require__(7);
+const NavBar_1 = __webpack_require__(8);
 const $navId = '#nav-container';
 const $templateId = '#template-container';
 const $footerId = '#footer-container';
-const navBar = new NavBar_1.NavBar($navId);
-const cms = new CMS_1.CMS();
 $(document).ready(() => {
-    cms.prependTemplate(Nav_1.Nav, $navId);
+    const cms = new CMS_1.CMS();
+    cms.prependTemplate(Fixtures.Nav, $navId);
+    const navBar = new NavBar_1.NavBar($navId);
     navBar.activateHiding(60);
-    cms.prependTemplate(Footer_1.Footer, $footerId);
-    cms.switchTemplates(Pages.Home, $templateId);
+    cms.prependTemplate(Fixtures.Footer, $footerId);
+    cms.switchTemplates(Fixtures.Home, $templateId);
     $('#nav-home').click(() => {
-        cms.switchTemplates(Pages.Home, $templateId);
+        cms.switchTemplates(Fixtures.Home, $templateId);
     });
     $('#nav-venue').click(() => {
-        cms.switchTemplates(Pages.Venue, $templateId);
+        cms.switchTemplates(Fixtures.Venue, $templateId);
     });
 });
 //# sourceMappingURL=app.js.map
@@ -100,97 +98,19 @@ $(document).ready(() => {
 
 "use strict";
 
-Object.defineProperty(exports, "__esModule", { value: true });
-class CMS {
-    constructor() {
-        this.appendTemplate = (templateString, targetElement) => {
-            $(targetElement).append(templateString);
-        };
-        this.prependTemplate = (templateString, targetElement) => {
-            $(targetElement).prepend(templateString);
-        };
-        this.removeTemplate = (targetElement) => {
-            $(targetElement).empty();
-        };
-        this.switchTemplates = (templateString, targetElement) => {
-            $(targetElement).fadeOut(() => {
-                this.removeTemplate(targetElement);
-                this.prependTemplate(templateString, targetElement);
-                $(targetElement).fadeIn();
-            });
-        };
-    }
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
-exports.CMS = CMS;
-//# sourceMappingURL=CMS.js.map
+Object.defineProperty(exports, "__esModule", { value: true });
+__export(__webpack_require__(2));
+__export(__webpack_require__(3));
+__export(__webpack_require__(4));
+__export(__webpack_require__(5));
+__export(__webpack_require__(6));
+//# sourceMappingURL=index.js.map
 
 /***/ }),
 /* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-class NavBar {
-    constructor(navBarId) {
-        this.hideNavBar = () => {
-            const hideDistance = '-50px';
-            $(this.$navId).css('margin-top', hideDistance);
-        };
-        this.showNavBar = () => {
-            $(this.$navId).css('margin-top', '0');
-        };
-        this.activateHiding = (scrollWindow) => {
-            let lastScroll = $(window).scrollTop();
-            let lastHidden = 0;
-            let lastShown = 0;
-            $(window).on('scroll', () => {
-                const currentScroll = $(window).scrollTop();
-                const direction = lastScroll < currentScroll ? 'down' : 'up';
-                if (direction === 'down' && (currentScroll - lastShown) > scrollWindow) {
-                    this.hideNavBar();
-                    lastHidden = currentScroll;
-                }
-                if (direction === 'up' && (lastHidden - currentScroll) > scrollWindow) {
-                    this.showNavBar();
-                    lastShown = currentScroll;
-                }
-                lastScroll = currentScroll;
-            });
-        };
-        this.$navId = navBarId;
-    }
-}
-exports.NavBar = NavBar;
-//# sourceMappingURL=NavBar.js.map
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Nav = `
-<ul class='box-shadow'>
-    <li>
-        <a id=nav-home class='nav-button theme-background-color' href='#'>Home</a>
-    </li>
-    <li>
-        <a id=nav-venue class='nav-button theme-background-color' href='#'>Venue</a>
-    </li>
-    <li>
-        <a id=nav-registry class='nav-button theme-background-color' href='#'>Registry</a>
-    </li>
-    <li>
-        <a id=nav-rsvp class='nav-button theme-background-color' href='#'>RSVP</a>
-    </li>
-</ul>
-`;
-//# sourceMappingURL=Nav.js.map
-
-/***/ }),
-/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -202,22 +122,7 @@ exports.Footer = `
 //# sourceMappingURL=Footer.js.map
 
 /***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-function __export(m) {
-    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-}
-Object.defineProperty(exports, "__esModule", { value: true });
-__export(__webpack_require__(6));
-__export(__webpack_require__(7));
-__export(__webpack_require__(8));
-//# sourceMappingURL=index.js.map
-
-/***/ }),
-/* 6 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -269,7 +174,32 @@ exports.Home = `
 //# sourceMappingURL=Home.js.map
 
 /***/ }),
-/* 7 */
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Nav = `
+<ul class='box-shadow'>
+    <li>
+        <a id=nav-home class='nav-button theme-background-color'>Home</a>
+    </li>
+    <li>
+        <a id=nav-venue class='nav-button theme-background-color'>Venue</a>
+    </li>
+    <li>
+        <a id=nav-registry class='nav-button theme-background-color'>Registry</a>
+    </li>
+    <li>
+        <a id=nav-rsvp class='nav-button theme-background-color'>RSVP</a>
+    </li>
+</ul>
+`;
+//# sourceMappingURL=Nav.js.map
+
+/***/ }),
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -289,7 +219,7 @@ exports.RSVP = `
 //# sourceMappingURL=RSVP.js.map
 
 /***/ }),
-/* 8 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -341,6 +271,75 @@ exports.Venue = `
     </div>
 `;
 //# sourceMappingURL=Venue.js.map
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+class CMS {
+    constructor() {
+        this.appendTemplate = (templateString, targetElement) => {
+            $(targetElement).append(templateString);
+        };
+        this.prependTemplate = (templateString, targetElement) => {
+            $(targetElement).prepend(templateString);
+        };
+        this.removeTemplate = (targetElement) => {
+            $(targetElement).empty();
+        };
+        this.switchTemplates = (templateString, targetElement) => {
+            $(targetElement).fadeOut(240, () => {
+                this.removeTemplate(targetElement);
+                this.prependTemplate(templateString, targetElement);
+                $(targetElement).fadeIn(300);
+            });
+        };
+    }
+}
+exports.CMS = CMS;
+//# sourceMappingURL=CMS.js.map
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+class NavBar {
+    constructor(navBarId) {
+        this.hideNavBar = () => {
+            $(this.$navId).addClass('nav-hidden');
+        };
+        this.showNavBar = () => {
+            $(this.$navId).removeClass('nav-hidden');
+        };
+        this.activateHiding = (scrollWindow) => {
+            let lastScroll = $(window).scrollTop();
+            let lastHidden = 0;
+            let lastShown = 0;
+            $(window).on('scroll', () => {
+                const currentScroll = $(window).scrollTop();
+                const direction = lastScroll < currentScroll ? 'down' : 'up';
+                if (direction === 'down' && (currentScroll - lastShown) > scrollWindow) {
+                    this.hideNavBar();
+                    lastHidden = currentScroll;
+                }
+                if (direction === 'up' && (lastHidden - currentScroll) > scrollWindow) {
+                    this.showNavBar();
+                    lastShown = currentScroll;
+                }
+                lastScroll = currentScroll;
+            });
+        };
+        this.$navId = navBarId;
+    }
+}
+exports.NavBar = NavBar;
+//# sourceMappingURL=NavBar.js.map
 
 /***/ })
 /******/ ]);
