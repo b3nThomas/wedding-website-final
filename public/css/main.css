@@ -47,16 +47,7 @@ p {
 	display: none;
 }
 .shadow {
-	text-shadow: 0 0 4px rgb(97, 97, 97);
-}
-.box-shadow {
-	box-shadow: 10px #a8a7a7;
-}
-.small-glow {
-	box-shadow: 0 0 10px 4px #ff6d6d;
-}
-.big-glow {
-	box-shadow: 0 0 10px 7px #ff6d6d;
+	text-shadow: 0 0 4px #616161;
 }
 .center {
 	text-align: center;
@@ -83,7 +74,9 @@ html {
 	position: relative;
 }
 body {
-	background-color: transparent;
+	/*background-attachment: fixed;
+	background-size: 100vw auto;
+	background-image: url('../images/gallery-cripps/cripps-sign.jpg');*/
 	margin: 0 0 25px 0;
 }
 footer {
@@ -101,7 +94,8 @@ footer {
 
 /*...TemplateCanvas...*/
 #template-container {
-	padding: 60px 20px 60px 20px;
+	padding: 80px 20px 60px 20px;
+	z-index: 1;
 }
 
 /*...Nav Bar...*/
@@ -146,9 +140,6 @@ footer {
 	-moz-transition: all .3s;
 	transition: all .3s;
 }
-.nav-hidden {
-	margin-top: -50px;
-}
 #nav-container ul li a {
 	color: #fff;
 	float: left;
@@ -158,21 +149,17 @@ footer {
 	text-align: center;
 	text-decoration: none;
 }
-#nav-home {
+.nav-button {
+	cursor: pointer;
+}
+.nav-hidden {
+	margin-top: -50px;
+}
+.nav-left {
 	border-radius: 0 0 0 8px;
 }
-#nav-rsvp {
+.nav-right {
 	border-radius: 0 0 8px 0;
-}
-
-/*...Us...*/
-
-#page-us img {
-	border-radius: 5px;
-	padding: 4px;
-}
-#page-us p {
-	padding-top: 5px;
 }
 
 /*...Venue...*/
@@ -180,16 +167,14 @@ footer {
 	border-radius: 5px;
 	padding: 3px;
 }
-#ve-pics {
-	width: 90%;
-	margin-left: 5%;
-}
 #map-container {
-	width: 80%;
-	margin: 0 0 80px 10%;
+	background: url('../images/loading.gif') center no-repeat;
+	background-size: 60px 60px;
+	padding: 5vh 0 1vh 0;
+	width: 100%;
 }
 #accom-container {
-	margin: 20px 0 80px 0;
+	margin: 20px 0 20px 0;
 }
 
 .accom-default {
@@ -198,10 +183,6 @@ footer {
 	font-size: 18px;
 	padding: 10px;
 	text-decoration: none;
-	transition: 0.2s;
-}
-.accom-active {
-	font-size: 20px;
 }
 
 /*...RSVP...*/
@@ -210,18 +191,9 @@ footer {
 /*...@Media...*/
 
 @media screen and (max-width: 768px) {
-	#my-navbar {
-		margin: 0 auto;
-	}
-	#my-navbar ul{
-	  list-style-type: none;
-	  padding: 0;
-	}
-
 }
 
 @media screen and (max-width: 545px) {
-	/*FONTS*/
 	.fs-s {
 		font-size: 24px;
 	}
@@ -237,18 +209,13 @@ footer {
 	.fs-xxl {
 		font-size: 38px;
 	}
-	/*NAV*/
-    #nav-links li {
-    	font-size: 25px; 
-    }
-
 	 /*VENUE*/
 	#page-ve div div .thumbnail {
 		margin-left: 5%;
 		width: 90%;
 	}
 	#map-container {
-		width: 92%;
-		margin: 0 0 80px 4%;
+		width: 98%;
+		margin: 0 0 0 2.5%;
 	}
 }

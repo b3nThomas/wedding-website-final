@@ -1,7 +1,7 @@
 export const Nav = `
-<ul class='box-shadow'>
+<ul>
     <li>
-        <a id=nav-home class='nav-button theme-background-color'>Home</a>
+        <a id=nav-home class='nav-left nav-button theme-background-color'>Home</a>
     </li>
     <li>
         <a id=nav-venue class='nav-button theme-background-color'>Venue</a>
@@ -10,7 +10,7 @@ export const Nav = `
         <a id=nav-registry class='nav-button theme-background-color'>Registry</a>
     </li>
     <li>
-        <a id=nav-rsvp class='nav-button theme-background-color'>RSVP</a>
+        <a id=nav-rsvp class='nav-right nav-button theme-background-color'>RSVP</a>
     </li>
 </ul>
 `;

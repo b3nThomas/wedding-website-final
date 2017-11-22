@@ -23,4 +23,7 @@ $(document).ready(() => {
     $('#nav-venue').click(() => {
         cms.switchTemplates(Fixtures.Venue, $templateId);
     });
+    $('#nav-rsvp').click(() => {
+        cms.switchTemplates(Fixtures.RSVP, $templateId);
+    });
 });
