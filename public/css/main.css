@@ -43,6 +43,11 @@ p {
 }
 
 /*...Generic...*/
+.box-shadow {
+	box-shadow:0 0 5px #ccc;
+    -moz-box-shadow:0 0 5px #ccc;
+    -webkit-box-shadow:0 0 5px #ccc;
+}
 .hidden {
 	display: none;
 }

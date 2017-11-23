@@ -71,27 +71,24 @@
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const Fixtures = __webpack_require__(1);
-const CMS_1 = __webpack_require__(7);
-const NavBar_1 = __webpack_require__(8);
+const CMS_1 = __webpack_require__(8);
+const NavBar_1 = __webpack_require__(9);
 const $navId = '#nav-container';
 const $templateId = '#template-container';
 const $footerId = '#footer-container';
+const pages = ['Home', 'Venue', 'Registry', 'RSVP'];
 $(document).ready(() => {
     const cms = new CMS_1.CMS();
     cms.prependTemplate(Fixtures.Nav, $navId);
     const navBar = new NavBar_1.NavBar($navId);
     navBar.activateHiding(60);
+    for (const page of pages) {
+        $(`#nav-${page.toLowerCase()}`).click(() => {
+            cms.switchTemplates(Fixtures[page], $templateId);
+        });
+    }
     cms.prependTemplate(Fixtures.Footer, $footerId);
-    cms.switchTemplates(Fixtures.Home, $templateId);
-    $('#nav-home').click(() => {
-        cms.switchTemplates(Fixtures.Home, $templateId);
-    });
-    $('#nav-venue').click(() => {
-        cms.switchTemplates(Fixtures.Venue, $templateId);
-    });
-    $('#nav-rsvp').click(() => {
-        cms.switchTemplates(Fixtures.RSVP, $templateId);
-    });
+    cms.switchTemplates(Fixtures.RSVP, $templateId);
 });
 //# sourceMappingURL=app.js.map
 
@@ -110,6 +107,7 @@ __export(__webpack_require__(3));
 __export(__webpack_require__(4));
 __export(__webpack_require__(5));
 __export(__webpack_require__(6));
+__export(__webpack_require__(7));
 //# sourceMappingURL=index.js.map
 
 /***/ }),
@@ -184,7 +182,7 @@ exports.Home = `
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Nav = `
-<ul>
+<ul class='box-shadow'>
     <li>
         <a id=nav-home class='nav-left nav-button theme-background-color'>Home</a>
     </li>
@@ -208,12 +206,31 @@ exports.Nav = `
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+const createNumberDropdown = (limit) => {
+    let template = ``;
+    let index = 1;
+    while (index <= limit) {
+        template += `<option value="${index}">${index}</option>`;
+        index++;
+    }
+    return template;
+};
 exports.RSVP = `
     <div class='container-fluid'>
         <div class='row'>
             <div class='col-xs-1'></div>
             <div class='col-xs-10 center'>
-                <p class='fs-xxl theme-text-color font-moon-light text-shadow'>RSVP</p>
+                <p class='fs-l font-moon-light text-shadow'>RSVP</p>
+            </div>
+            <div class='col-xs-1'></div>
+        </div>
+        <div class='row'>
+            <div class='col-xs-1'></div>
+            <div class='col-xs-10'>
+                Number of Guests:
+                <select id='rsvp-guests' type='number'>
+                    ${createNumberDropdown(10)}
+                </select>
             </div>
             <div class='col-xs-1'></div>
         </div>
@@ -228,6 +245,26 @@ exports.RSVP = `
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Registry = `
+<div class='container-fluid'>
+    <div class='row'>
+        <div class='col-xs-1'></div>
+        <div class='col-xs-10 center'>
+            <p class='fs-l font-moon-light text-shadow'>Registry</p>
+        </div>
+        <div class='col-xs-1'></div>
+    </div>
+</div>
+`;
+//# sourceMappingURL=Registry.js.map
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.Venue = `
     <div class='container-fluid'>
         <div class='row'>
@@ -237,7 +274,7 @@ exports.Venue = `
         </div>
         <div class='row'>
             <div id='map-container' class='col-xs-12'>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d66477.05148935101!2d-1.9113974717633855!3d51.74276147230118!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x688c98a90ca25866!2sCripps+Barn!5e0!3m2!1sen!2suk!4v1487940894833" width="100%" height="330px" frameborder="0" style="border:0" allowfullscreen></iframe>
+                <iframe class='box-shadow' src='https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d66477.05148935101!2d-1.9113974717633855!3d51.74276147230118!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x688c98a90ca25866!2sCripps+Barn!5e0!3m2!1sen!2suk!4v1487940894833' width='100%' height='330px' frameborder='0' style='border:0' allowfullscreen></iframe>
             </div>
         </div>
         <div class='row'>
@@ -251,7 +288,7 @@ exports.Venue = `
 //# sourceMappingURL=Venue.js.map
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -281,7 +318,7 @@ exports.CMS = CMS;
 //# sourceMappingURL=CMS.js.map
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
