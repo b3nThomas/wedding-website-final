@@ -1,12 +1,4 @@
-const createNumberSelectOptions = (start: number, limit: number) => {
-    let template = ``;
-    let index = start;
-    while (index <= limit) {
-        template += `<option value="${ index }">${ index }</option>`;
-        index++;
-    }
-    return template;
-};
+import { createNumberSelectOptionList } from '../components/Helpers';
 
 export const RSVP = `
     <div class='container-fluid'>
@@ -23,13 +15,12 @@ export const RSVP = `
                 <div class='col-xs-10' >
                     <span class='font-moon-light'>Number of Guests</span>
                     <select id='rsvp-guests' type='number'>
-                        ${ createNumberSelectOptions(1, 10) }
+                        ${ createNumberSelectOptionList(1, 10) }
                     </select>
                 </div>
                 <div class='col-xs-1'></div>
             </div>
         </div>
-
     </div>
 `;
 

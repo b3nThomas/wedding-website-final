@@ -12,11 +12,15 @@ export class CMS {
         $(targetElement).empty();
     }
 
-    public switchTemplates = (templateString: string, targetElement: string) => {
+    public switchTemplates = (templateString: string, targetElement: string, listeners?: any) => {
         $(targetElement).fadeOut(240, () => {
             this.removeTemplate(targetElement);
             this.prependTemplate(templateString, targetElement);
-            $(targetElement).fadeIn(300);
+            $(targetElement).fadeIn(300, () => {
+                if (listeners) {
+                    listeners();
+                }
+            });
         });
     }
 }

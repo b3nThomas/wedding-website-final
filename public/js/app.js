@@ -60,40 +60,11 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const Fixtures = __webpack_require__(1);
-const CMS_1 = __webpack_require__(8);
-const NavBar_1 = __webpack_require__(9);
-const $navId = '#nav-container';
-const $templateId = '#template-container';
-const $footerId = '#footer-container';
-const pages = ['Home', 'Venue', 'Registry', 'RSVP'];
-$(document).ready(() => {
-    const cms = new CMS_1.CMS();
-    cms.prependTemplate(Fixtures.Nav, $navId);
-    const navBar = new NavBar_1.NavBar($navId);
-    navBar.activateHiding(60);
-    for (const page of pages) {
-        $(`#nav-${page.toLowerCase()}`).click(() => {
-            cms.switchTemplates(Fixtures[page], $templateId);
-        });
-    }
-    cms.prependTemplate(Fixtures.Footer, $footerId);
-    cms.switchTemplates(Fixtures.RSVP, $templateId);
-});
-//# sourceMappingURL=app.js.map
-
-/***/ }),
-/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -106,9 +77,38 @@ __export(__webpack_require__(2));
 __export(__webpack_require__(3));
 __export(__webpack_require__(4));
 __export(__webpack_require__(5));
-__export(__webpack_require__(6));
 __export(__webpack_require__(7));
+__export(__webpack_require__(8));
 //# sourceMappingURL=index.js.map
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const Fixtures = __webpack_require__(0);
+const CMS_1 = __webpack_require__(9);
+const NavBar_1 = __webpack_require__(10);
+const Pages_1 = __webpack_require__(11);
+const $navId = '#nav-container';
+const $templateId = '#template-container';
+const $footerId = '#footer-container';
+$(document).ready(() => {
+    const cms = new CMS_1.CMS();
+    cms.prependTemplate(Fixtures.Nav, $navId);
+    const navBar = new NavBar_1.NavBar($navId);
+    navBar.activateHiding(60);
+    cms.prependTemplate(Fixtures.Footer, $footerId);
+    for (const page of Pages_1.Pages) {
+        $(page.navId).click(() => {
+            cms.switchTemplates(page.fixture, $templateId, page.listeners);
+        });
+    }
+    cms.switchTemplates(Fixtures.Home, $templateId);
+});
+//# sourceMappingURL=app.js.map
 
 /***/ }),
 /* 2 */
@@ -182,20 +182,20 @@ exports.Home = `
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Nav = `
-<ul class='box-shadow'>
-    <li>
-        <a id=nav-home class='nav-left nav-button theme-background-color'>Home</a>
-    </li>
-    <li>
-        <a id=nav-venue class='nav-button theme-background-color'>Venue</a>
-    </li>
-    <li>
-        <a id=nav-registry class='nav-button theme-background-color'>Registry</a>
-    </li>
-    <li>
-        <a id=nav-rsvp class='nav-right nav-button theme-background-color'>RSVP</a>
-    </li>
-</ul>
+    <ul class='box-shadow'>
+        <li>
+            <a id=nav-home class='nav-left nav-button theme-background-color'>Home</a>
+        </li>
+        <li>
+            <a id=nav-venue class='nav-button theme-background-color'>Venue</a>
+        </li>
+        <li>
+            <a id=nav-registry class='nav-button theme-background-color'>Registry</a>
+        </li>
+        <li>
+            <a id=nav-rsvp class='nav-right nav-button theme-background-color'>RSVP</a>
+        </li>
+    </ul>
 `;
 //# sourceMappingURL=Nav.js.map
 
@@ -206,15 +206,7 @@ exports.Nav = `
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const createNumberDropdown = (limit) => {
-    let template = ``;
-    let index = 1;
-    while (index <= limit) {
-        template += `<option value="${index}">${index}</option>`;
-        index++;
-    }
-    return template;
-};
+const Helpers_1 = __webpack_require__(6);
 exports.RSVP = `
     <div class='container-fluid'>
         <div class='row'>
@@ -224,15 +216,17 @@ exports.RSVP = `
             </div>
             <div class='col-xs-1'></div>
         </div>
-        <div class='row'>
-            <div class='col-xs-1'></div>
-            <div class='col-xs-10'>
-                Number of Guests:
-                <select id='rsvp-guests' type='number'>
-                    ${createNumberDropdown(10)}
-                </select>
+        <div class='rsvp-form'>
+            <div class='row'>
+                <div class='col-xs-1'></div>
+                <div class='col-xs-10' >
+                    <span class='font-moon-light'>Number of Guests</span>
+                    <select id='rsvp-guests' type='number'>
+                        ${Helpers_1.createNumberSelectOptionList(1, 10)}
+                    </select>
+                </div>
+                <div class='col-xs-1'></div>
             </div>
-            <div class='col-xs-1'></div>
         </div>
     </div>
 `;
@@ -245,21 +239,39 @@ exports.RSVP = `
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.createNumberSelectOptionList = (start, limit) => {
+    let template = ``;
+    let index = start;
+    while (index <= limit) {
+        template += `<option class="rsvp-guest-count" value="${index}">${index}</option>`;
+        index++;
+    }
+    return template;
+};
+//# sourceMappingURL=Helpers.js.map
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.Registry = `
-<div class='container-fluid'>
-    <div class='row'>
-        <div class='col-xs-1'></div>
-        <div class='col-xs-10 center'>
-            <p class='fs-l font-moon-light text-shadow'>Registry</p>
+    <div class='container-fluid'>
+        <div class='row'>
+            <div class='col-xs-1'></div>
+            <div class='col-xs-10 center'>
+                <p class='fs-l font-moon-light text-shadow'>Registry</p>
+            </div>
+            <div class='col-xs-1'></div>
         </div>
-        <div class='col-xs-1'></div>
     </div>
-</div>
 `;
 //# sourceMappingURL=Registry.js.map
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -288,7 +300,7 @@ exports.Venue = `
 //# sourceMappingURL=Venue.js.map
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -305,11 +317,15 @@ class CMS {
         this.removeTemplate = (targetElement) => {
             $(targetElement).empty();
         };
-        this.switchTemplates = (templateString, targetElement) => {
+        this.switchTemplates = (templateString, targetElement, listeners) => {
             $(targetElement).fadeOut(240, () => {
                 this.removeTemplate(targetElement);
                 this.prependTemplate(templateString, targetElement);
-                $(targetElement).fadeIn(300);
+                $(targetElement).fadeIn(300, () => {
+                    if (listeners) {
+                        listeners();
+                    }
+                });
             });
         };
     }
@@ -318,7 +334,7 @@ exports.CMS = CMS;
 //# sourceMappingURL=CMS.js.map
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -355,6 +371,53 @@ class NavBar {
 }
 exports.NavBar = NavBar;
 //# sourceMappingURL=NavBar.js.map
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const Fixtures = __webpack_require__(0);
+const Listeners = __webpack_require__(12);
+exports.Pages = [
+    {
+        navId: '#nav-home',
+        fixture: Fixtures.Home,
+        listeners: ''
+    },
+    {
+        navId: '#nav-venue',
+        fixture: Fixtures.Venue,
+        listeners: ''
+    },
+    {
+        navId: '#nav-registry',
+        fixture: Fixtures.Registry,
+        listeners: ''
+    },
+    {
+        navId: '#nav-rsvp',
+        fixture: Fixtures.RSVP,
+        listeners: Listeners.rsvp
+    }
+];
+//# sourceMappingURL=Pages.js.map
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.rsvp = () => {
+    $('#rsvp-guests').change(() => {
+        alert(`New value: ${$('#rsvp-guests').val()}`);
+    });
+};
+//# sourceMappingURL=Listeners.js.map
 
 /***/ })
 /******/ ]);
