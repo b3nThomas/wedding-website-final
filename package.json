@@ -8,6 +8,7 @@
     "lint": "./node_modules/.bin/tslint '**/*.ts' --exclude 'node_modules/**/*.ts' --exclude '**/*.d.ts'",
     "test": "npm run -s build && ./node_modules/mocha/bin/mocha test/unit/*.js",
     "transpile": "./node_modules/.bin/tsc -p .",
+    "watch": "nodemon -e ts --exec \"npm run build\"",
     "webpack": "./node_modules/.bin/webpack src/app.js public/js/app.js"
   },
   "repository": {
@@ -38,6 +39,7 @@
     "jquery": "^3.2.1",
     "mocha": "^3.2.0",
     "must": "^0.13.4",
+    "nodemon": "^1.12.1",
     "tslint": "^5.8.0",
     "tslint-eslint-rules": "^4.1.1",
     "typescript": "^2.6.1",
