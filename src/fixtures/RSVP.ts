@@ -11,17 +11,17 @@ export const RSVP = `
         </div>
         <div class='rsvp-form'>
             <div class='row'>
-                <div class='col-xs-1'></div>
-                <div class='col-xs-10' >
+                <div class='col-xs-12' >
                     <span class='font-moon-light'>Number of Guests</span>
-                    <select id='rsvp-guests' type='number'>
+                    <select type='number' id='rsvp-guests'>
                         ${ createNumberSelectOptionList(1, 10) }
                     </select>
+                    <p class='font-moon-light'>Names:</p>
+                    <div id='rsvp-names'>
+                        <input type='text' class='rsvp-name'></input>
+                    </div>
                 </div>
-                <div class='col-xs-1'></div>
             </div>
         </div>
     </div>
 `;
-
-
