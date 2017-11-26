@@ -191,6 +191,16 @@ footer {
 }
 
 /*...RSVP...*/
+.rsvp-form {
+	border: 2px solid rgb(22, 194, 179);
+	border-radius: 10px;
+	padding: 14px 10px;
+}
+.rsvp-name {
+	border: 1px solid black;
+	border-radius: 5px;
+	padding: 3px;
+}
 
 
 /*...@Media...*/
