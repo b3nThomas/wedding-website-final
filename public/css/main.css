@@ -25,6 +25,9 @@ p {
 .font-melika-script {
 	font-family: melika-script;
 }
+.font-segoe {
+	font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+}
 /*...Font Sizes...*/
 .fs-s {
 	font-size: 14px;
@@ -192,14 +195,32 @@ footer {
 
 /*...RSVP...*/
 .rsvp-form {
-	border: 2px solid rgb(22, 194, 179);
+	border: 2px dashed rgb(22, 194, 179);
 	border-radius: 10px;
 	padding: 14px 10px;
+	max-width: 750px;
+	margin: 0 auto;
 }
-.rsvp-name {
-	border: 1px solid black;
+.rsvp-form p {
+	font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+	margin: 10% 0 0 0;
+	padding: 0 5%;
+	width: 90%;
+}
+.rsvp-input {
+	border: 1px solid rgb(22, 194, 179);
 	border-radius: 5px;
+	margin: 5px 0 0 10%;
 	padding: 3px;
+	width: 80%;
+}
+.rsvp-tall-input {
+	border: 1px solid rgb(22, 194, 179);
+	border-radius: 5px;
+	margin: 5px 0 0 10%;
+	padding: 3px;
+	height: 100px;
+	width: 80%;
 }
 
 

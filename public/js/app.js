@@ -99,7 +99,7 @@ $(document).ready(() => {
     const cms = new CMS_1.CMS();
     cms.prependTemplate(Fixtures.Nav, $navId);
     const navBar = new NavBar_1.NavBar($navId);
-    navBar.activateHiding(60);
+    navBar.activateHiding(150);
     cms.prependTemplate(Fixtures.Footer, $footerId);
     for (const page of Pages_1.Pages) {
         $(page.navId).click(() => {
@@ -218,14 +218,39 @@ exports.RSVP = `
         </div>
         <div class='rsvp-form'>
             <div class='row'>
-                <div class='col-xs-1'></div>
-                <div class='col-xs-10' >
-                    <span class='font-moon-light'>Number of Guests</span>
-                    <select id='rsvp-guests' type='number'>
-                        ${Helpers_1.createNumberSelectOptionList(1, 10)}
-                    </select>
+                <div class='col-xs-12' >
+                    <p>
+                        Number of Guests
+                        <select type='number' id='rsvp-guests'>
+                            ${Helpers_1.createNumberSelectOptionList(1, 10)}
+                        </select>
+                    </p>
+                    <p>Name(s):</p>
+                    <div id='rsvp-names'>
+                        <input type='text' class='rsvp-name rsvp-input'></input>
+                    </div>
+                    <p>
+                        Does anyone require the vegetarian option or have any food allergies?<br>
+                        Please provide details:
+                    </p>
+                    <textarea id='rsvp-options' class='rsvp-tall-input'></textarea>
+                    <p> Is there a particular song you'd like to hear?:</p>
+                    <input type='text' id='rsvp-song' class='rsvp-name rsvp-input'></input>
+                    <p>
+                        Cars may be left at the venue overnight, but must be collected by 10:00am the following day (in time for the next wedding!)
+                    </p>
+                    <p>
+                        We are also consiering hiring a coach to transport guests to and from the venue from Swindon,
+                        relieving people of worrying about accomodation, driving, taxis, etc. 
+                    </p>
+                    <p>
+                        If this interests you, please tick the box and leave us some details so we can keep you updated!
+                    </p>
+                    <p>
+                        <input type='checkbox' id='rsvp-coach' value='interested'> sounds good<br>
+                        <i><input type='email' id= 'rsvp-email' class='rsvp-input' value='your email address...'></input></i>
+                    </p>
                 </div>
-                <div class='col-xs-1'></div>
             </div>
         </div>
     </div>
@@ -414,7 +439,12 @@ exports.Pages = [
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.rsvp = () => {
     $('#rsvp-guests').change(() => {
-        alert(`New value: ${$('#rsvp-guests').val()}`);
+        const totalGuests = Number($('#rsvp-guests').val());
+        let template = '';
+        for (let i = 0; i < totalGuests; i++) {
+            template += `<input type='text' class='rsvp-name rsvp-input'></input><br>`;
+        }
+        $('#rsvp-names').html(template);
     });
 };
 //# sourceMappingURL=Listeners.js.map

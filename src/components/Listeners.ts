@@ -3,7 +3,7 @@ export const rsvp = () => {
         const totalGuests = Number($('#rsvp-guests').val());
         let template = '';
         for (let i = 0; i < totalGuests; i++) {
-            template += `<input type='text' class='rsvp-name'></input><br>`;
+            template += `<input type='text' class='rsvp-name rsvp-input'></input><br>`;
         }
         $('#rsvp-names').html(template);
     });
