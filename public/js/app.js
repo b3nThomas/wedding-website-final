@@ -233,18 +233,18 @@ exports.RSVP = `
                             <p>
                                 Does anyone require the vegetarian option or have any food allergies? If so, please provide details:
                             </p>
-                            <textarea id='rsvp-options' maxlength='175' class='rsvp-tall-input'></textarea>
+                            <textarea maxlength='175' class='rsvp-dietary rsvp-tall-input'></textarea>
                         </div>
                     </div>
                     <div>
-                        <p> Is there a particular song you'd like to hear?:</p>
-                        <input type='text' maxlength='30' id='rsvp-song' class='rsvp-name rsvp-input'></input>
+                        <p> The name of a particular song you'd like to hear:</p>
+                        <input type='text' maxlength='30' class='rsvp-song rsvp-name rsvp-input'></input>
                     </div>
                     <div>
                         <p>
                             Leave us a message if you like:
                         </p>
-                        <textarea id='rsvp-message' maxlength='175' class='rsvp-tall-input'></textarea>
+                        <textarea maxlength='175' class='rsvp-message rsvp-tall-input'></textarea>
                     </div>
                     <div>
                         <p>
@@ -252,17 +252,17 @@ exports.RSVP = `
                             If you fancy pitching-up for the night, Cripps have kindly offered our guests the use of their <a href='https://crippsbarn.com/local-area/camping/' target='_blank'>camping ground</a>.<br><br>
                             Finally, we're considering hiring a coach to transport our Swindon guests to and from the venue.<br>
                             <small>*subject to a small fee.</small><br><br>
-                            If this appeals to you, please tick the box and provide some details so we can gauge the level of response and keep you up to date with any news: <input type='checkbox' id='rsvp-interested' value='interested'><br>
+                            If this appeals to you, please tick the box and provide some details so we can gauge the level of response and keep you up to date with any news: <input type='checkbox' class='rsvp-interested' value='interested'><br>
                         </p>
                     </div>
                     <div class='rsvp-contact-details'>
-                        <p>No. of Passengers:</p>
+                        <p>Passengers:</p>
                         <select type='number' class='rsvp-travel-passengers'>
                             ${Helpers_1.createNumberSelectOptionList(1, 10, 'rsvp-guest-count')}
                         </select>
                         <div>
                             <p>Travelling:</p>
-                            <select type='text' id='rsvp-travel-option'>
+                            <select type='text' class='rsvp-travel-option'>
                                 <option value='return'>To and from the Venue</option>
                                 <option value='there'>To the Venue only</option>
                                 <option value='back'>From the Venue only</option>
@@ -270,21 +270,21 @@ exports.RSVP = `
                         </div>
                         <div>
                             <p>Your Name:</p>
-                            <input type='text' maxlength='30' id='rsvp-travel-name' class='rsvp-input'></input>
+                            <input type='text' maxlength='30' class='rsvp-travel-name rsvp-input'></input>
                         </div>
                         <div>
                             <p>Your Email/Phone Number</p>
-                            <input type='text' maxlength='60' id='rsvp-travel-contact' class='rsvp-input'></input>
+                            <input type='text' maxlength='60' class='rsvp-travel-contact rsvp-input'></input>
                         </div>
                         <div>
                             <p>Your address:<br>
                             <small>*we'll use this info to work out the best pick-up/drop-off points.</small></p>
-                            <textarea id='rsvp-travel-address' maxlength='175' class='rsvp-tall-input'></textarea>
+                            <textarea maxlength='175' class='rsvp-travel-address rsvp-tall-input'></textarea>
                         </div>
                     </div>
                     <div>
                         <p>Any questions or comments?:</p>
-                        <textarea id='rsvp-comments' maxlength='175' class='rsvp-tall-input'></textarea>
+                        <textarea maxlength='175' class='rsvp-comments rsvp-tall-input'></textarea>
                     </div>
                     <button class='rsvp-btn-send'>Send</button>
                 </div>
@@ -479,20 +479,49 @@ exports.rsvp = () => {
     $('.rsvp-no-of-guests').change(() => {
         const totalGuests = Number($('.rsvp-no-of-guests').val());
         let template = '';
-        for (let i = 0; i < totalGuests; i++) {
-            template += `<input type='text' maxlength='30' class='rsvp-name rsvp-input'></input><br>`;
+        for (let i = 1; i <= totalGuests; i++) {
+            template += `<input type='text' maxlength='30' class='rsvp-name-${i} rsvp-input'></input><br>`;
         }
         $('#rsvp-names').html(template);
         totalGuests > 1 ? $('.rsvp-name-text').text('Names:') : $('.rsvp-name-text').text('Name:');
     });
-    $('#rsvp-interested').change(() => {
-        if ($('#rsvp-interested').is(':checked')) {
+    $('.rsvp-interested').change(() => {
+        if ($('.rsvp-interested').is(':checked')) {
             $('.rsvp-contact-details').show();
         }
         else {
             $('.rsvp-contact-details').hide();
         }
     });
+    $('.rsvp-btn-send').click(() => {
+        getRSVPDetails();
+    });
+};
+const getRSVPDetails = () => {
+    const totalGuests = Number($('.rsvp-no-of-guests').val());
+    const guestNames = [];
+    for (let i = totalGuests; i > 0; i--) {
+        guestNames.push($(`.rsvp-name-${i}`).val());
+    }
+    const details = {
+        guests: totalGuests,
+        names: guestNames,
+        dietaryInfo: $('.rsvp-no-of-dietary').val(),
+        song: $('.rsvp-song').val(),
+        message: $('.rsvp-message').val(),
+        coach: {
+            interested: $('.rsvp-interested').is(':checked') ? 'Y' : 'N',
+            passengers: $('.rsvp-interested').is(':checked') ? $('.rsvp-travel-passengers').val() : 0,
+            journey: $('.rsvp-interested').is(':checked') ? $('.rsvp-travel-option').val() : 'none',
+            contact: {
+                name: $('.rsvp-travel-name').val(),
+                details: $('.rsvp-travel-contact').val(),
+                address: $('.rsvp-travel-address').val()
+            }
+        },
+        questions: $('.rsvp-comments').val()
+    };
+    console.log(JSON.stringify(details));
 };
 //# sourceMappingURL=Listeners.js.map
 

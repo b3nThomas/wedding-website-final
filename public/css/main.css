@@ -216,9 +216,10 @@ footer {
 	border: 1px solid rgb(22, 194, 179);
 	border-radius: 5px;
 	padding: 3px;
-	margin: 6px 45% 0 45%;
-	width: 10%;
-	min-width: 40px;
+	margin: 6px 42.5% 0 42.5%;
+	width: 15%;
+	text-align: center;
+	text-align-last: center;
 }
 .rsvp-input, .rsvp-tall-input {
 	border: 1px solid rgb(22, 194, 179);
@@ -236,7 +237,7 @@ footer {
 	height: 100px;
 	resize: none;
 }
-#rsvp-travel-option {
+.rsvp-travel-option {
     border: 1px solid rgb(22, 194, 179);
     border-radius: 5px;
 	margin: 12px 25% 0 25%;
@@ -313,7 +314,7 @@ footer {
 		margin: 10px 2.5% 0 2.5%;
 		width: 95%;
 	}
-	#rsvp-travel-option {
+	.rsvp-travel-option {
 		border: 1px solid rgb(22, 194, 179);
 		border-radius: 5px;
 		margin: 10px 10% 0 10%;
