@@ -500,12 +500,12 @@ exports.rsvp = () => {
 const getRSVPDetails = () => {
     const totalGuests = Number($('.rsvp-no-of-guests').val());
     const guestNames = [];
-    for (let i = totalGuests; i > 0; i--) {
+    for (let i = 1; i <= totalGuests; i++) {
         guestNames.push($(`.rsvp-name-${i}`).val());
     }
     const details = {
         guests: totalGuests,
-        names: guestNames,
+        names: guestNames.join(', '),
         dietaryInfo: $('.rsvp-no-of-dietary').val(),
         song: $('.rsvp-song').val(),
         message: $('.rsvp-message').val(),
@@ -521,7 +521,7 @@ const getRSVPDetails = () => {
         },
         questions: $('.rsvp-comments').val()
     };
-    console.log(JSON.stringify(details));
+    alert(JSON.stringify(details));
 };
 //# sourceMappingURL=Listeners.js.map
 
