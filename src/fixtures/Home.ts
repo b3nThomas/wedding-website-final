@@ -21,19 +21,19 @@ export const Home = `
                 <div class='col-lg-2'></div>
 
                 <div class='col-lg-2 col-md-3 col-sm-6 col-xs-12 thumbnail'>
-                    <img src='./images/gallery-bc/bc-img-09.jpg' class='img-responsive'>
-                </div>
-
-                <div class='col-lg-2 col-md-3 col-sm-6 col-xs-12 thumbnail'>
-                    <img src='./images/gallery-bc/bc-img-13.jpg' class='img-responsive'>
-                </div>
-
-                <div class='col-lg-2 col-md-3 col-sm-6 col-xs-12 thumbnail'>
                     <img src='./images/gallery-bc/bc-img-14.jpg' class='img-responsive'>
                 </div>
 
                 <div class='col-lg-2 col-md-3 col-sm-6 col-xs-12 thumbnail'>
                     <img src='./images/gallery-bc/bc-img-15.jpg' class='img-responsive'>
+                </div>
+
+                <div class='col-lg-2 col-md-3 col-sm-6 col-xs-12 thumbnail'>
+                    <img src='./images/gallery-bc/bc-img-09.jpg' class='img-responsive'>
+                </div>
+
+                <div class='col-lg-2 col-md-3 col-sm-6 col-xs-12 thumbnail'>
+                    <img src='./images/gallery-bc/bc-img-13.jpg' class='img-responsive'>
                 </div>
 
                 <div class='col-lg-2'></div>

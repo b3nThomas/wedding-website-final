@@ -105,7 +105,7 @@ footer {
 
 /*...TemplateCanvas...*/
 #template-container {
-	padding: 80px 20px 60px 20px;
+	padding: 60px 2.5% 60px 2.5%;
 	z-index: 1;
 }
 
@@ -202,28 +202,77 @@ footer {
 	border: 2px dashed rgb(22, 194, 179);
 	border-radius: 10px;
 	padding: 14px 10px;
-	max-width: 750px;
-	margin: 30px auto 0 auto;
+	max-width: 600px;
+	margin: 10px auto 0 auto;
 }
 .rsvp-form p {
 	font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
-	margin: 10% 0 0 0;
+	margin: 10px 10% 0 10%;
 	padding: 0 5%;
-	width: 100%;
+	width: 80%;
 	text-align: center;
+}
+.rsvp-no-of-guests, .rsvp-travel-passengers {
+	border: 1px solid rgb(22, 194, 179);
+	border-radius: 5px;
+	padding: 3px;
+	margin: 6px 45% 0 45%;
+	width: 10%;
+	min-width: 40px;
 }
 .rsvp-input, .rsvp-tall-input {
 	border: 1px solid rgb(22, 194, 179);
 	border-radius: 5px;
-	margin: 6px 20%;
+	margin: 6px 25% 0 25%;
 	padding: 3px;
-	width: 60%;
+	width: 50%;
 	text-align: center;
+	outline-color: rgb(95, 204, 193);
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	transition: all .3s;
 }
 .rsvp-tall-input {
 	height: 100px;
+	resize: none;
 }
-
+#rsvp-travel-option {
+    border: 1px solid rgb(22, 194, 179);
+    border-radius: 5px;
+	margin: 12px 25% 0 25%;
+	padding: 12px 4px;
+	text-align: center;
+	text-align-last: center;
+	height: 27px;
+	width: 50%;
+	outline-color: rgb(95, 204, 193);
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	transition: all .3s;
+}
+.rsvp-btn-send {
+	background: rgb(22, 194, 179);
+	border: 1px solid rgb(22, 194, 179);
+	border-radius: 5px;
+	color: rgb(255, 255, 255);
+	opacity: 0.89;
+	font-family: moon-light;
+	margin: 36px 35%;
+	padding: 4px;
+	width: 30%;
+	-webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+}
+.rsvp-btn-send:hover {
+	opacity: 1;
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	transition: all .3s;
+}
+.rsvp-btn-send:focus {
+	outline-color: rgb(95, 204, 193);
+}
 /*...@Media...*/
 
 @media screen and (max-width: 768px) {
@@ -256,8 +305,19 @@ footer {
 	}
 
 	/*RSVP*/
-	.rsvp-input, .rsvp-tall-input {
-		margin: 6px 10%;
+	.rsvp-input, .rsvp-tall-input, .rsvp-travel select {
+		margin: 6px 10% 0 10%;
+		width: 80%;
+	}
+	.rsvp-form p {
+		margin: 10px 2.5% 0 2.5%;
+		width: 95%;
+	}
+	#rsvp-travel-option {
+		border: 1px solid rgb(22, 194, 179);
+		border-radius: 5px;
+		margin: 10px 10% 0 10%;
+		padding: 4px;
 		width: 80%;
 	}
 }

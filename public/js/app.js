@@ -98,8 +98,7 @@ const $footerId = '#footer-container';
 $(document).ready(() => {
     const cms = new CMS_1.CMS();
     cms.prependTemplate(Fixtures.Nav, $navId);
-    const navBar = new NavBar_1.NavBar($navId);
-    navBar.activateHiding(150);
+    const navBar = new NavBar_1.NavBar($navId).activateHiding(100);
     cms.prependTemplate(Fixtures.Footer, $footerId);
     for (const page of Pages_1.Pages) {
         $(page.navId).click(() => {
@@ -118,7 +117,7 @@ $(document).ready(() => {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Footer = `
-    <p>&copy; b3nThomas</p>
+    <p>&copy; b3nThomas - MMXVII</p>
 `;
 //# sourceMappingURL=Footer.js.map
 
@@ -152,19 +151,19 @@ exports.Home = `
                 <div class='col-lg-2'></div>
 
                 <div class='col-lg-2 col-md-3 col-sm-6 col-xs-12 thumbnail'>
-                    <img src='./images/gallery-bc/bc-img-09.jpg' class='img-responsive'>
-                </div>
-
-                <div class='col-lg-2 col-md-3 col-sm-6 col-xs-12 thumbnail'>
-                    <img src='./images/gallery-bc/bc-img-13.jpg' class='img-responsive'>
-                </div>
-
-                <div class='col-lg-2 col-md-3 col-sm-6 col-xs-12 thumbnail'>
                     <img src='./images/gallery-bc/bc-img-14.jpg' class='img-responsive'>
                 </div>
 
                 <div class='col-lg-2 col-md-3 col-sm-6 col-xs-12 thumbnail'>
                     <img src='./images/gallery-bc/bc-img-15.jpg' class='img-responsive'>
+                </div>
+
+                <div class='col-lg-2 col-md-3 col-sm-6 col-xs-12 thumbnail'>
+                    <img src='./images/gallery-bc/bc-img-09.jpg' class='img-responsive'>
+                </div>
+
+                <div class='col-lg-2 col-md-3 col-sm-6 col-xs-12 thumbnail'>
+                    <img src='./images/gallery-bc/bc-img-13.jpg' class='img-responsive'>
                 </div>
 
                 <div class='col-lg-2'></div>
@@ -219,37 +218,75 @@ exports.RSVP = `
         <div class='rsvp-form'>
             <div class='row'>
                 <div class='col-xs-12' >
-                    <p>
-                        Number of Guests:
-                        <select type='number' id='rsvp-guests'>
-                            ${Helpers_1.createNumberSelectOptionList(1, 10)}
+                    <div>
+                        <p>Guests:</p>
+                        <select type='number' class='rsvp-no-of-guests'>
+                            ${Helpers_1.createNumberSelectOptionList(1, 10, 'rsvp-guest-count')}
                         </select>
-                    </p>
-                    <p>Name(s):</p>
-                    <div id='rsvp-names'>
-                        <input type='text' maxlength='30' class='rsvp-name rsvp-input'></input>
                     </div>
                     <div>
-                        <p>
-                            Does anyone require the vegetarian option or have any food allergies?<br>
-                            Please provide details:
-                        </p>
-                        <textarea id='rsvp-options' maxlength='175' class='rsvp-tall-input'></textarea>
+                        <p class='rsvp-name-text'>Name:</p>
+                        <div id='rsvp-names'>
+                            <input type='text' maxlength='30' class='rsvp-name rsvp-input'></input>
+                        </div>
+                        <div>
+                            <p>
+                                Does anyone require the vegetarian option or have any food allergies? If so, please provide details:
+                            </p>
+                            <textarea id='rsvp-options' maxlength='175' class='rsvp-tall-input'></textarea>
+                        </div>
                     </div>
                     <div>
                         <p> Is there a particular song you'd like to hear?:</p>
                         <input type='text' maxlength='30' id='rsvp-song' class='rsvp-name rsvp-input'></input>
                     </div>
-                    <p>
-                        Cars may be left at the venue overnight but must be collected by 10:00am the following morning.<br>
-                        (in time for the next wedding!)
-                    </p>
-                    <p>
-                        We're also considering hiring a coach to transport guests between Swindon and the venue,
-                        meaning you don't have to worry about transport.<br><br>
-                        If this interests you, please tick the box for more details: <input type='checkbox' id='rsvp-interested' value='interested'><br>
-                        <div id='rsvp-contact-details' class='fs-xs'><div>
-                    </p>
+                    <div>
+                        <p>
+                            Leave us a message if you like:
+                        </p>
+                        <textarea id='rsvp-message' maxlength='175' class='rsvp-tall-input'></textarea>
+                    </div>
+                    <div>
+                        <p>
+                            Cars may be left at the venue overnight but must be collected by <strong>10:00am</strong> the following morning.<br><br>
+                            If you fancy pitching-up for the night, Cripps have kindly offered our guests the use of their <a href='https://crippsbarn.com/local-area/camping/' target='_blank'>camping ground</a>.<br><br>
+                            Finally, we're considering hiring a coach to transport our Swindon guests to and from the venue.<br>
+                            <small>*subject to a small fee.</small><br><br>
+                            If this appeals to you, please tick the box and provide some details so we can gauge the level of response and keep you up to date with any news: <input type='checkbox' id='rsvp-interested' value='interested'><br>
+                        </p>
+                    </div>
+                    <div class='rsvp-contact-details'>
+                        <p>No. of Passengers:</p>
+                        <select type='number' class='rsvp-travel-passengers'>
+                            ${Helpers_1.createNumberSelectOptionList(1, 10, 'rsvp-guest-count')}
+                        </select>
+                        <div>
+                            <p>Travelling:</p>
+                            <select type='text' id='rsvp-travel-option'>
+                                <option value='return'>To and from the Venue</option>
+                                <option value='there'>To the Venue only</option>
+                                <option value='back'>From the Venue only</option>
+                            </select>
+                        </div>
+                        <div>
+                            <p>Your Name:</p>
+                            <input type='text' maxlength='30' id='rsvp-travel-name' class='rsvp-input'></input>
+                        </div>
+                        <div>
+                            <p>Your Email/Phone Number</p>
+                            <input type='text' maxlength='60' id='rsvp-travel-contact' class='rsvp-input'></input>
+                        </div>
+                        <div>
+                            <p>Your address:<br>
+                            <small>*we'll use this info to work out the best pick-up/drop-off points.</small></p>
+                            <textarea id='rsvp-travel-address' maxlength='175' class='rsvp-tall-input'></textarea>
+                        </div>
+                    </div>
+                    <div>
+                        <p>Any questions or comments?:</p>
+                        <textarea id='rsvp-comments' maxlength='175' class='rsvp-tall-input'></textarea>
+                    </div>
+                    <button class='rsvp-btn-send'>Send</button>
                 </div>
             </div>
         </div>
@@ -264,11 +301,11 @@ exports.RSVP = `
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createNumberSelectOptionList = (start, limit) => {
+exports.createNumberSelectOptionList = (start, limit, identifier) => {
     let template = ``;
     let index = start;
     while (index <= limit) {
-        template += `<option class="rsvp-guest-count" value="${index}">${index}</option>`;
+        template += `<option class="${identifier}" value="${index}">${index}</option>`;
         index++;
     }
     return template;
@@ -437,50 +474,27 @@ exports.Pages = [
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const Coach_1 = __webpack_require__(13);
 exports.rsvp = () => {
-    $('#rsvp-guests').change(() => {
-        const totalGuests = Number($('#rsvp-guests').val());
+    $('.rsvp-contact-details').hide();
+    $('.rsvp-no-of-guests').change(() => {
+        const totalGuests = Number($('.rsvp-no-of-guests').val());
         let template = '';
         for (let i = 0; i < totalGuests; i++) {
             template += `<input type='text' maxlength='30' class='rsvp-name rsvp-input'></input><br>`;
         }
         $('#rsvp-names').html(template);
+        totalGuests > 1 ? $('.rsvp-name-text').text('Names:') : $('.rsvp-name-text').text('Name:');
     });
     $('#rsvp-interested').change(() => {
         if ($('#rsvp-interested').is(':checked')) {
-            $('#rsvp-contact-details').html(Coach_1.Coach);
-            $('#rsvp-user-name').click(() => {
-                $('#rsvp-user-name').val('');
-            });
-            $('#rsvp-user-contact').click(() => {
-                $('#rsvp-user-contact').val('');
-            });
+            $('.rsvp-contact-details').show();
         }
         else {
-            $('#rsvp-contact-details').html('');
+            $('.rsvp-contact-details').hide();
         }
     });
 };
 //# sourceMappingURL=Listeners.js.map
-
-/***/ }),
-/* 13 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Coach = `
-    <select type='text'>
-        <option value='return'>There and back</option>
-        <option value='there'>Swindon to Cripps</option>
-        <option value='back'>Cripps to Swindon</option>
-    </select>
-    <i><input type='text' maxlength='30' id='rsvp-user-name' class='rsvp-input' value='Your Name...'></input></i>
-    <i><input type='text' maxlength='60' id='rsvp-user-contact' class='rsvp-input' value='Email Address/Phone Number...'></input></i>
-`;
-//# sourceMappingURL=Coach.js.map
 
 /***/ })
 /******/ ]);
