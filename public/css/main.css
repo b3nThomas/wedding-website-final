@@ -85,9 +85,9 @@ html {
 	position: relative;
 }
 body {
-	/*background-attachment: fixed;
-	background-size: 100vw auto;
-	background-image: url('../images/gallery-cripps/cripps-sign.jpg');*/
+	background-attachment: fixed;
+	background-size: cover;
+	background-image: url('../images/peony-flowers.jpg');
 	margin: 0 0 25px 0;
 }
 footer {
@@ -198,14 +198,14 @@ footer {
 
 /*...RSVP...*/
 .rsvp-form {
-	background: rgb(223, 248, 245);
+	background: rgba(255, 255, 255, 0.4);
 	border: 2px dashed rgb(22, 194, 179);
 	border-radius: 10px;
 	padding: 14px 10px;
 	max-width: 600px;
 	margin: 10px auto 0 auto;
 }
-.rsvp-form p {
+.rsvp-label {
 	font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
 	margin: 10px 10% 0 10%;
 	padding: 0 5%;
@@ -234,10 +234,10 @@ footer {
 	transition: all .3s;
 }
 .rsvp-tall-input {
-	height: 100px;
+	height: 80px;
 	resize: none;
 }
-.rsvp-travel-option {
+.rsvp-attending, .rsvp-travel-option {
     border: 1px solid rgb(22, 194, 179);
     border-radius: 5px;
 	margin: 12px 25% 0 25%;
@@ -306,6 +306,11 @@ footer {
 	}
 
 	/*RSVP*/
+	.rsvp-no-of-guests, .rsvp-travel-passengers {
+		margin: 6px 40% 0 40%;
+		width: 20%;
+	}
+
 	.rsvp-input, .rsvp-tall-input, .rsvp-travel select {
 		margin: 6px 10% 0 10%;
 		width: 80%;
@@ -314,7 +319,7 @@ footer {
 		margin: 10px 2.5% 0 2.5%;
 		width: 95%;
 	}
-	.rsvp-travel-option {
+	.rsvp-attending, .rsvp-travel-option {
 		border: 1px solid rgb(22, 194, 179);
 		border-radius: 5px;
 		margin: 10px 10% 0 10%;

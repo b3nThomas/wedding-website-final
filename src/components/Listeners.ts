@@ -8,8 +8,24 @@ export const rsvp = () => {
         for (let i = 1; i <= totalGuests; i++) {
             template += `<input type='text' maxlength='30' class='rsvp-name-${i} rsvp-input'></input><br>`;
         }
-        $('#rsvp-names').html(template);
-        totalGuests > 1 ? $('.rsvp-name-text').text('Names:') : $('.rsvp-name-text').text('Name:');
+        $('.rsvp-names').html(template);
+        if (totalGuests > 1) {
+            $('.rsvp-name-text').text('Names:');
+            $('.rsvp-attending-yes').text(`We'll be there`);
+            $('.rsvp-attending-no').text(`We can't make it`);
+        } else {    
+            $('.rsvp-name-text').text('Name:');
+            $('.rsvp-attending-yes').text(`I'll be there`);
+            $('.rsvp-attending-no').text(`I can't make it`);
+        }
+    });
+
+    $('.rsvp-attending').change(() => {
+        if ($('.rsvp-attending').val() === 'attending') {
+            $('.rsvp-payload').fadeIn(100);
+        } else {
+            $('.rsvp-payload').fadeOut(100);
+        }
     });
 
     $('.rsvp-interested').change(() => {
@@ -35,6 +51,7 @@ const getRSVPDetails = () => {
     const details = {
         guests: totalGuests,
         names: guestNames.join(', '),
+        attending: $('.rsvp-attending').val() === 'attending' ? 'Y' : 'N',
         dietaryInfo: $('.rsvp-no-of-dietary').val(),
         song: $('.rsvp-song').val(),
         message: $('.rsvp-message').val(),
