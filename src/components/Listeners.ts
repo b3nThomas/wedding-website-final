@@ -3,6 +3,7 @@ import { createNumberSelectOptionList } from './Helpers';
 export const rsvp = () => {
 
     $('.rsvp-coach').hide();
+    $('.rsvp-robot-message').hide();
     
     $('.rsvp-no-of-guests').change(() => {
         const totalGuests = Number($('.rsvp-no-of-guests').val());
@@ -47,24 +48,35 @@ export const rsvp = () => {
         }
     });
 
+    $('.rsvp-robot').click((e) => {
+        $('.rsvp-robot-message').fadeOut(100);
+    });
+
     $('.rsvp-btn-send').click((e) => {
         e.preventDefault();
-        const data = getRSVPDetails();
-        const url = 'https://qshrdywnlb.execute-api.eu-west-1.amazonaws.com/test/rsvp';
+        $('.rsvp-btn-send').blur();
+        if ($('.rsvp-robot').is(':checked')) {
+            $('.rsvp-robot-message').fadeOut(100);
+            const data = getRSVPDetails();
+            const url = 'https://qshrdywnlb.execute-api.eu-west-1.amazonaws.com/test/rsvp';
+    
+            $.ajax({
+                type: 'POST',
+                url: url,
+                dataType: 'json',
+                contentType: 'application/json',
+                data: JSON.stringify(data),
+                success: () => {
+                  alert('Success');
+                },
+                error: (err) => {
+                  alert('There was a problem');
+                }
+            });
 
-        $.ajax({
-            type: 'POST',
-            url: url,
-            dataType: 'json',
-            contentType: 'application/json',
-            data: JSON.stringify(data),
-            success: () => {
-              alert('Success');
-            },
-            error: (err) => {
-              alert('There was a problem');
-            }
-        });
+        } else {
+            $('.rsvp-robot-message').fadeIn(100);
+        }
     });
 
 };

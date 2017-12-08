@@ -95,10 +95,12 @@ export const RSVP = `
                         </p>
                         <textarea maxlength='175' class='rsvp-message rsvp-tall-input'></textarea>
                     </div>
+                    </br>
                     <div>
-                        <p class='rsvp-label'>Please tick to confirm you're not a robot: <input type='checkbox' class='rsvp-robot' value='robot'></br></p>
+                        <p class='rsvp-label'><strong>Please tick to confirm you're not a robot: </strong><input type='checkbox' class='rsvp-robot' value='robot'></p>
+                        <p class='rsvp-robot-message'>*no robots allowed! Tick the box first</p>
+                        <button class='rsvp-btn-send'>Send</button>
                     </div>
-                    <button class='rsvp-btn-send'>Send</button>
                 </div>
             </div>
         </div>
