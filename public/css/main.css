@@ -190,9 +190,11 @@ footer {
 }
 #map-container {
 	background: url('../images/loading.gif') center no-repeat;
+	background-color: white;
 	background-size: 60px 60px;
-	padding: 5vh 0 1vh 0;
-	width: 100%;
+	margin: 0 10% 20% 10%;
+	padding: 0;
+	width: 80%;
 }
 #accom-container {
 	margin: 20px 0 20px 0;
@@ -284,6 +286,10 @@ footer {
 .rsvp-btn-send::focus {
 	outline-color: rgb(95, 204, 193);
 }
+.rsvp-robot-message {
+	color: red;
+	text-align: center;
+}
 /*...@Media...*/
 
 @media screen and (max-width: 1000px) {
@@ -327,8 +333,8 @@ footer {
 		width: 90%;
 	}
 	#map-container {
-		width: 98%;
-		margin: 0 0 0 2.5%;
+		width: 100%;
+		margin: 0 0 15% 0;
 	}
 
 	/*RSVP*/
