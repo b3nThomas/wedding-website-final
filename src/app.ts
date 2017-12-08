@@ -11,7 +11,7 @@ $(document).ready(() => {
     const cms = new CMS();
 
     cms.prependTemplate(Fixtures.Nav, $navId);
-    const navBar = new NavBar($navId).activateHiding(100);
+    const navBar = new NavBar($navId).activateHiding(75);
     cms.prependTemplate(Fixtures.Footer, $footerId);
 
     for (const page of Pages) {
