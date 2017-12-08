@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -73,16 +73,34 @@ function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
 Object.defineProperty(exports, "__esModule", { value: true });
-__export(__webpack_require__(2));
 __export(__webpack_require__(3));
 __export(__webpack_require__(4));
 __export(__webpack_require__(5));
+__export(__webpack_require__(6));
 __export(__webpack_require__(7));
 __export(__webpack_require__(8));
 //# sourceMappingURL=index.js.map
 
 /***/ }),
 /* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.createNumberSelectOptionList = (start, limit, identifier) => {
+    let template = ``;
+    let index = start;
+    while (index <= limit) {
+        template += `<option class="${identifier}" value="${index}">${index}</option>`;
+        index++;
+    }
+    return template;
+};
+//# sourceMappingURL=Helpers.js.map
+
+/***/ }),
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -98,7 +116,7 @@ const $footerId = '#footer-container';
 $(document).ready(() => {
     const cms = new CMS_1.CMS();
     cms.prependTemplate(Fixtures.Nav, $navId);
-    const navBar = new NavBar_1.NavBar($navId).activateHiding(100);
+    const navBar = new NavBar_1.NavBar($navId).activateHiding(75);
     cms.prependTemplate(Fixtures.Footer, $footerId);
     for (const page of Pages_1.Pages) {
         $(page.navId).click(() => {
@@ -110,7 +128,7 @@ $(document).ready(() => {
 //# sourceMappingURL=app.js.map
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -122,7 +140,7 @@ exports.Footer = `
 //# sourceMappingURL=Footer.js.map
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -174,7 +192,7 @@ exports.Home = `
 //# sourceMappingURL=Home.js.map
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -199,13 +217,13 @@ exports.Nav = `
 //# sourceMappingURL=Nav.js.map
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const Helpers_1 = __webpack_require__(6);
+const Helpers_1 = __webpack_require__(1);
 exports.RSVP = `
     <div class='container-fluid'>
         <div class='row'>
@@ -220,7 +238,7 @@ exports.RSVP = `
                 <div class='col-xs-12' >
                     <div>
                         <p class='rsvp-label'>Guests:</p>
-                        <select type='number' class='rsvp-no-of-guests'>
+                        <select type='number' class='rsvp-no-of-guests rsvp-select-number'>
                             ${Helpers_1.createNumberSelectOptionList(1, 10, 'rsvp-guest-count')}
                         </select>
                     </div>
@@ -231,7 +249,7 @@ exports.RSVP = `
                         </div>
                     </div>
                     <div>
-                        <p class='rsvp-label'>Attending:</p>
+                        <p class='rsvp-label'>Will you be attending?:</p>
                         <select type='text' class='rsvp-attending'>
                             <option class='rsvp-attending-yes' value='attending'>I'll be there</option>
                             <option class='rsvp-attending-no' value='not-attending'>I can't make it</option>
@@ -239,56 +257,60 @@ exports.RSVP = `
                     </div>
                     <div class='rsvp-payload'>
                         <div>
-                            <p class='rsvp-label'>
-                                Does anyone require the vegetarian option or have any food allergies? If so, please provide details:
+                            <p class='rsvp-dietary-text rsvp-label'>
+                                Do you require the vegetarian option or have any food allergies? If so, please provide details:
                             </p>
                             <textarea maxlength='175' class='rsvp-dietary rsvp-tall-input'></textarea>
+                        </div>
+                        <div>
+                            <p class='rsvp-label'>Are there any under 5's in your party? If so, how many?:</p>
+                            <select type='number' class='rsvp-no-of-under-fives rsvp-select-number'>
+                                ${Helpers_1.createNumberSelectOptionList(0, 5, 'rsvp-under-fives-count')}
+                            </select>
                         </div>
                         <div>
                             <p class='rsvp-label'> The name of a particular song you'd like to hear:</p>
                             <input type='text' maxlength='30' class='rsvp-song rsvp-name rsvp-input'></input>
                         </div>
+                        </br>
                         <div>
                             <p class='rsvp-label'>
-                                Cars may be left at the venue overnight but must be collected by <strong>10:00am</strong> the following morning.</br></br>
+                                Cars may be left overnight at the venue but must be collected by <strong>10:00am</strong> the following morning.</br></br>
                                 If you fancy pitching-up for the night, Cripps have kindly offered our guests the use of their <a href='https://crippsbarn.com/local-area/camping/' target='_blank'>camping ground</a>.</br></br>
                                 Finally, we're considering hiring a coach to transport our Swindon guests to and from the venue.</br>
                                 <small>*subject to a small fee.</small></br></br>
                                 If this appeals to you, please tick the box and provide some details so we can gauge the level of response and keep you up to date with any news: <input type='checkbox' class='rsvp-interested' value='interested'></br>
                             </p>
                         </div>
-                        <div class='rsvp-contact-details'>
+                        <div class='rsvp-coach'>
                             <div>
                                 <p class='rsvp-label'>Passengers:</p>
-                                <select type='number' class='rsvp-travel-passengers'>
-                                    ${Helpers_1.createNumberSelectOptionList(1, 10, 'rsvp-guest-count')}
+                                <select type='number' class='rsvp-coach-passengers rsvp-select-number'>
+                                    ${Helpers_1.createNumberSelectOptionList(1, 10, 'rsvp-passenger-count')}
                                 </select>
                             </div>
                             <div>
                                 <p class='rsvp-label'>Travelling:</p>
-                                <select type='text' class='rsvp-travel-option'>
+                                <select type='text' class='rsvp-coach-journey'>
                                     <option value='return'>To and from the Venue</option>
                                     <option value='there'>To the Venue only</option>
                                     <option value='back'>From the Venue only</option>
                                 </select>
                             </div>
                             <div>
-                                <p class='rsvp-label'>Your Name:</p>
-                                <input type='text' maxlength='30' class='rsvp-travel-name rsvp-input'></input>
+                                <p class='rsvp-label'>Your name:</p>
+                                <input type='text' maxlength='30' class='rsvp-coach-name rsvp-input'></input>
                             </div>
                             <div>
-                                <p class='rsvp-label'>Your Email/Phone Number</p>
-                                <input type='text' maxlength='60' class='rsvp-travel-contact rsvp-input'></input>
+                                <p class='rsvp-label'>Your mobile number:</br>
+                                <small>*we'll use this to text you with any updates or arrangements.</small></p>
+                                <input type='text' maxlength='60' class='rsvp-coach-mobile rsvp-input'></input>
                             </div>
                             <div>
                                 <p class='rsvp-label'>Your address:</br>
                                 <small>*we'll use this info to work out the best pick-up/drop-off points.</small></p>
-                                <textarea maxlength='175' class='rsvp-travel-address rsvp-tall-input'></textarea>
+                                <textarea maxlength='175' class='rsvp-coach-address rsvp-tall-input'></textarea>
                             </div>
-                        </div>
-                        <div>
-                            <p class='rsvp-label'>Any questions or comments?:</p>
-                            <textarea maxlength='175' class='rsvp-comments rsvp-tall-input'></textarea>
                         </div>
                     </div>
                     <div>
@@ -297,6 +319,9 @@ exports.RSVP = `
                         </p>
                         <textarea maxlength='175' class='rsvp-message rsvp-tall-input'></textarea>
                     </div>
+                    <div>
+                        <p class='rsvp-label'>Please tick to confirm you're not a robot: <input type='checkbox' class='rsvp-robot' value='robot'></br></p>
+                    </div>
                     <button class='rsvp-btn-send'>Send</button>
                 </div>
             </div>
@@ -304,24 +329,6 @@ exports.RSVP = `
     </div>
 `;
 //# sourceMappingURL=RSVP.js.map
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.createNumberSelectOptionList = (start, limit, identifier) => {
-    let template = ``;
-    let index = start;
-    while (index <= limit) {
-        template += `<option class="${identifier}" value="${index}">${index}</option>`;
-        index++;
-    }
-    return template;
-};
-//# sourceMappingURL=Helpers.js.map
 
 /***/ }),
 /* 7 */
@@ -485,24 +492,32 @@ exports.Pages = [
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+const Helpers_1 = __webpack_require__(1);
 exports.rsvp = () => {
-    $('.rsvp-contact-details').hide();
+    $('.rsvp-coach').hide();
     $('.rsvp-no-of-guests').change(() => {
         const totalGuests = Number($('.rsvp-no-of-guests').val());
+        $('.rsvp-coach-passengers').html(Helpers_1.createNumberSelectOptionList(1, totalGuests, '.rsvp-coach-passengers-count'));
+        $('.rsvp-no-of-under-fives').html(Helpers_1.createNumberSelectOptionList(0, totalGuests, '.rsvp-under-fives-count'));
         let template = '';
         for (let i = 1; i <= totalGuests; i++) {
             template += `<input type='text' maxlength='30' class='rsvp-name-${i} rsvp-input'></input><br>`;
         }
-        $('.rsvp-names').html(template);
+        $('.rsvp-names').hide();
+        $('.rsvp-names').html(template).promise().done(() => {
+            $('.rsvp-names').fadeIn(100);
+        });
         if (totalGuests > 1) {
             $('.rsvp-name-text').text('Names:');
             $('.rsvp-attending-yes').text(`We'll be there`);
             $('.rsvp-attending-no').text(`We can't make it`);
+            $('.rsvp-dietary-text').text(`Does anyone require the vegetarian option or have any food allergies? If so, please provide details:`);
         }
         else {
             $('.rsvp-name-text').text('Name:');
             $('.rsvp-attending-yes').text(`I'll be there`);
             $('.rsvp-attending-no').text(`I can't make it`);
+            $('.rsvp-dietary-text').text(`Do you require the vegetarian option or have any food allergies? If so, please provide details:`);
         }
     });
     $('.rsvp-attending').change(() => {
@@ -515,14 +530,29 @@ exports.rsvp = () => {
     });
     $('.rsvp-interested').change(() => {
         if ($('.rsvp-interested').is(':checked')) {
-            $('.rsvp-contact-details').show();
+            $('.rsvp-coach').fadeIn(100);
         }
         else {
-            $('.rsvp-contact-details').hide();
+            $('.rsvp-coach').fadeOut(100);
         }
     });
-    $('.rsvp-btn-send').click(() => {
-        getRSVPDetails();
+    $('.rsvp-btn-send').click((e) => {
+        e.preventDefault();
+        const data = getRSVPDetails();
+        const url = 'https://qshrdywnlb.execute-api.eu-west-1.amazonaws.com/test/rsvp';
+        $.ajax({
+            type: 'POST',
+            url: url,
+            dataType: 'json',
+            contentType: 'application/json',
+            data: JSON.stringify(data),
+            success: () => {
+                alert('Success');
+            },
+            error: (err) => {
+                alert('There was a problem');
+            }
+        });
     });
 };
 const getRSVPDetails = () => {
@@ -535,22 +565,22 @@ const getRSVPDetails = () => {
         guests: totalGuests,
         names: guestNames.join(', '),
         attending: $('.rsvp-attending').val() === 'attending' ? 'Y' : 'N',
-        dietaryInfo: $('.rsvp-no-of-dietary').val(),
+        dietaryInfo: $('.rsvp-dietary').val(),
+        underFives: $('.rsvp-no-of-under-fives').val(),
         song: $('.rsvp-song').val(),
         message: $('.rsvp-message').val(),
         coach: {
             interested: $('.rsvp-interested').is(':checked') ? 'Y' : 'N',
-            passengers: $('.rsvp-interested').is(':checked') ? $('.rsvp-travel-passengers').val() : 0,
-            journey: $('.rsvp-interested').is(':checked') ? $('.rsvp-travel-option').val() : 'none',
+            passengers: $('.rsvp-interested').is(':checked') ? $('.rsvp-coach-passengers').val() : 0,
+            journey: $('.rsvp-interested').is(':checked') ? $('.rsvp-coach-journey').val() : 'none',
             contact: {
-                name: $('.rsvp-travel-name').val(),
-                details: $('.rsvp-travel-contact').val(),
-                address: $('.rsvp-travel-address').val()
+                name: $('.rsvp-coach-name').val(),
+                mobile: $('.rsvp-coach-mobile').val(),
+                address: $('.rsvp-coach-address').val()
             }
-        },
-        questions: $('.rsvp-comments').val()
+        }
     };
-    alert(JSON.stringify(details));
+    return details;
 };
 //# sourceMappingURL=Listeners.js.map
 
