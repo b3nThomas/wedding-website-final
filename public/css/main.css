@@ -80,15 +80,23 @@ p {
 
 /*...Elements...*/
 html {
-	min-height: 100%;
 	overflow-y: scroll;
-	position: relative;
+	min-height: 100%;
 }
-body {
-	background-attachment: fixed;
-	background-size: cover;
-	background-image: url('../images/peony-flowers.jpg');
-	margin: 0 0 25px 0;
+body::after {
+	background: url('../images/peony-flowers.jpg');
+	background-color: #ffffff;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: auto 100vw;
+	content: '';
+	display: block;
+	height: 120vh;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: -1;
 }
 footer {
 	color: rgb(179, 176, 176);
@@ -96,16 +104,18 @@ footer {
 	height: 35px;
     width: 100%;
 	left: 0;
-    bottom: 0;
+	bottom: 3;
+	padding: 10px;
 	overflow:hidden;
 	position: absolute;
 	font-family: Georgia, Times, "Times New Roman", serif;
-	text-align: center;
+	text-align: left;
 }
 
 /*...TemplateCanvas...*/
 #template-container {
-	padding: 60px 2.5% 60px 2.5%;
+	padding: 60px 2.5% 0 2.5%;
+	min-height: 96vh;
 	z-index: 1;
 }
 
@@ -198,8 +208,8 @@ footer {
 
 /*...RSVP...*/
 .rsvp-form {
-	background: rgba(255, 255, 255, 0.4);
-	border: 2px dashed rgb(22, 194, 179);
+	background: rgba(255, 255, 255, 0.432);
+	border: 1px solid rgb(22, 194, 179);
 	border-radius: 10px;
 	padding: 14px 10px;
 	max-width: 600px;
@@ -212,12 +222,12 @@ footer {
 	width: 80%;
 	text-align: center;
 }
-.rsvp-no-of-guests, .rsvp-travel-passengers {
+.rsvp-select-number {
 	border: 1px solid rgb(22, 194, 179);
 	border-radius: 5px;
 	padding: 3px;
-	margin: 6px 42.5% 0 42.5%;
-	width: 15%;
+	margin: 6px 25% 0 25%;
+	width: 50%;
 	text-align: center;
 	text-align-last: center;
 }
@@ -234,10 +244,10 @@ footer {
 	transition: all .3s;
 }
 .rsvp-tall-input {
-	height: 80px;
+	height: 90px;
 	resize: none;
 }
-.rsvp-attending, .rsvp-travel-option {
+.rsvp-attending, .rsvp-coach-journey {
     border: 1px solid rgb(22, 194, 179);
     border-radius: 5px;
 	margin: 12px 25% 0 25%;
@@ -265,18 +275,33 @@ footer {
     -moz-transition: all .3s;
     transition: all .3s;
 }
-.rsvp-btn-send:hover {
+.rsvp-btn-send::hover {
 	opacity: 1;
 	-webkit-transition: all .3s;
 	-moz-transition: all .3s;
 	transition: all .3s;
 }
-.rsvp-btn-send:focus {
+.rsvp-btn-send::focus {
 	outline-color: rgb(95, 204, 193);
 }
 /*...@Media...*/
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1000px) {
+	body::after {
+		background: url(../images/peony-flowers.jpg);
+		background-color: #ffffff;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: 160vh 100%;
+		content: '';
+		display: block;
+		height: 100%;
+		width: 100%;
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: -1;
+	}
 }
 
 @media screen and (max-width: 545px) {
@@ -295,6 +320,7 @@ footer {
 	.fs-xxl {
 		font-size: 38px;
 	}
+
 	 /*VENUE*/
 	#page-ve div div .thumbnail {
 		margin-left: 5%;
@@ -306,11 +332,12 @@ footer {
 	}
 
 	/*RSVP*/
-	.rsvp-no-of-guests, .rsvp-travel-passengers {
-		margin: 6px 40% 0 40%;
-		width: 20%;
+	.rsvp-select-number {
+		margin: 6px 10% 0 10%;
+		width: 80%;
+		text-align: center;
+		text-align-last: center;
 	}
-
 	.rsvp-input, .rsvp-tall-input, .rsvp-travel select {
 		margin: 6px 10% 0 10%;
 		width: 80%;
@@ -319,11 +346,13 @@ footer {
 		margin: 10px 2.5% 0 2.5%;
 		width: 95%;
 	}
-	.rsvp-attending, .rsvp-travel-option {
+	.rsvp-attending, .rsvp-coach-journey {
 		border: 1px solid rgb(22, 194, 179);
 		border-radius: 5px;
 		margin: 10px 10% 0 10%;
 		padding: 4px;
 		width: 80%;
+		text-align: center;
+		text-align-last: center;
 	}
 }
