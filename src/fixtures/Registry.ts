@@ -1,11 +1,9 @@
-'use strict';
-
-module.exports.template = `
+export const Registry = `
     <div class='container-fluid'>
         <div class='row'>
             <div class='col-xs-1'></div>
             <div class='col-xs-10 center'>
-                <p class='fs-xxl theme-text-color font-moon-light text-shadow'>RSVP</p>
+                <p class='fs-l font-moon-light text-shadow'>Registry</p>
             </div>
             <div class='col-xs-1'></div>
         </div>

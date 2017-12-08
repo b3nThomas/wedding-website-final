@@ -8,6 +8,7 @@
 
 bin
 local-creds.json
+package.json
 package-lock.json
 tsconfig.json
 tslint.json

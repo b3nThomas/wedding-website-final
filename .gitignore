@@ -59,13 +59,13 @@ typings/
 .env
 
 # Transpiled JS
-#**/*.js
 **/*.js.map
+src/**/*.js
+!public/js/*.js
 
 # Build/deployment tools and directories
 build
 deploy
-!scripts/*.js
 scripts/local-creds.json
 .DS_Store
 package-lock.json

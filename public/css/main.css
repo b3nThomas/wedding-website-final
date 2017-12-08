@@ -1,3 +1,8 @@
+/*...Bootstrap Overrides...*/
+p {
+	margin: 0;
+}
+
 /*...Fonts...*/
 @font-face {
     font-family: moon-bold;
@@ -20,9 +25,15 @@
 .font-melika-script {
 	font-family: melika-script;
 }
+.font-segoe {
+	font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+}
 /*...Font Sizes...*/
+.fs-xs {
+	font-size: 11px;
+}
 .fs-s {
-	font-size: 28px;
+	font-size: 14px;
 }
 .fs-m {
 	font-size: 32px;
@@ -38,17 +49,16 @@
 }
 
 /*...Generic...*/
-.shadow {
-	text-shadow: 0 0 4px #777;
-}
 .box-shadow {
-	box-shadow: 0 0 13px #e6e6e6;
+	box-shadow:0 0 5px #ccc;
+    -moz-box-shadow:0 0 5px #ccc;
+    -webkit-box-shadow:0 0 5px #ccc;
 }
-.small-glow {
-	box-shadow: 0 0 10px 4px #ff6d6d;
+.hidden {
+	display: none;
 }
-.big-glow {
-	box-shadow: 0 0 10px 7px #ff6d6d;
+.shadow {
+	text-shadow: 0 0 4px #616161;
 }
 .center {
 	text-align: center;
@@ -56,10 +66,10 @@
 
 /*...Colors...*/
 .theme-text-color {
-	color: rgb(207, 52, 52);
+	color: rgb(22, 194, 179);
 }
 .theme-background-color {
-	background: rgb(207, 52, 52);
+	background: rgb(22, 194, 179);
 }
 .rose {
 	color: #EF597B;
@@ -71,84 +81,106 @@
 /*...Elements...*/
 html {
 	overflow-y: scroll;
+	min-height: 100%;
 }
-body {
-	background-color: transparent;
+body::after {
+	background: url('../images/peony-flowers.jpg');
+	background-color: #ffffff;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: auto 100vw;
+	content: '';
+	display: block;
+	height: 120vh;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: -1;
+}
+footer {
+	color: rgb(179, 176, 176);
+	font-size: 12px;
+	height: 35px;
+    width: 100%;
+	left: 0;
+	bottom: 3;
+	padding: 10px;
+	overflow:hidden;
+	position: absolute;
+	font-family: Georgia, Times, "Times New Roman", serif;
+	text-align: left;
+}
+
+/*...TemplateCanvas...*/
+#template-container {
+	padding: 60px 2.5% 0 2.5%;
+	min-height: 96vh;
+	z-index: 1;
 }
 
 /*...Nav Bar...*/
-.topnav {
+#nav-container {
 	overflow: hidden;
 	position: fixed;
 	width: 100%;
+	z-index: 10;
+	-webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
 }
-.topnav ul {
-	border-radius: 0px 0px 15px 15px;
+#nav-container ul {
+	border-radius: 0px 0px 8px 8px;
 	display: table;
 	list-style: none;
 	margin: -15px auto 0 auto;
 	padding: 15px 0 0 0;
 	position: relative;
-	text-align: center;
 	width: auto;
 }
-.topnav ul li {
+#nav-container ul li {
 	float: left;
-	list-style: none;
-	margin: 0;
+	margin: 0 -2px 0 0;
 	padding: 0;
 	position: relative;
+	opacity: 0.89;
+	text-decoration: none;
+	-webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
 }
-.topnav ul li a {
+#nav-container ul li:active {
+	opacity: 1;
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	transition: all .3s;
+}
+#nav-container ul li:hover {
+	opacity: 1;
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	transition: all .3s;
+}
+#nav-container ul li a {
 	color: #fff;
 	float: left;
 	font-family: moon-light;
 	font-size: 14px;
-    padding: 10px 10px;
-    text-align: center;
+	padding: 12px 12px;
+	text-align: center;
 	text-decoration: none;
-	-webkit-transition: all .25s;
-    -moz-transition: all .25s;
-    transition: all .25s;
 }
-.topnav ul li a:hover {
-	background-color: rgb(42, 177, 152);
-	-webkit-transition: all .25s;
-    -moz-transition: all .25s;
-    transition: all .25s;
+.nav-button {
+	cursor: pointer;
 }
-#nav-home {
-	border-radius: 0 0 0 15px;
+.nav-hidden {
+	margin-top: -50px;
 }
-#nav-venue {
-
+.nav-left {
+	border-radius: 0 0 0 8px;
 }
-#nav-rsvp {
-	border-radius: 0 0 15px 0;
-}
-
-/*...TemplateCanvas...*/
-#template-canvas {
-	padding-top: 60px;
-}
-
-/*...Home...*/
-
-#img-love-birds {
-	margin: auto;
-	max-width: 250px;
-	min-width: 150px;
-	width: 40vw;
-}
-
-/*...Us...*/
-
-#page-us img {
-	border-radius: 5px;
-	padding: 4px;
-}
-#page-us p {
-	padding-top: 5px;
+.nav-right {
+	border-radius: 0 0 8px 0;
 }
 
 /*...Venue...*/
@@ -156,16 +188,14 @@ body {
 	border-radius: 5px;
 	padding: 3px;
 }
-#ve-pics {
-	width: 90%;
-	margin-left: 5%;
-}
 #map-container {
-	width: 80%;
-	margin: 0 0 80px 10%;
+	background: url('../images/loading.gif') center no-repeat;
+	background-size: 60px 60px;
+	padding: 5vh 0 1vh 0;
+	width: 100%;
 }
 #accom-container {
-	margin: 20px 0 80px 0;
+	margin: 20px 0 20px 0;
 }
 
 .accom-default {
@@ -174,30 +204,107 @@ body {
 	font-size: 18px;
 	padding: 10px;
 	text-decoration: none;
-	transition: 0.2s;
-}
-.accom-active {
-	font-size: 20px;
 }
 
 /*...RSVP...*/
-
-
+.rsvp-form {
+	background: rgba(255, 255, 255, 0.432);
+	border: 1px solid rgb(22, 194, 179);
+	border-radius: 10px;
+	padding: 14px 10px;
+	max-width: 600px;
+	margin: 10px auto 0 auto;
+}
+.rsvp-label {
+	font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+	margin: 10px 10% 0 10%;
+	padding: 0 5%;
+	width: 80%;
+	text-align: center;
+}
+.rsvp-select-number {
+	border: 1px solid rgb(22, 194, 179);
+	border-radius: 5px;
+	padding: 3px;
+	margin: 6px 25% 0 25%;
+	width: 50%;
+	text-align: center;
+	text-align-last: center;
+}
+.rsvp-input, .rsvp-tall-input {
+	border: 1px solid rgb(22, 194, 179);
+	border-radius: 5px;
+	margin: 6px 25% 0 25%;
+	padding: 3px;
+	width: 50%;
+	text-align: center;
+	outline-color: rgb(95, 204, 193);
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	transition: all .3s;
+}
+.rsvp-tall-input {
+	height: 90px;
+	resize: none;
+}
+.rsvp-attending, .rsvp-coach-journey {
+    border: 1px solid rgb(22, 194, 179);
+    border-radius: 5px;
+	margin: 12px 25% 0 25%;
+	padding: 12px 4px;
+	text-align: center;
+	text-align-last: center;
+	height: 27px;
+	width: 50%;
+	outline-color: rgb(95, 204, 193);
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	transition: all .3s;
+}
+.rsvp-btn-send {
+	background: rgb(22, 194, 179);
+	border: 1px solid rgb(22, 194, 179);
+	border-radius: 5px;
+	color: rgb(255, 255, 255);
+	opacity: 0.89;
+	font-family: moon-light;
+	margin: 36px 35%;
+	padding: 4px;
+	width: 30%;
+	-webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+}
+.rsvp-btn-send::hover {
+	opacity: 1;
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	transition: all .3s;
+}
+.rsvp-btn-send::focus {
+	outline-color: rgb(95, 204, 193);
+}
 /*...@Media...*/
 
-@media screen and (max-width: 768px) {
-	#my-navbar {
-		margin: 0 auto;
+@media screen and (max-width: 1000px) {
+	body::after {
+		background: url(../images/peony-flowers.jpg);
+		background-color: #ffffff;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: 160vh 100%;
+		content: '';
+		display: block;
+		height: 100%;
+		width: 100%;
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: -1;
 	}
-	#my-navbar ul{
-	  list-style-type: none;
-	  padding: 0;
-	}
-
 }
 
 @media screen and (max-width: 545px) {
-	/*FONTS*/
 	.fs-s {
 		font-size: 24px;
 	}
@@ -213,10 +320,6 @@ body {
 	.fs-xxl {
 		font-size: 38px;
 	}
-	/*NAV*/
-    #nav-links li {
-    	font-size: 25px; 
-    }
 
 	 /*VENUE*/
 	#page-ve div div .thumbnail {
@@ -224,7 +327,32 @@ body {
 		width: 90%;
 	}
 	#map-container {
-		width: 92%;
-		margin: 0 0 80px 4%;
+		width: 98%;
+		margin: 0 0 0 2.5%;
+	}
+
+	/*RSVP*/
+	.rsvp-select-number {
+		margin: 6px 10% 0 10%;
+		width: 80%;
+		text-align: center;
+		text-align-last: center;
+	}
+	.rsvp-input, .rsvp-tall-input, .rsvp-travel select {
+		margin: 6px 10% 0 10%;
+		width: 80%;
+	}
+	.rsvp-form p {
+		margin: 10px 2.5% 0 2.5%;
+		width: 95%;
+	}
+	.rsvp-attending, .rsvp-coach-journey {
+		border: 1px solid rgb(22, 194, 179);
+		border-radius: 5px;
+		margin: 10px 10% 0 10%;
+		padding: 4px;
+		width: 80%;
+		text-align: center;
+		text-align-last: center;
 	}
 }
