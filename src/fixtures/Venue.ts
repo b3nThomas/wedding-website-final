@@ -14,7 +14,7 @@ export const Venue = `
         <div class='row'>
             <div id='accom-container' class='col-12 center'>
                 <a id='accom-link' class='accom-default theme-background-color font-moon-light' title='Click here to view the local accomodation'
-                    href='https://crippsbarn.com/local-area/accommodation/' style='text-decoration: none; color: white'>ACCOMMODATION</a>
+                    href='https://www.crippsbarn.com/directory/' style='text-decoration: none; color: white'>ACCOMMODATION</a>
             </div>
         </div>
     </div>
