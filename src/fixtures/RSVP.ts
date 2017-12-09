@@ -15,7 +15,7 @@ export const RSVP = `
                     <div>
                         <p class='rsvp-label'>Guests:</p>
                         <select type='number' class='rsvp-no-of-guests rsvp-select-number'>
-                            ${ createNumberSelectOptionList(1, 10, 'rsvp-guest-count')}
+                            ${ createNumberSelectOptionList(1, 10, 'rsvp-name')}
                         </select>
                     </div>
                     <div>
@@ -41,7 +41,7 @@ export const RSVP = `
                         <div>
                             <p class='rsvp-label'>Are there any under 5's in your party? If so, how many?:</p>
                             <select type='number' class='rsvp-no-of-under-fives rsvp-select-number'>
-                                ${ createNumberSelectOptionList(0, 5, 'rsvp-under-fives-count')}
+                                ${ createNumberSelectOptionList(0, 1, 'rsvp-under-fives-count')}
                             </select>
                         </div>
                         <div>
@@ -62,7 +62,7 @@ export const RSVP = `
                             <div>
                                 <p class='rsvp-label'>Passengers:</p>
                                 <select type='number' class='rsvp-coach-passengers rsvp-select-number'>
-                                    ${ createNumberSelectOptionList(1, 10, 'rsvp-passenger-count')}
+                                    ${ createNumberSelectOptionList(1, 1, 'rsvp-passenger-count')}
                                 </select>
                             </div>
                             <div>
@@ -98,11 +98,15 @@ export const RSVP = `
                     </br>
                     <div>
                         <p class='rsvp-label'><strong>Please tick to confirm you're not a robot: </strong><input type='checkbox' class='rsvp-robot' value='robot'></p>
-                        <p class='rsvp-robot-message'>*no robots allowed! Tick the box first</p>
+                        <p class='rsvp-robot-message'>*No robots allowed! Tick the box first</p>
                         <button class='rsvp-btn-send'>Send</button>
                     </div>
                 </div>
             </div>
         </div>
+        <div class='rsvp-sending'>
+            <p>Sending...</p>
+        </div>
+        <div class='rsvp-sent'></div>
     </div>
 `;

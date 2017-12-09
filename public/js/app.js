@@ -92,7 +92,7 @@ exports.createNumberSelectOptionList = (start, limit, identifier) => {
     let template = ``;
     let index = start;
     while (index <= limit) {
-        template += `<option class="${identifier}" value="${index}">${index}</option>`;
+        template += `<option class="${identifier}-${index}" value="${index}">${index}</option>`;
         index++;
     }
     return template;
@@ -239,7 +239,7 @@ exports.RSVP = `
                     <div>
                         <p class='rsvp-label'>Guests:</p>
                         <select type='number' class='rsvp-no-of-guests rsvp-select-number'>
-                            ${Helpers_1.createNumberSelectOptionList(1, 10, 'rsvp-guest-count')}
+                            ${Helpers_1.createNumberSelectOptionList(1, 10, 'rsvp-name')}
                         </select>
                     </div>
                     <div>
@@ -265,7 +265,7 @@ exports.RSVP = `
                         <div>
                             <p class='rsvp-label'>Are there any under 5's in your party? If so, how many?:</p>
                             <select type='number' class='rsvp-no-of-under-fives rsvp-select-number'>
-                                ${Helpers_1.createNumberSelectOptionList(0, 5, 'rsvp-under-fives-count')}
+                                ${Helpers_1.createNumberSelectOptionList(0, 1, 'rsvp-under-fives-count')}
                             </select>
                         </div>
                         <div>
@@ -286,7 +286,7 @@ exports.RSVP = `
                             <div>
                                 <p class='rsvp-label'>Passengers:</p>
                                 <select type='number' class='rsvp-coach-passengers rsvp-select-number'>
-                                    ${Helpers_1.createNumberSelectOptionList(1, 10, 'rsvp-passenger-count')}
+                                    ${Helpers_1.createNumberSelectOptionList(1, 1, 'rsvp-passenger-count')}
                                 </select>
                             </div>
                             <div>
@@ -319,13 +319,19 @@ exports.RSVP = `
                         </p>
                         <textarea maxlength='175' class='rsvp-message rsvp-tall-input'></textarea>
                     </div>
+                    </br>
                     <div>
-                        <p class='rsvp-label'>Please tick to confirm you're not a robot: <input type='checkbox' class='rsvp-robot' value='robot'></br></p>
+                        <p class='rsvp-label'><strong>Please tick to confirm you're not a robot: </strong><input type='checkbox' class='rsvp-robot' value='robot'></p>
+                        <p class='rsvp-robot-message'>*No robots allowed! Tick the box first</p>
+                        <button class='rsvp-btn-send'>Send</button>
                     </div>
-                    <button class='rsvp-btn-send'>Send</button>
                 </div>
             </div>
         </div>
+        <div class='rsvp-sending'>
+            <p>Sending...</p>
+        </div>
+        <div class='rsvp-sent'></div>
     </div>
 `;
 //# sourceMappingURL=RSVP.js.map
@@ -364,9 +370,10 @@ exports.Venue = `
                 <p class='fs-l font-moon-light text-shadow'>Cripps Barn</p>
             </div>
         </div>
+        </br>
         <div class='row'>
             <div id='map-container' class='col-xs-12'>
-                <iframe class='box-shadow' src='https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d66477.05148935101!2d-1.9113974717633855!3d51.74276147230118!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x688c98a90ca25866!2sCripps+Barn!5e0!3m2!1sen!2suk!4v1487940894833' width='100%' height='330px' frameborder='0' style='border:0' allowfullscreen></iframe>
+                <iframe class='venue-map box-shadow' src='https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d66477.05148935101!2d-1.9113974717633855!3d51.74276147230118!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x688c98a90ca25866!2sCripps+Barn!5e0!3m2!1sen!2suk!4v1487940894833' width='100%' height='330px' frameborder='0' style='border:0' allowfullscreen></iframe>
             </div>
         </div>
         <div class='row'>
@@ -495,6 +502,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const Helpers_1 = __webpack_require__(1);
 exports.rsvp = () => {
     $('.rsvp-coach').hide();
+    $('.rsvp-robot-message').hide();
+    $('.rsvp-sending').hide();
+    $('.rsvp-sent').hide();
     $('.rsvp-no-of-guests').change(() => {
         const totalGuests = Number($('.rsvp-no-of-guests').val());
         $('.rsvp-coach-passengers').html(Helpers_1.createNumberSelectOptionList(1, totalGuests, '.rsvp-coach-passengers-count'));
@@ -536,23 +546,61 @@ exports.rsvp = () => {
             $('.rsvp-coach').fadeOut(100);
         }
     });
+    $('.rsvp-robot').click((e) => {
+        $('.rsvp-robot-message').fadeOut(100);
+    });
     $('.rsvp-btn-send').click((e) => {
         e.preventDefault();
-        const data = getRSVPDetails();
-        const url = 'https://qshrdywnlb.execute-api.eu-west-1.amazonaws.com/test/rsvp';
-        $.ajax({
-            type: 'POST',
-            url: url,
-            dataType: 'json',
-            contentType: 'application/json',
-            data: JSON.stringify(data),
-            success: () => {
-                alert('Success');
-            },
-            error: (err) => {
-                alert('There was a problem');
-            }
-        });
+        $('.rsvp-btn-send').blur();
+        if ($('.rsvp-robot').is(':checked')) {
+            $('.rsvp-btn-send').unbind('click');
+            $('#nav-container').fadeOut(100);
+            $('.rsvp-form').fadeOut(100, () => {
+                $('.rsvp-sending').fadeIn(100);
+            });
+            const data = getRSVPDetails();
+            const url = 'https://qshrdywnlb.execute-api.eu-west-1.amazonaws.com/test/rsvp';
+            const sentTemplate = `
+                <p class='font-moon-light'><strong>Success!</strong></p></br>
+                <p>Number of guests: <strong>${data.guests}</strong></p></br>
+                <p>Names:</p>
+                <p><strong>${data.names}</strong></p></br>
+                <p>Attending: <strong>${data.attending}</strong></p></br>
+                <p>Dietary info: <strong>${data.dietaryInfo}</strong></p></br>
+                <p>Under fives: <strong>${data.underFives}</strong></p></br>
+                <p>Song: <strong>${data.song}</strong></p></br>
+                <p>Message:</p>
+                <p><strong>${data.message}</strong></p></br>
+                <p>Coach: <strong>${data.coach.interested}</strong></p></br>
+                <p>Passengers: <strong>${data.coach.passengers}</strong></p></br>
+                <p>Travelling: <strong>${data.coach.journey}</strong></p></br>
+                <p>Contact: <strong>${data.coach.contact.name}</strong> - <strong>${data.coach.contact.mobile}</strong></p></br>
+                <p>Address:</p>
+                <p><strong>${data.coach.contact.address}</strong></p></br>
+                <p class='font-moon-light'><strong>Thanks for taking the time to respond</strong></p>
+                <p class='font-moon-light'><strong>We look forward to seeing you soon</strong></p></br>
+            `;
+            $.ajax({
+                type: 'POST',
+                url: url,
+                dataType: 'json',
+                contentType: 'application/json',
+                data: JSON.stringify(data),
+                success: () => {
+                    $('.rsvp-sending').fadeOut(100, () => {
+                        $('.rsvp-sent').html(sentTemplate);
+                        $('.rsvp-sent').fadeIn(100);
+                        $('#nav-container').fadeIn(100);
+                    });
+                },
+                error: (err) => {
+                    alert('There was a problem');
+                }
+            });
+        }
+        else {
+            $('.rsvp-robot-message').fadeIn(100);
+        }
     });
 };
 const getRSVPDetails = () => {

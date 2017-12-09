@@ -4,6 +4,8 @@ export const rsvp = () => {
 
     $('.rsvp-coach').hide();
     $('.rsvp-robot-message').hide();
+    $('.rsvp-sending').hide();
+    $('.rsvp-sent').hide();
     
     $('.rsvp-no-of-guests').change(() => {
         const totalGuests = Number($('.rsvp-no-of-guests').val());
@@ -56,9 +58,33 @@ export const rsvp = () => {
         e.preventDefault();
         $('.rsvp-btn-send').blur();
         if ($('.rsvp-robot').is(':checked')) {
-            $('.rsvp-robot-message').fadeOut(100);
+            $('.rsvp-btn-send').unbind('click');
+            $('#nav-container').fadeOut(100);
+            $('.rsvp-form').fadeOut(100, () => {
+                $('.rsvp-sending').fadeIn(100);
+            });
             const data = getRSVPDetails();
             const url = 'https://qshrdywnlb.execute-api.eu-west-1.amazonaws.com/test/rsvp';
+            const sentTemplate = `
+                <p class='font-moon-light'><strong>Success!</strong></p></br>
+                <p>Number of guests: <strong>${ data.guests }</strong></p></br>
+                <p>Names:</p>
+                <p><strong>${ data.names }</strong></p></br>
+                <p>Attending: <strong>${ data.attending }</strong></p></br>
+                <p>Dietary info: <strong>${ data.dietaryInfo }</strong></p></br>
+                <p>Under fives: <strong>${ data.underFives }</strong></p></br>
+                <p>Song: <strong>${ data.song }</strong></p></br>
+                <p>Message:</p>
+                <p><strong>${ data.message }</strong></p></br>
+                <p>Coach: <strong>${ data.coach.interested }</strong></p></br>
+                <p>Passengers: <strong>${ data.coach.passengers }</strong></p></br>
+                <p>Travelling: <strong>${ data.coach.journey }</strong></p></br>
+                <p>Contact: <strong>${ data.coach.contact.name }</strong> - <strong>${ data.coach.contact.mobile }</strong></p></br>
+                <p>Address:</p>
+                <p><strong>${ data.coach.contact.address }</strong></p></br>
+                <p class='font-moon-light'><strong>Thanks for taking the time to respond</strong></p>
+                <p class='font-moon-light'><strong>We look forward to seeing you soon</strong></p></br>
+            `;
     
             $.ajax({
                 type: 'POST',
@@ -67,7 +93,11 @@ export const rsvp = () => {
                 contentType: 'application/json',
                 data: JSON.stringify(data),
                 success: () => {
-                  alert('Success');
+                    $('.rsvp-sending').fadeOut(100, () => {
+                        $('.rsvp-sent').html(sentTemplate);
+                        $('.rsvp-sent').fadeIn(100);
+                        $('#nav-container').fadeIn(100);
+                    });
                 },
                 error: (err) => {
                   alert('There was a problem');
