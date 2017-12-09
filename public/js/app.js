@@ -116,7 +116,7 @@ const $footerId = '#footer-container';
 $(document).ready(() => {
     const cms = new CMS_1.CMS();
     cms.prependTemplate(Fixtures.Nav, $navId);
-    const navBar = new NavBar_1.NavBar($navId).activateHiding(75);
+    const navBar = new NavBar_1.NavBar($navId).activateHiding(50);
     cms.prependTemplate(Fixtures.Footer, $footerId);
     for (const page of Pages_1.Pages) {
         $(page.navId).click(() => {
@@ -276,10 +276,9 @@ exports.RSVP = `
                         <div>
                             <p class='rsvp-label'>
                                 Cars may be left overnight at the venue but must be collected by <strong>10:00am</strong> the following morning.</br></br>
-                                If you fancy pitching-up for the night, Cripps have kindly offered our guests the use of their <a href='https://crippsbarn.com/local-area/camping/' target='_blank'>camping ground</a>.</br></br>
-                                Finally, we're considering hiring a coach to transport our Swindon guests to and from the venue.</br>
-                                <small>*subject to a small fee.</small></br></br>
-                                If this appeals to you, please tick the box and provide some details so we can gauge the level of response and keep you up to date with any news: <input type='checkbox' class='rsvp-interested' value='interested'></br>
+                                If you fancy pitching-up for the night, Cripps have kindly offered our guests the use of their camping ground.</br></br>
+                                We're also considering hiring a coach to transport our Swindon guests to and from the venue.</br></br>
+                                If you'd like to travel on the coach, please tick the box and provide some details so we can keep you up to date with any news: <input type='checkbox' class='rsvp-interested' value='interested'></br>
                             </p>
                         </div>
                         <div class='rsvp-coach'>
@@ -379,7 +378,7 @@ exports.Venue = `
         <div class='row'>
             <div id='accom-container' class='col-12 center'>
                 <a id='accom-link' class='accom-default theme-background-color font-moon-light' title='Click here to view the local accomodation'
-                    href='https://crippsbarn.com/local-area/accommodation/' style='text-decoration: none; color: white'>ACCOMMODATION</a>
+                    href='https://www.crippsbarn.com/directory/' style='text-decoration: none; color: white'>ACCOMMODATION</a>
             </div>
         </div>
     </div>
