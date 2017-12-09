@@ -189,12 +189,14 @@ footer {
 	padding: 3px;
 }
 #map-container {
-	background: url('../images/loading.gif') center no-repeat;
-	background-color: white;
-	background-size: 60px 60px;
 	margin: 0 10% 20% 10%;
 	padding: 0;
 	width: 80%;
+}
+.venue-map {
+	background: url('../images/loading.gif') center no-repeat;
+	background-size: 60px 60px;
+	background-color: rgba(255, 255, 255, 0.432);;
 }
 #accom-container {
 	margin: 20px 0 20px 0;
@@ -209,6 +211,27 @@ footer {
 }
 
 /*...RSVP...*/
+.rsvp-sending {
+	background: url('../images/loading.gif') center no-repeat;
+	background-size: 30px 30px;
+	background-color: rgba(255, 255, 255, 0.432);
+	border: 1px solid rgb(22, 194, 179);
+	border-radius: 10px;
+	padding: 5px;
+	text-align: center;
+	margin: 0 auto;
+	height: 100px;
+	width: 100px;
+}
+.rsvp-sent {
+	background-color: rgba(255, 255, 255, 0.432);
+	border: 1px solid rgb(22, 194, 179);
+	border-radius: 10px;
+	padding: 5px;
+	text-align: center;
+	margin: 0 auto;
+	width: 80%;
+}
 .rsvp-form {
 	background: rgba(255, 255, 255, 0.432);
 	border: 1px solid rgb(22, 194, 179);
@@ -301,7 +324,6 @@ footer {
 		background-size: 160vh 100%;
 		content: '';
 		display: block;
-		height: 100%;
 		width: 100%;
 		position: fixed;
 		top: 0;
