@@ -116,7 +116,7 @@ const $footerId = '#footer-container';
 $(document).ready(() => {
     const cms = new CMS_1.CMS();
     cms.prependTemplate(Fixtures.Nav, $navId);
-    const navBar = new NavBar_1.NavBar($navId).activateHiding(50);
+    const navBar = new NavBar_1.NavBar($navId).activateHiding(30);
     cms.prependTemplate(Fixtures.Footer, $footerId);
     for (const page of Pages_1.Pages) {
         $(page.navId).click(() => {
@@ -297,16 +297,16 @@ exports.RSVP = `
                                 </select>
                             </div>
                             <div>
-                                <p class='rsvp-label'>Your name:</p>
+                                <p class='rsvp-label'>Contact name:</p>
                                 <input type='text' maxlength='30' class='rsvp-coach-name rsvp-input'></input>
                             </div>
                             <div>
-                                <p class='rsvp-label'>Your mobile number:</br>
+                                <p class='rsvp-label'>Contact mobile number:</br>
                                 <small>*we'll use this to text you with any updates or arrangements.</small></p>
                                 <input type='text' maxlength='60' class='rsvp-coach-mobile rsvp-input'></input>
                             </div>
                             <div>
-                                <p class='rsvp-label'>Your address:</br>
+                                <p class='rsvp-label'>Contact address:</br>
                                 <small>*we'll use this info to work out the best pick-up/drop-off points.</small></p>
                                 <textarea maxlength='175' class='rsvp-coach-address rsvp-tall-input'></textarea>
                             </div>
@@ -412,6 +412,7 @@ class CMS {
             $(targetElement).fadeOut(240, () => {
                 this.removeTemplate(targetElement);
                 this.prependTemplate(templateString, targetElement);
+                window.scrollTo(0, 0);
                 $(targetElement).fadeIn(300, () => {
                     if (listeners) {
                         listeners();
@@ -562,23 +563,33 @@ exports.rsvp = () => {
             $('.rsvp-form').fadeOut(100);
             window.scrollTo(0, 0);
             const data = getRSVPDetails();
-            const confirmTemplate = `
+            let confirmTemplate = `
                 <p class='font-moon-light'><strong>Details:</strong></p></br>
                 <p>Number of guests: <strong>${data.guests}</strong></p></br>
                 <p>Names:</p>
                 <p><strong>${data.names}</strong></p></br>
                 <p>Attending: <strong>${data.attending}</strong></p></br>
-                <p>Dietary info: <strong>${data.dietaryInfo}</strong></p></br>
-                <p>Under fives: <strong>${data.underFives}</strong></p></br>
-                <p>Song: <strong>${data.song}</strong></p></br>
+            `;
+            if (data.attending === 'Y') {
+                confirmTemplate += `
+                    <p>Dietary info: <strong>${data.dietaryInfo}</strong></p></br>
+                    <p>Under fives: <strong>${data.underFives}</strong></p></br>
+                    <p>Song: <strong>${data.song}</strong></p></br>
+                `;
+            }
+            if (data.coach.interested === 'Y') {
+                confirmTemplate += `
+                    <p>Coach: <strong>${data.coach.interested}</strong></p></br>
+                    <p>Passengers: <strong>${data.coach.passengers}</strong></p></br>
+                    <p>Travelling: <strong>${data.coach.journey}</strong></p></br>
+                    <p>Contact: <strong>${data.coach.contact.name}</strong> - <strong>${data.coach.contact.mobile}</strong></p></br>
+                    <p>Address:</p>
+                    <p><strong>${data.coach.contact.address}</strong></p></br>
+                `;
+            }
+            confirmTemplate += `
                 <p>Message:</p>
                 <p><strong>${data.message}</strong></p></br>
-                <p>Coach: <strong>${data.coach.interested}</strong></p></br>
-                <p>Passengers: <strong>${data.coach.passengers}</strong></p></br>
-                <p>Travelling: <strong>${data.coach.journey}</strong></p></br>
-                <p>Contact: <strong>${data.coach.contact.name}</strong> - <strong>${data.coach.contact.mobile}</strong></p></br>
-                <p>Address:</p>
-                <p><strong>${data.coach.contact.address}</strong></p></br>
                 <p><button class='rsvp-btn rsvp-btn-send'>Send</button><button class='rsvp-btn rsvp-btn-edit'>Edit</button></p>
             `;
             $('.rsvp-check').html(confirmTemplate);
