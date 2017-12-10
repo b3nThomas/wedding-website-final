@@ -4,6 +4,7 @@ export const rsvp = () => {
 
     $('.rsvp-coach').hide();
     $('.rsvp-robot-message').hide();
+    $('.rsvp-check').hide();
     $('.rsvp-sending').hide();
     $('.rsvp-sent').hide();
     
@@ -54,19 +55,18 @@ export const rsvp = () => {
         $('.rsvp-robot-message').fadeOut(100);
     });
 
-    $('.rsvp-btn-send').click((e) => {
+    $('.rsvp-btn-check').click((e) => {
         e.preventDefault();
-        $('.rsvp-btn-send').blur();
+        $('.rsvp-btn-check').blur();
+
         if ($('.rsvp-robot').is(':checked')) {
-            $('.rsvp-btn-send').unbind('click');
             $('#nav-container').fadeOut(100);
-            $('.rsvp-form').fadeOut(100, () => {
-                $('.rsvp-sending').fadeIn(100);
-            });
+            $('.rsvp-form').fadeOut(100);
+            window.scrollTo(0, 0);
+
             const data = getRSVPDetails();
-            const url = 'https://qshrdywnlb.execute-api.eu-west-1.amazonaws.com/test/rsvp';
-            const sentTemplate = `
-                <p class='font-moon-light'><strong>Success!</strong></p></br>
+            const confirmTemplate = `
+                <p class='font-moon-light'><strong>Details:</strong></p></br>
                 <p>Number of guests: <strong>${ data.guests }</strong></p></br>
                 <p>Names:</p>
                 <p><strong>${ data.names }</strong></p></br>
@@ -82,26 +82,50 @@ export const rsvp = () => {
                 <p>Contact: <strong>${ data.coach.contact.name }</strong> - <strong>${ data.coach.contact.mobile }</strong></p></br>
                 <p>Address:</p>
                 <p><strong>${ data.coach.contact.address }</strong></p></br>
-                <p class='font-moon-light'><strong>Thanks for taking the time to respond</strong></p>
-                <p class='font-moon-light'><strong>We look forward to seeing you soon</strong></p></br>
-            `;
-    
-            $.ajax({
-                type: 'POST',
-                url: url,
-                dataType: 'json',
-                contentType: 'application/json',
-                data: JSON.stringify(data),
-                success: () => {
-                    $('.rsvp-sending').fadeOut(100, () => {
-                        $('.rsvp-sent').html(sentTemplate);
-                        $('.rsvp-sent').fadeIn(100);
+                <p><button class='rsvp-btn rsvp-btn-send'>Send</button><button class='rsvp-btn rsvp-btn-edit'>Edit</button></p>
+            `;            
+            $('.rsvp-check').html(confirmTemplate);
+            $('.rsvp-check').fadeIn(100);
+
+            $('.rsvp-btn-send').click(() => {
+                $('.rsvp-btn-send').unbind('click');
+                $('.rsvp-btn-send').blur();
+
+                $('.rsvp-check').fadeOut(100);
+                window.scrollTo(0, 0);
+                $('.rsvp-sending').fadeIn(100);
+
+                const url = 'https://qshrdywnlb.execute-api.eu-west-1.amazonaws.com/test/rsvp';
+                $.ajax({
+                    type: 'POST',
+                    url: url,
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    data: JSON.stringify(data),
+                    success: () => {
+                        $('.rsvp-sending').fadeOut(100, () => {
+                            window.scrollTo(0, 0);
+                            $('#nav-container').fadeIn(100);
+                            $('.rsvp-sent').fadeIn(100);
+                        });
+                    },
+                    error: (err) => {
+                      alert('Server error, please try again');
+                      $('.rsvp-sending').fadeOut(100, () => {
+                        window.scrollTo(0, 0);
                         $('#nav-container').fadeIn(100);
+                        $('.rsvp-form').fadeIn(100);
                     });
-                },
-                error: (err) => {
-                  alert('There was a problem');
-                }
+                    }
+                });
+            });
+
+            $('.rsvp-btn-edit').click(() => {
+                $('.rsvp-check').fadeOut(100);
+                window.scrollTo(0, 0);
+                $('#nav-container').fadeIn(100);
+                $('.rsvp-form').fadeIn(100);
+                $('.rsvp-robot').prop('checked', false);
             });
 
         } else {

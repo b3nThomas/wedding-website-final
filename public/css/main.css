@@ -72,7 +72,7 @@ p {
 	background: rgb(22, 194, 179);
 }
 .rose {
-	color: #EF597B;
+	color: rgb(239, 89, 123);
 }
 .grey777 {
 	color: #777;
@@ -223,7 +223,7 @@ footer {
 	height: 100px;
 	width: 100px;
 }
-.rsvp-sent {
+.rsvp-check, .rsvp-sent {
 	background-color: rgba(255, 255, 255, 0.432);
 	border: 1px solid rgb(22, 194, 179);
 	border-radius: 10px;
@@ -286,28 +286,36 @@ footer {
 	-moz-transition: all .3s;
 	transition: all .3s;
 }
-.rsvp-btn-send {
+.rsvp-btn {
 	background: rgb(22, 194, 179);
 	border: 1px solid rgb(22, 194, 179);
 	border-radius: 5px;
 	color: rgb(255, 255, 255);
 	opacity: 0.89;
 	font-family: moon-light;
-	margin: 36px 35%;
+	margin: 5px 35%;
 	padding: 4px;
 	width: 30%;
 	-webkit-transition: all .3s;
     -moz-transition: all .3s;
     transition: all .3s;
 }
-.rsvp-btn-send::hover {
+
+.rsvp-btn::hover {
 	opacity: 1;
 	-webkit-transition: all .3s;
 	-moz-transition: all .3s;
 	transition: all .3s;
 }
-.rsvp-btn-send::focus {
+.rsvp-btn::focus {
 	outline-color: rgb(95, 204, 193);
+}
+.rsvp-btn-edit {
+	background: rgb(239, 89, 123);
+	border: 1px solid rgb(235, 37, 83);
+}
+.rsvp-btn-edit::focus {
+	outline-color: rgb(235, 37, 83);
 }
 .rsvp-robot-message {
 	color: red;

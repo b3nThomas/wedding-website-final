@@ -15,7 +15,7 @@ export const RSVP = `
                     <div>
                         <p class='rsvp-label'>Guests:</p>
                         <select type='number' class='rsvp-no-of-guests rsvp-select-number'>
-                            ${ createNumberSelectOptionList(1, 10, 'rsvp-name')}
+                            ${ createNumberSelectOptionList(1, 10, 'rsvp-no-of-guests-option')}
                         </select>
                     </div>
                     <div>
@@ -39,7 +39,7 @@ export const RSVP = `
                             <textarea maxlength='175' class='rsvp-dietary rsvp-tall-input'></textarea>
                         </div>
                         <div>
-                            <p class='rsvp-label'>Are there any under 5's in your party? If so, how many?:</p>
+                            <p class='rsvp-label'>Are there any children under 5 in your party? If so, how many?:</p>
                             <select type='number' class='rsvp-no-of-under-fives rsvp-select-number'>
                                 ${ createNumberSelectOptionList(0, 1, 'rsvp-under-fives-count')}
                             </select>
@@ -98,14 +98,18 @@ export const RSVP = `
                     <div>
                         <p class='rsvp-label'><strong>Please tick to confirm you're not a robot: </strong><input type='checkbox' class='rsvp-robot' value='robot'></p>
                         <p class='rsvp-robot-message'>*No robots allowed! Tick the box first</p>
-                        <button class='rsvp-btn-send'>Send</button>
+                        </br>
+                        <button class='rsvp-btn rsvp-btn-check'>Check & Send</button>
                     </div>
                 </div>
             </div>
         </div>
+        <div class='rsvp-check'></div>
         <div class='rsvp-sending'>
             <p>Sending...</p>
         </div>
-        <div class='rsvp-sent'></div>
+        <div class='rsvp-sent'>
+            <p>Thank you, your RSVP was sent successfully!</p>
+        </div>
     </div>
 `;
