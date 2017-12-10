@@ -187,12 +187,12 @@ footer {
 /*...Home...*/
 .home-date {
 	border: 1px solid rgba(22, 194, 177, 0.514);
-	opacity: 0.65;
+	opacity: 0.75;
 	border-radius: 10px;
 	color: white;
-	margin: 6px 30% 10px 30%;
+	margin: 6px auto 10px auto;
 	padding: 3px;
-	width: 40%;
+	max-width: 200px;
 	text-align: center;
 	outline-color: rgb(95, 204, 193);
 }
@@ -375,11 +375,6 @@ footer {
 		font-size: 38px;
 	}
 
-	/*HOME*/
-	.home-date {
-		margin: 6px 20% 10px 20%;
-		width: 60%;
-	}
 	 /*VENUE*/
 	#page-ve div div .thumbnail {
 		margin-left: 5%;
