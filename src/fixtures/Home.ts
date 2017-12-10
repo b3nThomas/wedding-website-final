@@ -7,9 +7,10 @@ export const Home = `
                     <span class='rose'>&</span>
                 </p>
                 <p class='fs-xl' style='margin-top:-18px'>Ben Thomas</p>
-                <br>
-                <br>
-                <p class='fs-m theme-text-color'>March 30th - 2018</p>
+                <div class='home-date theme-background-color'>
+                    <p class='fs-m'>March 30th - 2018</p></br>
+                    <p class='home-countdown'></p>
+                </div>
             </div>
         </div>
     </div>
