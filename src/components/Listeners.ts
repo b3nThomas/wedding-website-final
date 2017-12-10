@@ -65,25 +65,36 @@ export const rsvp = () => {
             window.scrollTo(0, 0);
 
             const data = getRSVPDetails();
-            const confirmTemplate = `
+            let confirmTemplate = `
                 <p class='font-moon-light'><strong>Details:</strong></p></br>
                 <p>Number of guests: <strong>${ data.guests }</strong></p></br>
                 <p>Names:</p>
                 <p><strong>${ data.names }</strong></p></br>
                 <p>Attending: <strong>${ data.attending }</strong></p></br>
-                <p>Dietary info: <strong>${ data.dietaryInfo }</strong></p></br>
-                <p>Under fives: <strong>${ data.underFives }</strong></p></br>
-                <p>Song: <strong>${ data.song }</strong></p></br>
+            `;
+            if (data.attending === 'Y') {
+                confirmTemplate += `
+                    <p>Dietary info: <strong>${ data.dietaryInfo }</strong></p></br>
+                    <p>Under fives: <strong>${ data.underFives }</strong></p></br>
+                    <p>Song: <strong>${ data.song }</strong></p></br>
+                `;
+            }
+            if (data.coach.interested === 'Y') {
+                confirmTemplate += `
+                    <p>Coach: <strong>${ data.coach.interested }</strong></p></br>
+                    <p>Passengers: <strong>${ data.coach.passengers }</strong></p></br>
+                    <p>Travelling: <strong>${ data.coach.journey }</strong></p></br>
+                    <p>Contact: <strong>${ data.coach.contact.name }</strong> - <strong>${ data.coach.contact.mobile }</strong></p></br>
+                    <p>Address:</p>
+                    <p><strong>${ data.coach.contact.address }</strong></p></br>
+                `;
+            }
+            confirmTemplate += `
                 <p>Message:</p>
                 <p><strong>${ data.message }</strong></p></br>
-                <p>Coach: <strong>${ data.coach.interested }</strong></p></br>
-                <p>Passengers: <strong>${ data.coach.passengers }</strong></p></br>
-                <p>Travelling: <strong>${ data.coach.journey }</strong></p></br>
-                <p>Contact: <strong>${ data.coach.contact.name }</strong> - <strong>${ data.coach.contact.mobile }</strong></p></br>
-                <p>Address:</p>
-                <p><strong>${ data.coach.contact.address }</strong></p></br>
                 <p><button class='rsvp-btn rsvp-btn-send'>Send</button><button class='rsvp-btn rsvp-btn-edit'>Edit</button></p>
-            `;            
+            `;
+
             $('.rsvp-check').html(confirmTemplate);
             $('.rsvp-check').fadeIn(100);
 

@@ -73,16 +73,16 @@ export const RSVP = `
                                 </select>
                             </div>
                             <div>
-                                <p class='rsvp-label'>Your name:</p>
+                                <p class='rsvp-label'>Contact name:</p>
                                 <input type='text' maxlength='30' class='rsvp-coach-name rsvp-input'></input>
                             </div>
                             <div>
-                                <p class='rsvp-label'>Your mobile number:</br>
+                                <p class='rsvp-label'>Contact mobile number:</br>
                                 <small>*we'll use this to text you with any updates or arrangements.</small></p>
                                 <input type='text' maxlength='60' class='rsvp-coach-mobile rsvp-input'></input>
                             </div>
                             <div>
-                                <p class='rsvp-label'>Your address:</br>
+                                <p class='rsvp-label'>Contact address:</br>
                                 <small>*we'll use this info to work out the best pick-up/drop-off points.</small></p>
                                 <textarea maxlength='175' class='rsvp-coach-address rsvp-tall-input'></textarea>
                             </div>
