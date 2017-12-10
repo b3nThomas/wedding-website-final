@@ -8,8 +8,8 @@ export const Home = `
                 </p>
                 <p class='fs-xl' style='margin-top:-18px'>Ben Thomas</p>
                 <div class='home-date theme-background-color'>
-                    <p class='fs-m'>March 30th - 2018</p></br>
-                    <p class='home-countdown'></p>
+                    <p class='fs-s'>March 30th - 2018</p>
+                    <p class='home-countdown fs-s'>-</p>
                 </div>
             </div>
         </div>

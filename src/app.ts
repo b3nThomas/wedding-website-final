@@ -1,4 +1,5 @@
 import * as Fixtures from './fixtures/index';
+import * as Listeners from './components/Listeners';
 import { CMS } from './components/CMS';
 import { NavBar } from './components/NavBar';
 import { Pages } from './components/Pages';
@@ -20,6 +21,6 @@ $(document).ready(() => {
         });
     }
 
-    cms.switchTemplates(Fixtures.Home, $templateId);
+    cms.switchTemplates(Fixtures.Home, $templateId, Listeners.home);
 
 });

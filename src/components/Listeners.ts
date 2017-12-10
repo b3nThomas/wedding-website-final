@@ -1,7 +1,6 @@
-import { createNumberSelectOptionList } from './Helpers';
+import { createNumberSelectOptionList, daysToGoTimer } from './Helpers';
 
 export const rsvp = () => {
-
     $('.rsvp-coach').hide();
     $('.rsvp-robot-message').hide();
     $('.rsvp-check').hide();
@@ -172,4 +171,8 @@ const getRSVPDetails = () => {
         }
     };
     return details;
+};
+
+export const home = () => {
+    daysToGoTimer('.home-countdown');
 };
