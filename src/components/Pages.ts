@@ -19,8 +19,8 @@ export const Pages: IPage[] = [
         listeners: ''
     },
     {
-        navId: '#nav-registry',
-        fixture: Fixtures.Registry,
+        navId: '#nav-gift-list',
+        fixture: Fixtures.GiftList,
         listeners: ''
     },
     {

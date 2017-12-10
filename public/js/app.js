@@ -207,7 +207,7 @@ exports.Nav = `
             <a id=nav-venue class='nav-button theme-background-color'>Venue</a>
         </li>
         <li>
-            <a id=nav-registry class='nav-button theme-background-color'>Registry</a>
+            <a id=nav-gift-list class='nav-button theme-background-color'>Gifts</a>
         </li>
         <li>
             <a id=nav-rsvp class='nav-right nav-button theme-background-color'>RSVP</a>
@@ -347,18 +347,18 @@ exports.RSVP = `
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Registry = `
+exports.GiftList = `
     <div class='container-fluid'>
         <div class='row'>
             <div class='col-xs-1'></div>
             <div class='col-xs-10 center'>
-                <p class='fs-l font-moon-light text-shadow'>Registry</p>
+                <p class='fs-l font-moon-light text-shadow'>Gift List</p>
             </div>
             <div class='col-xs-1'></div>
         </div>
     </div>
 `;
-//# sourceMappingURL=Registry.js.map
+//# sourceMappingURL=GiftList.js.map
 
 /***/ }),
 /* 8 */
@@ -485,8 +485,8 @@ exports.Pages = [
         listeners: ''
     },
     {
-        navId: '#nav-registry',
-        fixture: Fixtures.Registry,
+        navId: '#nav-gift-list',
+        fixture: Fixtures.GiftList,
         listeners: ''
     },
     {

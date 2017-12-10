@@ -7,7 +7,7 @@ export const Nav = `
             <a id=nav-venue class='nav-button theme-background-color'>Venue</a>
         </li>
         <li>
-            <a id=nav-registry class='nav-button theme-background-color'>Registry</a>
+            <a id=nav-gift-list class='nav-button theme-background-color'>Gifts</a>
         </li>
         <li>
             <a id=nav-rsvp class='nav-right nav-button theme-background-color'>RSVP</a>
