@@ -314,6 +314,10 @@ footer {
     -moz-transition: all .3s;
     transition: all .3s;
 }
+.rsvp-btn-send, .rsvp-btn-edit {
+	margin: 5px auto;
+	width: 60px;
+}
 
 .rsvp-btn::hover {
 	opacity: 1;

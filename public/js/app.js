@@ -208,7 +208,8 @@ exports.rsvp = () => {
             confirmTemplate += `
                 <p>Message:</p>
                 <p><strong>${data.message}</strong></p></br>
-                <p><button class='rsvp-btn rsvp-btn-send'>Send</button><button class='rsvp-btn rsvp-btn-edit'>Edit</button></p>
+                <button class='rsvp-btn rsvp-btn-send'>Send</button>
+                <button class='rsvp-btn rsvp-btn-edit'>Edit</button>
             `;
             $('.rsvp-check').html(confirmTemplate);
             $('.rsvp-check').fadeIn(100);
