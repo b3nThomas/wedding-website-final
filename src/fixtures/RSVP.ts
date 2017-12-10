@@ -67,9 +67,9 @@ export const RSVP = `
                             <div>
                                 <p class='rsvp-label'>Travelling:</p>
                                 <select type='text' class='rsvp-coach-journey'>
-                                    <option value='return'>To and from the Venue</option>
-                                    <option value='there'>To the Venue only</option>
-                                    <option value='back'>From the Venue only</option>
+                                    <option value='Return'>To and from the Venue</option>
+                                    <option value='There'>To the Venue only</option>
+                                    <option value='Back'>From the Venue only</option>
                                 </select>
                             </div>
                             <div>

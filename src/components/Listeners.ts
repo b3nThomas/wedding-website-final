@@ -66,24 +66,33 @@ export const rsvp = () => {
             const data = getRSVPDetails();
             let confirmTemplate = `
                 <p class='font-moon-light'><strong>Details:</strong></p></br>
-                <p>Number of guests: <strong>${ data.guests }</strong></p></br>
+                <p>Number of guests:</p>
+                <p><strong>${ data.guests }</strong></p></br>
                 <p>Names:</p>
                 <p><strong>${ data.names }</strong></p></br>
-                <p>Attending: <strong>${ data.attending }</strong></p></br>
+                <p>Attending:</p>
+                </p><strong>${ data.attending }</strong></p></br>
             `;
             if (data.attending === 'Y') {
                 confirmTemplate += `
-                    <p>Dietary info: <strong>${ data.dietaryInfo }</strong></p></br>
-                    <p>Under fives: <strong>${ data.underFives }</strong></p></br>
-                    <p>Song: <strong>${ data.song }</strong></p></br>
+                    <p>Dietary info:</p>
+                    <p><strong>${ data.dietaryInfo }</strong></p></br>
+                    <p>Under fives:</p>
+                    <p><strong>${ data.underFives }</strong></p></br>
+                    <p>Song:<p>
+                    <p><strong>${ data.song }</strong></p></br>
                 `;
             }
             if (data.coach.interested === 'Y') {
                 confirmTemplate += `
-                    <p>Coach: <strong>${ data.coach.interested }</strong></p></br>
-                    <p>Passengers: <strong>${ data.coach.passengers }</strong></p></br>
-                    <p>Travelling: <strong>${ data.coach.journey }</strong></p></br>
-                    <p>Contact: <strong>${ data.coach.contact.name }</strong> - <strong>${ data.coach.contact.mobile }</strong></p></br>
+                    <p>Coach:</p>
+                    <p><strong>${ data.coach.interested }</strong></p></br>
+                    <p>Passengers:</p>
+                    <p><strong>${ data.coach.passengers }</strong></p></br>
+                    <p>Travelling:</p>
+                    <p><strong>${ data.coach.journey }</strong></p></br>
+                    <p>Contact:</p>
+                    <p><strong>${ data.coach.contact.name }</strong> - <strong>${ data.coach.contact.mobile }</strong></p></br>
                     <p>Address:</p>
                     <p><strong>${ data.coach.contact.address }</strong></p></br>
                 `;
