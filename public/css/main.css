@@ -244,7 +244,7 @@ footer {
 	padding: 15px;
 	text-align: center;
 	margin: 0 auto;
-	width: 80%;
+	width: 60%;
 }
 .rsvp-form {
 	background: rgba(255, 255, 255, 0.432);
@@ -408,5 +408,8 @@ footer {
 		width: 80%;
 		text-align: center;
 		text-align-last: center;
+	}
+	.rsvp-check, .rsvp-sent {
+		width: 80%;
 	}
 }
