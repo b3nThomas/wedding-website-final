@@ -21,7 +21,7 @@ export const RSVP = `
                     <div>
                         <p class='rsvp-label rsvp-name-text'>Name:</p>
                         <div class='rsvp-names'>
-                            <input type='text' maxlength='30' class='rsvp-name rsvp-input'></input>
+                            <input type='text' maxlength='30' class='rsvp-name-1 rsvp-input'></input>
                         </div>
                     </div>
                     <div>
@@ -109,7 +109,8 @@ export const RSVP = `
             <p>Sending...</p>
         </div>
         <div class='rsvp-sent'>
-            <p>Thank you, your RSVP was sent successfully!</p>
+            <p>Thank you, your RSVP was sent!</p></br>
+            <p>Any questions or problems, please contact: <strong>btcswedding@gmail.com</strong></p>
         </div>
     </div>
 `;

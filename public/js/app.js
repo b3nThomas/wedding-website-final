@@ -245,7 +245,7 @@ exports.RSVP = `
                     <div>
                         <p class='rsvp-label rsvp-name-text'>Name:</p>
                         <div class='rsvp-names'>
-                            <input type='text' maxlength='30' class='rsvp-name rsvp-input'></input>
+                            <input type='text' maxlength='30' class='rsvp-name-1 rsvp-input'></input>
                         </div>
                     </div>
                     <div>
@@ -333,7 +333,8 @@ exports.RSVP = `
             <p>Sending...</p>
         </div>
         <div class='rsvp-sent'>
-            <p>Thank you, your RSVP was sent successfully!</p>
+            <p>Thank you, your RSVP was sent!</p></br>
+            <p>Any questions or problems, please contact: <strong>btcswedding@gmail.com</strong></p>
         </div>
     </div>
 `;
@@ -603,7 +604,7 @@ exports.rsvp = () => {
                         });
                     },
                     error: (err) => {
-                        alert('Server error, please try again');
+                        alert('Server error, please try again. If this problem persists, contact btcswedding@gmail.com for support.');
                         $('.rsvp-sending').fadeOut(100, () => {
                             window.scrollTo(0, 0);
                             $('#nav-container').fadeIn(100);

@@ -110,7 +110,7 @@ export const rsvp = () => {
                         });
                     },
                     error: (err) => {
-                      alert('Server error, please try again');
+                      alert('Server error, please try again. If this problem persists, contact btcswedding@gmail.com for support.');
                       $('.rsvp-sending').fadeOut(100, () => {
                         window.scrollTo(0, 0);
                         $('#nav-container').fadeIn(100);
