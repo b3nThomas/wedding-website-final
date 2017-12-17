@@ -17,13 +17,13 @@ echo -e "\xE2\x9C\x94"
 echo
 
 # Prepare app for build
-echo Testing...
-rm -rf node_modules
-npm i
-npm run test
-echo
-echo -e "\xE2\x9C\x94"
-echo
+#echo Testing...
+#rm -rf node_modules
+#npm i
+#npm run test
+#echo
+#echo -e "\xE2\x9C\x94"
+#echo
 
 # Remove Dev dependencies
 echo Removing DEV dependencies...

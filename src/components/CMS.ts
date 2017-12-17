@@ -16,6 +16,7 @@ export class CMS {
         $(targetElement).fadeOut(240, () => {
             this.removeTemplate(targetElement);
             this.prependTemplate(templateString, targetElement);
+            window.scrollTo(0, 0);
             $(targetElement).fadeIn(300, () => {
                 if (listeners) {
                     listeners();

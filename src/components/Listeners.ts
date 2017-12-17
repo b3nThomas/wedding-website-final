@@ -1,8 +1,11 @@
-import { createNumberSelectOptionList } from './Helpers';
+import { createNumberSelectOptionList, daysToGoTimer } from './Helpers';
 
 export const rsvp = () => {
-
     $('.rsvp-coach').hide();
+    $('.rsvp-robot-message').hide();
+    $('.rsvp-check').hide();
+    $('.rsvp-sending').hide();
+    $('.rsvp-sent').hide();
     
     $('.rsvp-no-of-guests').change(() => {
         const totalGuests = Number($('.rsvp-no-of-guests').val());
@@ -47,24 +50,107 @@ export const rsvp = () => {
         }
     });
 
-    $('.rsvp-btn-send').click((e) => {
-        e.preventDefault();
-        const data = getRSVPDetails();
-        const url = 'https://qshrdywnlb.execute-api.eu-west-1.amazonaws.com/test/rsvp';
+    $('.rsvp-robot').click((e) => {
+        $('.rsvp-robot-message').fadeOut(100);
+    });
 
-        $.ajax({
-            type: 'POST',
-            url: url,
-            dataType: 'json',
-            contentType: 'application/json',
-            data: JSON.stringify(data),
-            success: () => {
-              alert('Success');
-            },
-            error: (err) => {
-              alert('There was a problem');
+    $('.rsvp-btn-check').click((e) => {
+        e.preventDefault();
+        $('.rsvp-btn-check').blur();
+
+        if ($('.rsvp-robot').is(':checked')) {
+            $('#nav-container').fadeOut(100);
+            $('.rsvp-form').fadeOut(100);
+            window.scrollTo(0, 0);
+
+            const data = getRSVPDetails();
+            let confirmTemplate = `
+                <p class='font-moon-light'><strong>Details:</strong></p></br>
+                <p>Number of guests:</p>
+                <p><strong>${ data.guests }</strong></p></br>
+                <p>Names:</p>
+                <p><strong>${ data.names }</strong></p></br>
+                <p>Attending:</p>
+                </p><strong>${ data.attending }</strong></p></br>
+            `;
+            if (data.attending === 'Y') {
+                confirmTemplate += `
+                    <p>Dietary info:</p>
+                    <p><strong>${ data.dietaryInfo }</strong></p></br>
+                    <p>Under fives:</p>
+                    <p><strong>${ data.underFives }</strong></p></br>
+                    <p>Song:<p>
+                    <p><strong>${ data.song }</strong></p></br>
+                `;
             }
-        });
+            if (data.coach.interested === 'Y') {
+                confirmTemplate += `
+                    <p>Coach:</p>
+                    <p><strong>${ data.coach.interested }</strong></p></br>
+                    <p>Passengers:</p>
+                    <p><strong>${ data.coach.passengers }</strong></p></br>
+                    <p>Travelling:</p>
+                    <p><strong>${ data.coach.journey }</strong></p></br>
+                    <p>Contact:</p>
+                    <p><strong>${ data.coach.contact.name }</strong> - <strong>${ data.coach.contact.mobile }</strong></p></br>
+                    <p>Address:</p>
+                    <p><strong>${ data.coach.contact.address }</strong></p></br>
+                `;
+            }
+            confirmTemplate += `
+                <p>Message:</p>
+                <p><strong>${ data.message }</strong></p></br>
+                <button class='rsvp-btn rsvp-btn-send'>Send</button>
+                <button class='rsvp-btn rsvp-btn-edit'>Edit</button>
+            `;
+
+            $('.rsvp-check').html(confirmTemplate);
+            $('.rsvp-check').fadeIn(100);
+
+            $('.rsvp-btn-send').click(() => {
+                $('.rsvp-btn-send').unbind('click');
+                $('.rsvp-btn-send').blur();
+
+                $('.rsvp-check').fadeOut(100);
+                window.scrollTo(0, 0);
+                $('.rsvp-sending').fadeIn(100);
+
+                const url = 'https://qshrdywnlb.execute-api.eu-west-1.amazonaws.com/test/rsvp';
+                $.ajax({
+                    type: 'POST',
+                    url: url,
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    data: JSON.stringify(data),
+                    success: () => {
+                        $('.rsvp-sending').fadeOut(100, () => {
+                            window.scrollTo(0, 0);
+                            $('#nav-container').fadeIn(100);
+                            $('.rsvp-sent').fadeIn(100);
+                        });
+                    },
+                    error: (err) => {
+                      alert('Server error, please try again. If this problem persists, contact btcswedding@gmail.com for support.');
+                      $('.rsvp-sending').fadeOut(100, () => {
+                        window.scrollTo(0, 0);
+                        $('#nav-container').fadeIn(100);
+                        $('.rsvp-form').fadeIn(100);
+                    });
+                    }
+                });
+            });
+
+            $('.rsvp-btn-edit').click(() => {
+                $('.rsvp-check').fadeOut(100);
+                window.scrollTo(0, 0);
+                $('#nav-container').fadeIn(100);
+                $('.rsvp-form').fadeIn(100);
+                $('.rsvp-robot').prop('checked', false);
+            });
+
+        } else {
+            $('.rsvp-robot-message').fadeIn(100);
+        }
     });
 
 };
@@ -95,4 +181,8 @@ const getRSVPDetails = () => {
         }
     };
     return details;
+};
+
+export const home = () => {
+    daysToGoTimer('.home-countdown');
 };

@@ -11,7 +11,7 @@ export const Pages: IPage[] = [
     {
         navId: '#nav-home',
         fixture: Fixtures.Home,
-        listeners: ''
+        listeners: Listeners.home
     },
     {
         navId: '#nav-venue',
@@ -19,8 +19,8 @@ export const Pages: IPage[] = [
         listeners: ''
     },
     {
-        navId: '#nav-registry',
-        fixture: Fixtures.Registry,
+        navId: '#nav-gift-list',
+        fixture: Fixtures.GiftList,
         listeners: ''
     },
     {

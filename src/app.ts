@@ -1,4 +1,5 @@
 import * as Fixtures from './fixtures/index';
+import * as Listeners from './components/Listeners';
 import { CMS } from './components/CMS';
 import { NavBar } from './components/NavBar';
 import { Pages } from './components/Pages';
@@ -11,7 +12,7 @@ $(document).ready(() => {
     const cms = new CMS();
 
     cms.prependTemplate(Fixtures.Nav, $navId);
-    const navBar = new NavBar($navId).activateHiding(75);
+    const navBar = new NavBar($navId).activateHiding(30);
     cms.prependTemplate(Fixtures.Footer, $footerId);
 
     for (const page of Pages) {
@@ -20,6 +21,6 @@ $(document).ready(() => {
         });
     }
 
-    cms.switchTemplates(Fixtures.Home, $templateId);
+    cms.switchTemplates(Fixtures.Home, $templateId, Listeners.home);
 
 });
