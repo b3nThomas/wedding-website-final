@@ -5,7 +5,7 @@ export const RSVP = `
         <div class='row'>
             <div class='col-xs-1'></div>
             <div class='col-xs-10 center'>
-                <p class='fs-l font-moon-light text-shadow'>RSVP</p>
+                <p class='rsvp-title template-title  fs-l font-moon-light text-shadow'>RSVP</p>
             </div>
             <div class='col-xs-1'></div>
         </div>
@@ -54,7 +54,7 @@ export const RSVP = `
                                 Cars may be left overnight at the venue but must be collected by <strong>10:00am</strong> the following morning.</br></br>
                                 If you fancy pitching-up for the night, Cripps have kindly offered our guests the use of their camping ground.</br></br>
                                 We're also considering hiring a coach to transport our Swindon guests to and from the venue.</br></br>
-                                If you'd like to travel on the coach, please tick the box and provide some details so we can keep you up to date with any news: <input type='checkbox' class='rsvp-interested' value='interested'></br>
+                                If you'd like to travel on the coach, please tick the box and provide some details so we can keep you up to date with any news: <input type='checkbox' class='rsvp-interested tickbox' value='interested'></br>
                             </p>
                         </div>
                         <div class='rsvp-coach'>
@@ -96,7 +96,7 @@ export const RSVP = `
                     </div>
                     </br>
                     <div>
-                        <p class='rsvp-label'><strong>Please tick to confirm you're not a robot: </strong><input type='checkbox' class='rsvp-robot' value='robot'></p>
+                        <p class='rsvp-label'><strong>Please tick to confirm you're not a robot: </strong><input type='checkbox' class='rsvp-robot tickbox' value='robot'></p>
                         <p class='rsvp-robot-message'>*No robots allowed! Tick the box first</p>
                         </br>
                         <button class='rsvp-btn rsvp-btn-check'>Check & Send</button>
@@ -110,7 +110,8 @@ export const RSVP = `
         </div>
         <div class='rsvp-sent'>
             <p>Thank you, your RSVP was sent!</p></br>
-            <p>Any questions or problems, please contact: <strong>btcswedding@gmail.com</strong></p>
+            <p>Any questions or problems, contact:</p>
+            <p><strong>btcswedding@gmail.com</strong></p>
         </div>
     </div>
 `;

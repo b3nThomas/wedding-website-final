@@ -2,7 +2,7 @@ export const Venue = `
     <div class='container-fluid'>
         <div class='row'>
             <div class='col-xs-12 center'>
-                <p class='fs-l font-moon-light text-shadow'>Cripps Barn</p>
+                <p class='template-title fs-l font-moon-light text-shadow'>Cripps Barn</p>
             </div>
         </div>
         </br>

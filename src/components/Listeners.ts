@@ -60,12 +60,13 @@ export const rsvp = () => {
 
         if ($('.rsvp-robot').is(':checked')) {
             $('#nav-container').fadeOut(100);
+            $('.rsvp-title').fadeOut(100);
             $('.rsvp-form').fadeOut(100);
             window.scrollTo(0, 0);
 
             const data = getRSVPDetails();
             let confirmTemplate = `
-                <p class='font-moon-light'><strong>Details:</strong></p></br>
+                <p class='font-moon-light fs-m'><strong>RSVP Details:</strong></p></br>
                 <p>Number of guests:</p>
                 <p><strong>${ data.guests }</strong></p></br>
                 <p>Names:</p>
@@ -126,6 +127,7 @@ export const rsvp = () => {
                         $('.rsvp-sending').fadeOut(100, () => {
                             window.scrollTo(0, 0);
                             $('#nav-container').fadeIn(100);
+                            $('.rsvp-title').fadeIn(100);
                             $('.rsvp-sent').fadeIn(100);
                         });
                     },
@@ -134,6 +136,7 @@ export const rsvp = () => {
                       $('.rsvp-sending').fadeOut(100, () => {
                         window.scrollTo(0, 0);
                         $('#nav-container').fadeIn(100);
+                        $('.rsvp-title').fadeIn(100);
                         $('.rsvp-form').fadeIn(100);
                     });
                     }
