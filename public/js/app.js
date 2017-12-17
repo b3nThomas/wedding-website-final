@@ -106,7 +106,23 @@ exports.daysToGoTimer = (targetElement) => {
         const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-        return `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        let daysStr = days.toString();
+        let hoursStr = hours.toString();
+        let minutesStr = minutes.toString();
+        let secondsStr = seconds.toString();
+        if (days < 10) {
+            daysStr = `0${daysStr}`;
+        }
+        if (hours < 10) {
+            hoursStr = `0${hoursStr}`;
+        }
+        if (minutes < 10) {
+            minutesStr = `0${minutesStr}`;
+        }
+        if (seconds < 10) {
+            secondsStr = `0${secondsStr}`;
+        }
+        return `${daysStr}d ${hoursStr}h ${minutesStr}m ${secondsStr}s`;
     };
     $(targetElement).text(getTime());
     setInterval(() => {
@@ -355,7 +371,7 @@ exports.Home = `
                 </p>
                 <p class='fs-xl' style='margin-top:-18px'>Ben Thomas</p>
                 <div class='home-date theme-background-color'>
-                    <p class='fs-s'>March 30th - 2018</p>
+                    <p class='font-moon-bold fs-s'>March 30th - 2018</p>
                     <p class='home-countdown fs-s'>-</p>
                 </div>
             </div>

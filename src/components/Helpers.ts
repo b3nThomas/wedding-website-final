@@ -18,8 +18,26 @@ export const daysToGoTimer = (targetElement: string) => {
         const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        let daysStr = days.toString();
+        let hoursStr = hours.toString();
+        let minutesStr = minutes.toString();
+        let secondsStr = seconds.toString();
+
+        if (days < 10) {
+            daysStr = `0${daysStr}`;
+        }
+        if (hours < 10) {
+            hoursStr = `0${hoursStr}`;
+        }
+        if (minutes < 10) {
+            minutesStr = `0${minutesStr}`;
+        }
+        if (seconds < 10) {
+            secondsStr = `0${secondsStr}`;
+        }
         
-        return `${ days }d ${ hours }h ${ minutes }m ${ seconds }s`;
+        return `${ daysStr }d ${ hoursStr }h ${ minutesStr }m ${ secondsStr }s`;
     };
 
     $(targetElement).text(getTime());
