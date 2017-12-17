@@ -248,6 +248,7 @@ footer {
 .accom-container p {
 	margin: 4px 0;
 }
+
 /*...GiftList...*/
 .gift-img {
 	max-width: 380px;
@@ -261,10 +262,9 @@ footer {
 	cursor: pointer;
 	opacity: 0.89;
 	font-family: moon-light;
-	margin: 15px 35%;
-	padding: 10px;
-	width: 30%;
-	min-width: 100px;
+    margin: 15px 36% 20px 36%;
+    padding: 10px;
+    width: 28%;
 	-webkit-transition: all .3s;
     -moz-transition: all .3s;
     transition: all .3s;
@@ -273,13 +273,13 @@ footer {
 	color: white;
 	text-decoration: none;
 }
-.gift-btn::hover {
+.gift-btn:hover {
 	opacity: 1;
 	-webkit-transition: all .3s;
 	-moz-transition: all .3s;
 	transition: all .3s;
 }
-.gift-btn::focus {
+.gift-btn:focus {
 	outline-color: rgb(95, 204, 193);
 }
 
@@ -382,20 +382,20 @@ footer {
 	width: 60px;
 }
 
-.rsvp-btn::hover {
+.rsvp-btn:hover {
 	opacity: 1;
 	-webkit-transition: all .3s;
 	-moz-transition: all .3s;
 	transition: all .3s;
 }
-.rsvp-btn::focus {
+.rsvp-btn:focus {
 	outline-color: rgb(95, 204, 193);
 }
 .rsvp-btn-edit {
 	background: rgb(239, 89, 123);
 	border: 1px solid rgb(235, 37, 83);
 }
-.rsvp-btn-edit::focus {
+.rsvp-btn-edit:focus {
 	outline-color: rgb(235, 37, 83);
 }
 .rsvp-robot-message {
@@ -403,6 +403,13 @@ footer {
 	text-align: center;
 }
 /*...@Media...*/
+
+@media screen and (min-width: 1001px) {
+	.gift-btn {
+		width: 20%;
+		margin: 0 40% 20px 40%;
+	}
+}
 
 @media screen and (max-width: 1000px) {
 	body::after {
@@ -421,11 +428,15 @@ footer {
 	}
 }
 
-@media screen and (max-width: 767px) and (min-width: 487px) {
+@media screen and (max-width: 767px) {
 	.gift-img {
 		margin: 10px 20%;
 		width: 60%;
 		max-width: none;
+	}
+	.gift-btn {
+		width: 30%;
+		margin: 0 35% 20px 35%;
 	}
 	.home-img {
 		margin: 10px 20%;
@@ -461,6 +472,10 @@ footer {
 		margin: 2.5% 0 2.5% 5%;
 		max-width: none;
 		width: 90%;
+	}
+	.gift-btn {
+		width: 60%;
+		margin: 0 20% 10px 20%;
 	}
 	.home-img {
 		margin: auto;
