@@ -22,7 +22,7 @@ export class NavBar {
         $(window).on('scroll', () => {
             const currentScroll: number = $(window).scrollTop();
             const direction = lastScroll < currentScroll ? 'down' : 'up';
-            if (direction === 'down' && (currentScroll - lastShown) > scrollWindow) {
+            if (direction === 'down' && (currentScroll - lastShown) > (scrollWindow * 2)) {
                 this.hideNavBar();
                 lastHidden = currentScroll;
             } 
