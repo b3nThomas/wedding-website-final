@@ -365,6 +365,7 @@ exports.Home = `
     <div class='container-fluid'>
         <div class='row'>
             <div class='center col-12 font-moon-light text-shadow'>
+                </br>
                 <p class='fs-s theme-text-color'>The Wedding of</p>
                 <p class='fs-xl'>Clare Sealey
                     <span class='rose'>&</span>
@@ -377,7 +378,7 @@ exports.Home = `
             </div>
         </div>
     </div>
-
+    </br>
     <div class='container-fluid center'>
         <div class='container-fluid'>
 
