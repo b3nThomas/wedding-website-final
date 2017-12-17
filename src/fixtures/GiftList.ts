@@ -7,28 +7,34 @@ export const GiftList = `
             </div>
             <div class='col-xs-1'></div>
         </div>
-        <div class='text-container row'>
-            <p>Your presence is the only present we need for our wedding.</p>
-            <p >However if you would like to buy us a gift to mark the occasion,</p>
-            <p>please click <a class='link-text' href='https://prezola.com/wishlists/10180830/'>here</a> to view our honeymoon gift list</p>
+        <div class='text-container fs-s row'>
+            <p>Your presence is the only present</p>
+            <p>we need for our wedding.</p>
+            </br>
+            <p>However if you would like to give us</p>
+            <p>a gift to mark the occasion,</p>
+            <p>please click the button below</p>
+            <p>to see our honeymoon gift list.</p>
         </div>
+        <button class='gift-btn'><a href='https://prezola.com/wishlists/10180830/'>Sri Lanka</a></button>
+        </br>
         <div class='container-fluid'>
             <div class='row'>
                 <div class='col-lg-2'></div>
-                <div class='col-lg-2 col-md-3 col-sm-3 col-xs-12 thumbnail'>
-                    <img src='./images/gallery-bc/bc-img-14.jpg' class='img-responsive'>
+                <div class='col-lg-2 col-md-3 col-sm-3 col-xs-12 thumbnail gift-img'>
+                    <img src='./images/gallery-gift/gift-img-4.jpg' class='img-responsive'>
                 </div>
 
-                <div class='col-lg-2 col-md-3 col-sm-3 col-xs-12 thumbnail'>
-                    <img src='./images/gallery-bc/bc-img-15.jpg' class='img-responsive'>
+                <div class='col-lg-2 col-md-3 col-sm-3 col-xs-12 thumbnail gift-img'>
+                    <img src='./images/gallery-gift/gift-img-5.jpg' class='img-responsive'>
                 </div>
 
-                <div class='col-lg-2 col-md-3 col-sm-3 col-xs-12 thumbnail'>
-                    <img src='./images/gallery-bc/bc-img-09.jpg' class='img-responsive'>
+                <div class='col-lg-2 col-md-3 col-sm-3 col-xs-12 thumbnail gift-img'>
+                    <img src='./images/gallery-gift/gift-img-3.jpg' class='img-responsive'>
                 </div>
 
-                <div class='col-lg-2 col-md-3 col-sm-3 col-xs-12 thumbnail'>
-                    <img src='./images/gallery-bc/bc-img-13.jpg' class='img-responsive'>
+                <div class='col-lg-2 col-md-3 col-sm-3 col-xs-12 thumbnail gift-img'>
+                    <img src='./images/gallery-gift/gift-img-2.jpg' class='img-responsive'>
                 </div>
                 <div class='col-lg-2'></div>
             </div>
