@@ -38,7 +38,7 @@ p {
 	font-size: 11px;
 }
 .fs-s {
-	font-size: 15px;
+	font-size: 14px;
 }
 .fs-m {
 	font-size: 24px;
@@ -93,7 +93,7 @@ p {
 	border-radius: 10px;
 	font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
 	padding: 10px;
-	max-width: 450px;
+	max-width: 300px;
 	margin: 20px auto;
 	text-align: center;
 }
@@ -250,7 +250,7 @@ footer {
 }
 /*...GiftList...*/
 .gift-img {
-	max-width: 400px;
+	max-width: 380px;
 	margin: auto;
 }
 .gift-btn {
@@ -264,6 +264,7 @@ footer {
 	margin: 15px 35%;
 	padding: 10px;
 	width: 30%;
+	min-width: 100px;
 	-webkit-transition: all .3s;
     -moz-transition: all .3s;
     transition: all .3s;
@@ -420,15 +421,20 @@ footer {
 	}
 }
 
-@media screen and (max-width: 767px) and (min-width: 546px) {
+@media screen and (max-width: 767px) and (min-width: 487px) {
 	.gift-img {
-		margin: 0 15%;
-		width: 70%;
+		margin: 10px 20%;
+		width: 60%;
+		max-width: none;
+	}
+	.home-img {
+		margin: 10px 20%;
+		width: 60%;
 		max-width: none;
 	}
 }
 
-@media screen and (max-width: 545px) {
+@media screen and (max-width: 486px) {
 	.fs-s {
 		font-size: 14px;
 	}
@@ -451,6 +457,12 @@ footer {
 		width: 90%;
 	}
 	.gift-img {
+		margin: auto;
+		margin: 2.5% 0 2.5% 5%;
+		max-width: none;
+		width: 90%;
+	}
+	.home-img {
 		margin: auto;
 		margin: 2.5% 0 2.5% 5%;
 		max-width: none;

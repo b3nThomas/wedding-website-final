@@ -22,19 +22,19 @@ export const Home = `
             <div class='row'>
                 <div class='col-lg-2'></div>
 
-                <div class='col-lg-2 col-md-3 col-sm-3 col-xs-12 thumbnail'>
+                <div class='col-lg-2 col-md-3 col-sm-3 col-xs-12 thumbnail home-img'>
                     <img src='./images/gallery-bc/bc-img-14.jpg' class='img-responsive'>
                 </div>
 
-                <div class='col-lg-2 col-md-3 col-sm-3 col-xs-12 thumbnail'>
+                <div class='col-lg-2 col-md-3 col-sm-3 col-xs-12 thumbnail home-img'>
                     <img src='./images/gallery-bc/bc-img-15.jpg' class='img-responsive'>
                 </div>
 
-                <div class='col-lg-2 col-md-3 col-sm-3 col-xs-12 thumbnail'>
+                <div class='col-lg-2 col-md-3 col-sm-3 col-xs-12 thumbnail home-img'>
                     <img src='./images/gallery-bc/bc-img-09.jpg' class='img-responsive'>
                 </div>
 
-                <div class='col-lg-2 col-md-3 col-sm-3 col-xs-12 thumbnail'>
+                <div class='col-lg-2 col-md-3 col-sm-3 col-xs-12 thumbnail home-img'>
                     <img src='./images/gallery-bc/bc-img-13.jpg' class='img-responsive'>
                 </div>
 
