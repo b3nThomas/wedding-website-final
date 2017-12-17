@@ -2,7 +2,12 @@
 p {
 	margin: 0;
 }
-
+.container-fluid {
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-right: auto;
+    margin-left: auto;
+}
 /*...Fonts...*/
 @font-face {
     font-family: moon-bold;
@@ -105,11 +110,11 @@ footer {
     width: 100%;
 	left: 0;
 	bottom: 3;
-	padding: 10px;
+	padding: 15px;
 	overflow:hidden;
 	position: absolute;
 	font-family: Georgia, Times, "Times New Roman", serif;
-	text-align: left;
+	text-align: center;
 }
 
 /*...TemplateCanvas...*/
@@ -198,12 +203,8 @@ footer {
 }
 
 /*...Venue...*/
-#page-ve div div img{
-	border-radius: 5px;
-	padding: 3px;
-}
-#map-container {
-	margin: 8px 10% 10px 10%;
+.map-container {
+	margin: 8px 10% 5px 10%;
 	padding: 0;
 	width: 80%;
 }
@@ -212,16 +213,19 @@ footer {
 	background-size: 60px 60px;
 	background-color: rgba(255, 255, 255, 0.432);;
 }
-#accom-container {
-	margin: 20px 0 20px 0;
-}
-
-.accom-default {
-	border-radius: 5px;
-	color: #ffffff;
-	font-size: 18px;
+.accom-container {
+	background-color: rgba(255, 255, 255, 0.74);
+	border: 1px solid rgb(22, 194, 179);
+	border-radius: 10px;
 	padding: 10px;
-	text-decoration: none;
+	max-width: 450px;
+	margin: 10px auto 0 auto;
+}
+.accom-container p {
+	margin: 4px 0;
+}
+.accom-container p a {
+	color: rgb(0, 177, 159);
 }
 
 /*...RSVP...*/
@@ -302,7 +306,7 @@ footer {
 }
 .rsvp-btn {
 	background: rgb(22, 194, 179);
-	border: 1px solid rgb(22, 194, 179);
+	border: 1px solid rgb(20, 173, 158);
 	border-radius: 5px;
 	color: rgb(255, 255, 255);
 	opacity: 0.89;
@@ -380,9 +384,9 @@ footer {
 		margin-left: 5%;
 		width: 90%;
 	}
-	#map-container {
+	.map-container {
 		width: 100%;
-		margin: 0 0 15% 0;
+		margin: 0 5px;
 	}
 
 	/*RSVP*/
