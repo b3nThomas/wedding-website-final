@@ -71,6 +71,32 @@ p {
 .tickbox {
 	cursor: pointer;
 }
+.link-text {
+	color: rgb(0, 177, 159);
+	cursor: pointer;
+	text-decoration: none;
+	-webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+}
+.link-text:hover {
+	color: rgb(0, 177, 159);
+	cursor: pointer;
+	text-decoration: underline;
+	-webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+}
+.text-container {
+	background-color: rgba(255, 255, 255, 0.74);
+	border: 1px solid rgb(22, 194, 179);
+	border-radius: 10px;
+	font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+	padding: 10px;
+	max-width: 450px;
+	margin: 20px auto;
+	text-align: center;
+}
 
 /*...Colors...*/
 .theme-text-color {
@@ -219,20 +245,11 @@ footer {
 	background-size: 60px 60px;
 	background-color: rgba(255, 255, 255, 0.432);;
 }
-.accom-container {
-	background-color: rgba(255, 255, 255, 0.74);
-	border: 1px solid rgb(22, 194, 179);
-	border-radius: 10px;
-	padding: 10px;
-	max-width: 450px;
-	margin: 10px auto 0 auto;
-}
 .accom-container p {
 	margin: 4px 0;
 }
-.accom-container p a {
-	color: rgb(0, 177, 159);
-}
+/*...GiftList...*/
+
 
 /*...RSVP...*/
 .rsvp-sending {
