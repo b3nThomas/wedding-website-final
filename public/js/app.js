@@ -316,7 +316,7 @@ exports.home = () => {
 };
 exports.gift = () => {
     $('.gift-btn').click(() => {
-        window.location.replace('https://prezola.com/wishlists/10180830/');
+        window.location.href = 'https://prezola.com/wishlists/10180830/';
         return false;
     });
 };
