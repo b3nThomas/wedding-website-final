@@ -72,7 +72,7 @@ export const rsvp = () => {
                 <p>Names:</p>
                 <p><strong>${ data.names }</strong></p></br>
                 <p>Attending:</p>
-                </p>${ data.attending }</p></br>
+                </p><strong>${ data.attending }</strong></p></br>
             `;
             if (data.attending === 'Y') {
                 confirmTemplate += `
