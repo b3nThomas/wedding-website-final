@@ -1,18 +1,12 @@
 export const Home = `
-    <div class='container-fluid'>
-        <div class='row'>
-            <div class='center col-12 font-moon-light text-shadow'>
-                </br>
-                <p class='fs-s theme-text-color'>The Wedding of</p>
-                <p class='fs-xl'>Clare Sealey
-                    <span class='rose'>&</span>
-                </p>
-                <p class='fs-xl' style='margin-top:-18px'>Ben Thomas</p>
-                <div class='home-date theme-background-color'>
-                    <p class='font-moon-bold fs-s'>March 30th - 2018</p>
-                    <p class='home-countdown fs-s'>-</p>
-                </div>
-            </div>
+    <div class='row'>
+        <div class='center col-12 font-moon-light text-shadow'>
+            </br>
+            <p class='fs-s theme-text-color'>The Wedding of</p>
+            <p class='fs-xl'>Clare Sealey
+                <span class='rose'>&</span>
+            </p>
+            <p class='fs-xl' style='margin-top:-18px'>Ben Thomas</p>
         </div>
     </div>
     </br>
@@ -40,6 +34,12 @@ export const Home = `
 
                 <div class='col-lg-2'></div>
             </div>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='home-date theme-background-color font-moon-bold fs-s'>
+            <p>March 30th - 2018</p>
+            <p class='home-countdown'>-</p>
         </div>
     </div>
  `;

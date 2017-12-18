@@ -105,10 +105,10 @@ export const RSVP = `
             </div>
         </div>
         <div class='rsvp-check'></div>
-        <div class='rsvp-sending'>
+        <div class='rsvp-sending font-slab'>
             <p>Sending...</p>
         </div>
-        <div class='rsvp-sent'>
+        <div class='rsvp-sent text-container'>
             <p>Thank you, your RSVP was sent!</p></br>
             <p>Any questions or problems, contact:</p>
             <p><strong>btcswedding@gmail.com</strong></p>

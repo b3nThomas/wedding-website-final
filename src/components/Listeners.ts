@@ -65,14 +65,14 @@ export const rsvp = () => {
             window.scrollTo(0, 0);
 
             const data = getRSVPDetails();
-            let confirmTemplate = `
-                <p class='font-moon-light fs-m'><strong>RSVP Details:</strong></p></br>
-                <p>Number of guests:</p>
+            let confirmTemplate = `<div class='font-slab'>
+                <p class='font-moon-light fs-m'>RSVP Details:</p></br>
+                <p>Number of Guests:</p>
                 <p><strong>${ data.guests }</strong></p></br>
                 <p>Names:</p>
                 <p><strong>${ data.names }</strong></p></br>
                 <p>Attending:</p>
-                </p><strong>${ data.attending }</strong></p></br>
+                </p>${ data.attending }</p></br>
             `;
             if (data.attending === 'Y') {
                 confirmTemplate += `
@@ -93,16 +93,17 @@ export const rsvp = () => {
                     <p>Travelling:</p>
                     <p><strong>${ data.coach.journey }</strong></p></br>
                     <p>Contact:</p>
-                    <p><strong>${ data.coach.contact.name }</strong> - <strong>${ data.coach.contact.mobile }</strong></p></br>
+                    <p><strong>${ data.coach.contact.name } - ${ data.coach.contact.mobile }</strong></p></br>
                     <p>Address:</p>
                     <p><strong>${ data.coach.contact.address }</strong></p></br>
                 `;
             }
             confirmTemplate += `
                 <p>Message:</p>
-                <p><strong>${ data.message }</strong></p></br>
+                <p><strong>${ data.message }</strong></strong></p></br>
                 <button class='rsvp-btn rsvp-btn-send'>Send</button>
                 <button class='rsvp-btn rsvp-btn-edit'>Edit</button>
+                </div>
             `;
 
             $('.rsvp-check').html(confirmTemplate);

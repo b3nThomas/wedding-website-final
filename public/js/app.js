@@ -198,14 +198,14 @@ exports.rsvp = () => {
             $('.rsvp-form').fadeOut(100);
             window.scrollTo(0, 0);
             const data = getRSVPDetails();
-            let confirmTemplate = `
-                <p class='font-moon-light fs-m'><strong>RSVP Details:</strong></p></br>
-                <p>Number of guests:</p>
+            let confirmTemplate = `<div class='font-slab'>
+                <p class='font-moon-light fs-m'>RSVP Details:</p></br>
+                <p>Number of Guests:</p>
                 <p><strong>${data.guests}</strong></p></br>
                 <p>Names:</p>
                 <p><strong>${data.names}</strong></p></br>
                 <p>Attending:</p>
-                </p><strong>${data.attending}</strong></p></br>
+                </p>${data.attending}</p></br>
             `;
             if (data.attending === 'Y') {
                 confirmTemplate += `
@@ -226,16 +226,17 @@ exports.rsvp = () => {
                     <p>Travelling:</p>
                     <p><strong>${data.coach.journey}</strong></p></br>
                     <p>Contact:</p>
-                    <p><strong>${data.coach.contact.name}</strong> - <strong>${data.coach.contact.mobile}</strong></p></br>
+                    <p><strong>${data.coach.contact.name} - ${data.coach.contact.mobile}</strong></p></br>
                     <p>Address:</p>
                     <p><strong>${data.coach.contact.address}</strong></p></br>
                 `;
             }
             confirmTemplate += `
                 <p>Message:</p>
-                <p><strong>${data.message}</strong></p></br>
+                <p><strong>${data.message}</strong></strong></p></br>
                 <button class='rsvp-btn rsvp-btn-send'>Send</button>
                 <button class='rsvp-btn rsvp-btn-edit'>Edit</button>
+                </div>
             `;
             $('.rsvp-check').html(confirmTemplate);
             $('.rsvp-check').fadeIn(100);
@@ -371,20 +372,14 @@ exports.Footer = `
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Home = `
-    <div class='container-fluid'>
-        <div class='row'>
-            <div class='center col-12 font-moon-light text-shadow'>
-                </br>
-                <p class='fs-s theme-text-color'>The Wedding of</p>
-                <p class='fs-xl'>Clare Sealey
-                    <span class='rose'>&</span>
-                </p>
-                <p class='fs-xl' style='margin-top:-18px'>Ben Thomas</p>
-                <div class='home-date theme-background-color'>
-                    <p class='font-moon-bold fs-s'>March 30th - 2018</p>
-                    <p class='home-countdown fs-s'>-</p>
-                </div>
-            </div>
+    <div class='row'>
+        <div class='center col-12 font-moon-light text-shadow'>
+            </br>
+            <p class='fs-s theme-text-color'>The Wedding of</p>
+            <p class='fs-xl'>Clare Sealey
+                <span class='rose'>&</span>
+            </p>
+            <p class='fs-xl' style='margin-top:-18px'>Ben Thomas</p>
         </div>
     </div>
     </br>
@@ -412,6 +407,12 @@ exports.Home = `
 
                 <div class='col-lg-2'></div>
             </div>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='home-date theme-background-color font-moon-bold fs-s'>
+            <p>March 30th - 2018</p>
+            <p class='home-countdown'>-</p>
         </div>
     </div>
  `;
@@ -555,10 +556,10 @@ exports.RSVP = `
             </div>
         </div>
         <div class='rsvp-check'></div>
-        <div class='rsvp-sending'>
+        <div class='rsvp-sending font-slab'>
             <p>Sending...</p>
         </div>
-        <div class='rsvp-sent'>
+        <div class='rsvp-sent text-container'>
             <p>Thank you, your RSVP was sent!</p></br>
             <p>Any questions or problems, contact:</p>
             <p><strong>btcswedding@gmail.com</strong></p>
@@ -575,45 +576,36 @@ exports.RSVP = `
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GiftList = `
+    <div class='row'>
+        <div class='col-xs-1'></div>
+        <div class='col-xs-10 center'>
+            <p class='template-title  fs-l font-moon-light text-shadow'>Gift List</p>
+        </div>
+        <div class='col-xs-1'></div>
+    </div>
+    <div class='row text-container fs-s'>
+        <p>Your presence is the only present we'd like for our wedding. However if you would like to get us a gift to mark the occasion, please click the button below to see our honeymoon gift list</p>
+        <button class='gift-btn'>Sri Lanka gift list</button>
+    </div>
     <div class='container-fluid'>
         <div class='row'>
-            <div class='col-xs-1'></div>
-            <div class='col-xs-10 center'>
-                <p class='template-title  fs-l font-moon-light text-shadow'>Gift List</p>
+            <div class='col-lg-2'></div>
+            <div class='col-lg-2 col-md-3 col-sm-3 col-xs-12 thumbnail gift-img'>
+                <img src='./images/gallery-gift/gift-img-5.jpg' class='img-responsive'>
             </div>
-            <div class='col-xs-1'></div>
-        </div>
-        <div class='text-container fs-s row'>
-            <p>Your presence is the only present</p>
-            <p>we need for our wedding.</p>
-            </br>
-            <p>However if you would like to give us</p>
-            <p>a gift to mark the occasion,</p>
-            <p>please click the button below</p>
-            <p>to see our honeymoon gift list.</p>
-        </div>
-        <button class='gift-btn'>Sri Lanka gift list</button>
-        </br>
-        <div class='container-fluid'>
-            <div class='row'>
-                <div class='col-lg-2'></div>
-                <div class='col-lg-2 col-md-3 col-sm-3 col-xs-12 thumbnail gift-img'>
-                    <img src='./images/gallery-gift/gift-img-4.jpg' class='img-responsive'>
-                </div>
 
-                <div class='col-lg-2 col-md-3 col-sm-3 col-xs-12 thumbnail gift-img'>
-                    <img src='./images/gallery-gift/gift-img-5.jpg' class='img-responsive'>
-                </div>
-
-                <div class='col-lg-2 col-md-3 col-sm-3 col-xs-12 thumbnail gift-img'>
-                    <img src='./images/gallery-gift/gift-img-3.jpg' class='img-responsive'>
-                </div>
-
-                <div class='col-lg-2 col-md-3 col-sm-3 col-xs-12 thumbnail gift-img'>
-                    <img src='./images/gallery-gift/gift-img-2.jpg' class='img-responsive'>
-                </div>
-                <div class='col-lg-2'></div>
+            <div class='col-lg-2 col-md-3 col-sm-3 col-xs-12 thumbnail gift-img'>
+                <img src='./images/gallery-gift/gift-img-4.jpg' class='img-responsive'>
             </div>
+
+            <div class='col-lg-2 col-md-3 col-sm-3 col-xs-12 thumbnail gift-img'>
+                <img src='./images/gallery-gift/gift-img-2.jpg' class='img-responsive'>
+            </div>
+
+            <div class='col-lg-2 col-md-3 col-sm-3 col-xs-12 thumbnail gift-img'>
+                <img src='./images/gallery-gift/gift-img-3.jpg' class='img-responsive'>
+            </div>
+            <div class='col-lg-2'></div>
         </div>
     </div>
 `;
@@ -641,8 +633,8 @@ exports.Venue = `
         </div>
         <div class='text-container fs-s col-12 center'>
             <p>For more information</p>
-            <p>visit the Cripps Barn <a href='https://www.crippsbarn.com/' class='link-text'>website</a></p>
-            <p>or view local accommodation <a href='https://www.crippsbarn.com/directory/' class='link-text'>here</a></p>
+            <p>visit the Cripps Barn <a href='https://www.crippsbarn.com/' class='link-text'><strong>website</strong></a></p>
+            <p>or view local accommodation <a href='https://www.crippsbarn.com/directory/' class='link-text'><strong>here</strong></a></p>
         </div>
     </div>
     </br>
