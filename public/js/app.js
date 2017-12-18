@@ -194,11 +194,12 @@ exports.rsvp = () => {
         $('.rsvp-btn-check').blur();
         if ($('.rsvp-robot').is(':checked')) {
             $('#nav-container').fadeOut(100);
+            $('.rsvp-title').fadeOut(100);
             $('.rsvp-form').fadeOut(100);
             window.scrollTo(0, 0);
             const data = getRSVPDetails();
             let confirmTemplate = `
-                <p class='font-moon-light'><strong>Details:</strong></p></br>
+                <p class='font-moon-light fs-m'><strong>RSVP Details:</strong></p></br>
                 <p>Number of guests:</p>
                 <p><strong>${data.guests}</strong></p></br>
                 <p>Names:</p>
@@ -255,6 +256,7 @@ exports.rsvp = () => {
                         $('.rsvp-sending').fadeOut(100, () => {
                             window.scrollTo(0, 0);
                             $('#nav-container').fadeIn(100);
+                            $('.rsvp-title').fadeIn(100);
                             $('.rsvp-sent').fadeIn(100);
                         });
                     },
@@ -263,6 +265,7 @@ exports.rsvp = () => {
                         $('.rsvp-sending').fadeOut(100, () => {
                             window.scrollTo(0, 0);
                             $('#nav-container').fadeIn(100);
+                            $('.rsvp-title').fadeIn(100);
                             $('.rsvp-form').fadeIn(100);
                         });
                     }
@@ -310,6 +313,12 @@ const getRSVPDetails = () => {
 };
 exports.home = () => {
     Helpers_1.daysToGoTimer('.home-countdown');
+};
+exports.gift = () => {
+    $('.gift-btn').click(() => {
+        window.location.href = 'https://prezola.com/wishlists/10180830/';
+        return false;
+    });
 };
 //# sourceMappingURL=Listeners.js.map
 
@@ -385,19 +394,19 @@ exports.Home = `
             <div class='row'>
                 <div class='col-lg-2'></div>
 
-                <div class='col-lg-2 col-md-3 col-sm-3 col-xs-12 thumbnail'>
+                <div class='col-lg-2 col-md-3 col-sm-3 col-xs-12 thumbnail home-img'>
                     <img src='./images/gallery-bc/bc-img-14.jpg' class='img-responsive'>
                 </div>
 
-                <div class='col-lg-2 col-md-3 col-sm-3 col-xs-12 thumbnail'>
+                <div class='col-lg-2 col-md-3 col-sm-3 col-xs-12 thumbnail home-img'>
                     <img src='./images/gallery-bc/bc-img-15.jpg' class='img-responsive'>
                 </div>
 
-                <div class='col-lg-2 col-md-3 col-sm-3 col-xs-12 thumbnail'>
+                <div class='col-lg-2 col-md-3 col-sm-3 col-xs-12 thumbnail home-img'>
                     <img src='./images/gallery-bc/bc-img-09.jpg' class='img-responsive'>
                 </div>
 
-                <div class='col-lg-2 col-md-3 col-sm-3 col-xs-12 thumbnail'>
+                <div class='col-lg-2 col-md-3 col-sm-3 col-xs-12 thumbnail home-img'>
                     <img src='./images/gallery-bc/bc-img-13.jpg' class='img-responsive'>
                 </div>
 
@@ -418,16 +427,16 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Nav = `
     <ul class='box-shadow'>
         <li>
-            <a id=nav-home class='nav-left nav-button theme-background-color'>Home</a>
+            <a id=nav-home class='nav-left nav-btn theme-background-color'>Home</a>
         </li>
         <li>
-            <a id=nav-venue class='nav-button theme-background-color'>Venue</a>
+            <a id=nav-venue class='nav-btn theme-background-color'>Venue</a>
         </li>
         <li>
-            <a id=nav-gift-list class='nav-button theme-background-color'>Gifts</a>
+            <a id=nav-gift-list class='nav-btn theme-background-color'>Gifts</a>
         </li>
         <li>
-            <a id=nav-rsvp class='nav-right nav-button theme-background-color'>RSVP</a>
+            <a id=nav-rsvp class='nav-right nav-btn theme-background-color'>RSVP</a>
         </li>
     </ul>
 `;
@@ -446,7 +455,7 @@ exports.RSVP = `
         <div class='row'>
             <div class='col-xs-1'></div>
             <div class='col-xs-10 center'>
-                <p class='fs-l font-moon-light text-shadow'>RSVP</p>
+                <p class='rsvp-title template-title  fs-l font-moon-light text-shadow'>RSVP</p>
             </div>
             <div class='col-xs-1'></div>
         </div>
@@ -495,7 +504,7 @@ exports.RSVP = `
                                 Cars may be left overnight at the venue but must be collected by <strong>10:00am</strong> the following morning.</br></br>
                                 If you fancy pitching-up for the night, Cripps have kindly offered our guests the use of their camping ground.</br></br>
                                 We're also considering hiring a coach to transport our Swindon guests to and from the venue.</br></br>
-                                If you'd like to travel on the coach, please tick the box and provide some details so we can keep you up to date with any news: <input type='checkbox' class='rsvp-interested' value='interested'></br>
+                                If you'd like to travel on the coach, please tick the box and provide some details so we can keep you up to date with any news: <input type='checkbox' class='rsvp-interested tickbox' value='interested'></br>
                             </p>
                         </div>
                         <div class='rsvp-coach'>
@@ -537,7 +546,7 @@ exports.RSVP = `
                     </div>
                     </br>
                     <div>
-                        <p class='rsvp-label'><strong>Please tick to confirm you're not a robot: </strong><input type='checkbox' class='rsvp-robot' value='robot'></p>
+                        <p class='rsvp-label'><strong>Please tick to confirm you're not a robot: </strong><input type='checkbox' class='rsvp-robot tickbox' value='robot'></p>
                         <p class='rsvp-robot-message'>*No robots allowed! Tick the box first</p>
                         </br>
                         <button class='rsvp-btn rsvp-btn-check'>Check & Send</button>
@@ -551,7 +560,8 @@ exports.RSVP = `
         </div>
         <div class='rsvp-sent'>
             <p>Thank you, your RSVP was sent!</p></br>
-            <p>Any questions or problems, please contact: <strong>btcswedding@gmail.com</strong></p>
+            <p>Any questions or problems, contact:</p>
+            <p><strong>btcswedding@gmail.com</strong></p>
         </div>
     </div>
 `;
@@ -569,11 +579,41 @@ exports.GiftList = `
         <div class='row'>
             <div class='col-xs-1'></div>
             <div class='col-xs-10 center'>
-                <p class='fs-l font-moon-light text-shadow'>Gift List</p>
-                <p>Your presence is the only present we'd like for our wedding.</p>
-                <p>However if you would like to buy us a gift, please check back here soon for more details.</p>
+                <p class='template-title  fs-l font-moon-light text-shadow'>Gift List</p>
             </div>
             <div class='col-xs-1'></div>
+        </div>
+        <div class='text-container fs-s row'>
+            <p>Your presence is the only present</p>
+            <p>we need for our wedding.</p>
+            </br>
+            <p>However if you would like to give us</p>
+            <p>a gift to mark the occasion,</p>
+            <p>please click the button below</p>
+            <p>to see our honeymoon gift list.</p>
+        </div>
+        <button class='gift-btn'>Sri Lanka gift list</button>
+        </br>
+        <div class='container-fluid'>
+            <div class='row'>
+                <div class='col-lg-2'></div>
+                <div class='col-lg-2 col-md-3 col-sm-3 col-xs-12 thumbnail gift-img'>
+                    <img src='./images/gallery-gift/gift-img-4.jpg' class='img-responsive'>
+                </div>
+
+                <div class='col-lg-2 col-md-3 col-sm-3 col-xs-12 thumbnail gift-img'>
+                    <img src='./images/gallery-gift/gift-img-5.jpg' class='img-responsive'>
+                </div>
+
+                <div class='col-lg-2 col-md-3 col-sm-3 col-xs-12 thumbnail gift-img'>
+                    <img src='./images/gallery-gift/gift-img-3.jpg' class='img-responsive'>
+                </div>
+
+                <div class='col-lg-2 col-md-3 col-sm-3 col-xs-12 thumbnail gift-img'>
+                    <img src='./images/gallery-gift/gift-img-2.jpg' class='img-responsive'>
+                </div>
+                <div class='col-lg-2'></div>
+            </div>
         </div>
     </div>
 `;
@@ -590,22 +630,22 @@ exports.Venue = `
     <div class='container-fluid'>
         <div class='row'>
             <div class='col-xs-12 center'>
-                <p class='fs-l font-moon-light text-shadow'>Cripps Barn</p>
+                <p class='template-title fs-l font-moon-light text-shadow'>Cripps Barn</p>
             </div>
         </div>
         </br>
         <div class='row'>
-            <div id='map-container' class='col-xs-12'>
+            <div class='map-container col-xs-12'>
                 <iframe class='venue-map box-shadow' src='https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d66477.05148935101!2d-1.9113974717633855!3d51.74276147230118!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x688c98a90ca25866!2sCripps+Barn!5e0!3m2!1sen!2suk!4v1487940894833' width='100%' height='330px' frameborder='0' style='border:0' allowfullscreen></iframe>
             </div>
         </div>
-        <div class='row'>
-            <div id='accom-container' class='col-12 center'>
-                <a id='accom-link' class='accom-default theme-background-color font-moon-light' title='Click here to view the local accomodation'
-                    href='https://www.crippsbarn.com/directory/' style='text-decoration: none; color: white'>ACCOMMODATION</a>
-            </div>
+        <div class='text-container fs-s col-12 center'>
+            <p>For more information</p>
+            <p>visit the Cripps Barn <a href='https://www.crippsbarn.com/' class='link-text'>website</a></p>
+            <p>or view local accommodation <a href='https://www.crippsbarn.com/directory/' class='link-text'>here</a></p>
         </div>
     </div>
+    </br>
 `;
 //# sourceMappingURL=Venue.js.map
 
@@ -666,7 +706,7 @@ class NavBar {
             $(window).on('scroll', () => {
                 const currentScroll = $(window).scrollTop();
                 const direction = lastScroll < currentScroll ? 'down' : 'up';
-                if (direction === 'down' && (currentScroll - lastShown) > scrollWindow) {
+                if (direction === 'down' && (currentScroll - lastShown) > (scrollWindow * 2)) {
                     this.hideNavBar();
                     lastHidden = currentScroll;
                 }
@@ -706,7 +746,7 @@ exports.Pages = [
     {
         navId: '#nav-gift-list',
         fixture: Fixtures.GiftList,
-        listeners: ''
+        listeners: Listeners.gift
     },
     {
         navId: '#nav-rsvp',
