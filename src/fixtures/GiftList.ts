@@ -16,7 +16,7 @@ export const GiftList = `
             <p>please click the button below</p>
             <p>to see our honeymoon gift list.</p>
         </div>
-        <button class='gift-btn'><a href='https://prezola.com/wishlists/10180830/'>Sri Lanka gift list</a></button>
+        <button class='gift-btn'>Sri Lanka gift list</button>
         </br>
         <div class='container-fluid'>
             <div class='row'>

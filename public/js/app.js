@@ -314,6 +314,12 @@ const getRSVPDetails = () => {
 exports.home = () => {
     Helpers_1.daysToGoTimer('.home-countdown');
 };
+exports.gift = () => {
+    $('.gift-btn').click(() => {
+        window.location.replace('https://prezola.com/wishlists/10180830/');
+        return false;
+    });
+};
 //# sourceMappingURL=Listeners.js.map
 
 /***/ }),
@@ -586,7 +592,7 @@ exports.GiftList = `
             <p>please click the button below</p>
             <p>to see our honeymoon gift list.</p>
         </div>
-        <button class='gift-btn'><a href='https://prezola.com/wishlists/10180830/'>Sri Lanka gift list</a></button>
+        <button class='gift-btn'>Sri Lanka gift list</button>
         </br>
         <div class='container-fluid'>
             <div class='row'>
@@ -740,7 +746,7 @@ exports.Pages = [
     {
         navId: '#nav-gift-list',
         fixture: Fixtures.GiftList,
-        listeners: ''
+        listeners: Listeners.gift
     },
     {
         navId: '#nav-rsvp',

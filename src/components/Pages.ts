@@ -21,7 +21,7 @@ export const Pages: IPage[] = [
     {
         navId: '#nav-gift-list',
         fixture: Fixtures.GiftList,
-        listeners: ''
+        listeners: Listeners.gift
     },
     {
         navId: '#nav-rsvp',

@@ -189,3 +189,10 @@ const getRSVPDetails = () => {
 export const home = () => {
     daysToGoTimer('.home-countdown');
 };
+
+export const gift = () => {
+    $('.gift-btn').click(() => {
+        window.location.replace('https://prezola.com/wishlists/10180830/');
+        return false;
+    });
+};
