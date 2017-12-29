@@ -205,7 +205,7 @@ exports.rsvp = () => {
                 <p>Names:</p>
                 <p><strong>${data.names}</strong></p></br>
                 <p>Attending:</p>
-                </p>${data.attending}</p></br>
+                </p><strong>${data.attending}</strong></p></br>
             `;
             if (data.attending === 'Y') {
                 confirmTemplate += `
@@ -213,7 +213,7 @@ exports.rsvp = () => {
                     <p><strong>${data.dietaryInfo}</strong></p></br>
                     <p>Under fives:</p>
                     <p><strong>${data.underFives}</strong></p></br>
-                    <p>Song:<p>
+                    <p>Songs:<p>
                     <p><strong>${data.song}</strong></p></br>
                 `;
             }
@@ -382,6 +382,12 @@ exports.Home = `
             <p class='fs-xl' style='margin-top:-18px'>Ben Thomas</p>
         </div>
     </div>
+    <div class='row'>
+        <div class='home-date theme-background-color font-moon-bold fs-s'>
+            <p>March 30th - 2018</p>
+            <p class='home-countdown'>-</p>
+        </div>
+    </div>
     </br>
     <div class='container-fluid center'>
         <div class='container-fluid'>
@@ -407,12 +413,6 @@ exports.Home = `
 
                 <div class='col-lg-2'></div>
             </div>
-        </div>
-    </div>
-    <div class='row'>
-        <div class='home-date theme-background-color font-moon-bold fs-s'>
-            <p>March 30th - 2018</p>
-            <p class='home-countdown'>-</p>
         </div>
     </div>
  `;
@@ -496,8 +496,8 @@ exports.RSVP = `
                             </select>
                         </div>
                         <div>
-                            <p class='rsvp-label'> The name of a particular song you'd like to hear:</p>
-                            <input type='text' maxlength='30' class='rsvp-song rsvp-name rsvp-input'></input>
+                            <p class='rsvp-label'> The name of any songs you'd like to hear:</p>
+                            <textarea maxlength='175' class='rsvp-song rsvp-name rsvp-tall-input'></textarea>
                         </div>
                         </br>
                         <div>

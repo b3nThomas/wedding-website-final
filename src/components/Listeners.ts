@@ -80,7 +80,7 @@ export const rsvp = () => {
                     <p><strong>${ data.dietaryInfo }</strong></p></br>
                     <p>Under fives:</p>
                     <p><strong>${ data.underFives }</strong></p></br>
-                    <p>Song:<p>
+                    <p>Songs:<p>
                     <p><strong>${ data.song }</strong></p></br>
                 `;
             }

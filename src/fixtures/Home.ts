@@ -9,6 +9,12 @@ export const Home = `
             <p class='fs-xl' style='margin-top:-18px'>Ben Thomas</p>
         </div>
     </div>
+    <div class='row'>
+        <div class='home-date theme-background-color font-moon-bold fs-s'>
+            <p>March 30th - 2018</p>
+            <p class='home-countdown'>-</p>
+        </div>
+    </div>
     </br>
     <div class='container-fluid center'>
         <div class='container-fluid'>
@@ -34,12 +40,6 @@ export const Home = `
 
                 <div class='col-lg-2'></div>
             </div>
-        </div>
-    </div>
-    <div class='row'>
-        <div class='home-date theme-background-color font-moon-bold fs-s'>
-            <p>March 30th - 2018</p>
-            <p class='home-countdown'>-</p>
         </div>
     </div>
  `;

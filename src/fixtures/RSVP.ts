@@ -45,8 +45,8 @@ export const RSVP = `
                             </select>
                         </div>
                         <div>
-                            <p class='rsvp-label'> The name of a particular song you'd like to hear:</p>
-                            <input type='text' maxlength='30' class='rsvp-song rsvp-name rsvp-input'></input>
+                            <p class='rsvp-label'> The name of any songs you'd like to hear:</p>
+                            <textarea maxlength='175' class='rsvp-song rsvp-name rsvp-tall-input'></textarea>
                         </div>
                         </br>
                         <div>
