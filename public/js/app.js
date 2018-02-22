@@ -496,7 +496,7 @@ exports.RSVP = `
                             </select>
                         </div>
                         <div>
-                            <p class='rsvp-label'> The name of any songs you'd like to hear:</p>
+                            <p class='rsvp-label'> The names of any songs you'd like to hear: </p>
                             <textarea maxlength='175' class='rsvp-song rsvp-name rsvp-tall-input'></textarea>
                         </div>
                         </br>
