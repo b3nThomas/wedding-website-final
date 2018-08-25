@@ -12,6 +12,7 @@ rm -rf deploy
 rm -rf archive
 mkdir -p deploy
 mkdir -p archive
+npm run build
 echo
 echo -e "\xE2\x9C\x94"
 echo
@@ -45,18 +46,18 @@ echo
 if [ "${1}" = "prod" ] ;
 then
     # Create date stamped tar file for archive
-    echo Creating archive file...
-    TIMESTAMP=$(date +%Y%m%d-%H%M%S)
-    tar -czf ./archive/wedding-website-b3nThomas-build-${TIMESTAMP}.tar.gz ./deploy/public
-    echo
-    echo -e "\xE2\x9C\x94"
-    echo
+    # echo Creating archive file...
+    # TIMESTAMP=$(date +%Y%m%d-%H%M%S)
+    # tar -czf ./archive/wedding-website-b3nThomas-build-${TIMESTAMP}.tar.gz ./deploy/public
+    # echo
+    # echo -e "\xE2\x9C\x94"
+    # echo
 
     # Archive this version
-    echo Sending copy to archives...
-    aws s3 sync ./archive s3://btcs-wedding-archive-b3nthomas/ && echo
-    echo -e "\xE2\x9C\x94"
-    echo
+    # echo Sending copy to archives...
+    # aws s3 sync ./archive s3://btcs-wedding-archive-b3nthomas/ && echo
+    # echo -e "\xE2\x9C\x94"
+    # echo
 
     echo Deploying latest version to Production...
     aws s3 sync ./deploy s3://btcs-wedding-latest-b3nthomas/ --delete && echo

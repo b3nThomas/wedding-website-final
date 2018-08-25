@@ -13,8 +13,8 @@ export const Venue = `
         </div>
         <div class='text-container fs-s col-12 center'>
             <p>For more information</p>
-            <p>visit the Cripps Barn <a href='https://www.crippsbarn.com/' class='link-text'>website</a></p>
-            <p>or view local accommodation <a href='https://www.crippsbarn.com/directory/' class='link-text'>here</a></p>
+            <p>visit the Cripps Barn <a href='https://www.crippsbarn.com/' class='link-text'><strong>website</strong></a></p>
+            <p>or view local accommodation <a href='https://www.crippsbarn.com/directory/' class='link-text'><strong>here</strong></a></p>
         </div>
     </div>
     </br>

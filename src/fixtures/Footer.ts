@@ -1,3 +1,3 @@
 export const Footer = `
-    <p>&copy; b3nThomas - MMXVII</p>
+    <p>&copy; b3nThomas - MMXVIII</p>
 `;
