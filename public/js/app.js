@@ -360,7 +360,7 @@ $(document).ready(() => {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Footer = `
-    <p>&copy; b3nThomas - MMXVII</p>
+    <p>&copy; b3nThomas - MMXVIII</p>
 `;
 //# sourceMappingURL=Footer.js.map
 
