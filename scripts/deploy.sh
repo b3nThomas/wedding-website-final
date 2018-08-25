@@ -12,6 +12,7 @@ rm -rf deploy
 rm -rf archive
 mkdir -p deploy
 mkdir -p archive
+npm run build
 echo
 echo -e "\xE2\x9C\x94"
 echo
