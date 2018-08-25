@@ -1,4 +1,4 @@
-import { createNumberSelectOptionList, daysToGoTimer } from './Helpers';
+import { createNumberSelectOptionList, daysMarriedTimer } from './Helpers';
 
 export const rsvp = () => {
     $('.rsvp-coach').hide();
@@ -188,7 +188,7 @@ const getRSVPDetails = () => {
 };
 
 export const home = () => {
-    daysToGoTimer('.home-countdown');
+    daysMarriedTimer('.home-countdown');
 };
 
 export const gift = () => {

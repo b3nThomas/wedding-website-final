@@ -12,6 +12,7 @@ export const Home = `
     <div class='row'>
         <div class='home-date theme-background-color font-moon-bold fs-s'>
             <p>March 30th - 2018</p>
+            <p>Married for:</p>
             <p class='home-countdown'>-</p>
         </div>
     </div>

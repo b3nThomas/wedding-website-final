@@ -97,15 +97,15 @@ exports.createNumberSelectOptionList = (start, limit, identifier) => {
     }
     return template;
 };
-exports.daysToGoTimer = (targetElement) => {
+exports.daysMarriedTimer = (targetElement) => {
     const getTime = () => {
         const targetDate = new Date("Mar 30, 2018 14:00:00").getTime();
         const now = new Date().getTime();
         const diff = targetDate - now;
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        const days = (Math.floor(diff / (1000 * 60 * 60 * 24)) * -1);
+        const hours = (Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)) * -1);
+        const minutes = (Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)) * -1);
+        const seconds = (Math.floor((diff % (1000 * 60)) / 1000) * -1);
         let daysStr = days.toString();
         let hoursStr = hours.toString();
         let minutesStr = minutes.toString();
@@ -313,7 +313,7 @@ const getRSVPDetails = () => {
     return details;
 };
 exports.home = () => {
-    Helpers_1.daysToGoTimer('.home-countdown');
+    Helpers_1.daysMarriedTimer('.home-countdown');
 };
 exports.gift = () => {
     $('.gift-btn').click(() => {
@@ -385,6 +385,7 @@ exports.Home = `
     <div class='row'>
         <div class='home-date theme-background-color font-moon-bold fs-s'>
             <p>March 30th - 2018</p>
+            <p>Married for:</p>
             <p class='home-countdown'>-</p>
         </div>
     </div>
